@@ -1,0 +1,27 @@
+{
+  "name": "catbird",
+  "version": "1.0.0",
+  "description": "catbird retail web portal redesign/overhaul",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Louis-McGruder/Catbird.git"
+  },
+  "keywords": [
+    "catbird",
+    "retailWebPortal",
+    "redesign/overhaul"
+  ],
+  "author": "Louis McGruder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Louis-McGruder/Catbird/issues"
+  },
+  "homepage": "https://github.com/Louis-McGruder/Catbird#readme",
+  "devDependencies": {
+    "webpack": "^5.45.1"
+  }
+}
