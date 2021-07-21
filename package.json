@@ -4,7 +4,8 @@
   "description": "catbird retail web portal redesign/overhaul",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "react:dev": "webpack --watch",
+    "start": "nodemon ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,17 @@
   },
   "homepage": "https://github.com/Louis-McGruder/Catbird#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.12",
     "webpack": "^5.45.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
