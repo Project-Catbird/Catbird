@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import reviewsListReducer from './ratings-reviews/reviewsList.js';
 import reviewsCountReducer from './ratings-reviews/reviewsCount.js';
+import reviewsMetaReducer from './ratings-reviews/reviewsMeta.js';
 
 
 const rootReducer = combineReducers({
   reviewsList: reviewsListReducer,
-  reviewsCount: reviewsCountReducer
+  reviewsCount: reviewsCountReducer,
+  reviewsMeta: reviewsMetaReducer
   //TODO: Combine all reducers into one single rootReducer
   //Examples:
   //combineReducers({ counter: counter, todos: todos }).

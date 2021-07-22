@@ -1,6 +1,6 @@
 import React from 'react';
 // import reviews from '../../../../sampleData/reviews.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
 import API_KEY from '../../config/config.js';
@@ -33,6 +33,16 @@ const RatingsReviews = () => {
       dispatch({
         type: 'UPDATE_REVIEWS_LIST',
         reviewsList: response.data
+      })
+    })
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/meta', {
+      headers: {Authorization: API_KEY},
+      params: {product_id: 16060}
+    }).then(response => {
+      console.log(response.data);
+      dispatch({
+        type: 'UPDATE_REVIEWS_META',
+        reviewsMeta: response.data
       })
     })
   })
