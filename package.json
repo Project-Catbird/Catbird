@@ -39,11 +39,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
-<<<<<<< HEAD
-    "redux": "^4.1.0"
-=======
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0"
->>>>>>> e6b7f5b4c2151e6ae8041848faceb9acef9949a3
   }
 }
