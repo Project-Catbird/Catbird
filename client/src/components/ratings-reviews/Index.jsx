@@ -13,7 +13,7 @@ import API_KEY from '../../config/config.js';
 import ReviewsList from './ReviewsList.jsx';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
 // import Sort from './Sort.jsx';
-// import RatingBreakdown from './RatingBreakdown.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
 // import Recommendations from './Recommendations.jsx';
 // import ProductBreakdown from './ProductBreakdown.jsx';
 // import NewReview from './new-review/Index.jsx';
@@ -38,18 +38,12 @@ const RatingsReviews = () => {
   })
 
   return (
-    <ReviewsList />
+    <div id="ratings-reviews">
+      <RatingBreakdown />
+      <ReviewsList />
+    </div>
   )
 }
-// const RatingsReviews = () => {
-//   const reviewsList = useSelector(state => state.reviewsList);
-//   console.log(reviewsList)
-//   return (
-//     <div id="reviews-list">
-//       {reviewsList.results.map(review => <IndividualReviewTile review={review} />)}
-//     </div>
-//   )
-// }
 
 
 export default RatingsReviews;

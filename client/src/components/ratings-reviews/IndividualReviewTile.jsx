@@ -6,8 +6,13 @@ const IndividualReviewTile = (props) => {
       <div class="rating">Stars: {props.review.rating} </div>
       <span class="user">User: {props.review.reviewer_name} </span>
       <span class="date">Posted On: {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')} </span>
+      <br></br>
+      <span class="summary"><b>Summary: {props.review.summary}</b></span>
+      <br></br>
       <span class="body">Body: {props.review.body} </span>
+      <br></br>
       <span class="helpfulness">Helpfulness: {props.review.helpfulness} </span>
+      <br></br>
     </div>
   )
 };
