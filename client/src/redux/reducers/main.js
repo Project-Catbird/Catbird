@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
+import selectedProductReducer from './qnaReducer.js';
 
 
 
 const rootReducer = combineReducers({
-  //TODO: Combine all reducers into one single rootReducer
-  //Examples:
-  //combineReducers({ counter: counter, todos: todos }).
-  //ES6 property shorthand:  combineReducers({ counter, todos })
+
+  selectedProductReducer: selectedProductReducer
 });
 
 

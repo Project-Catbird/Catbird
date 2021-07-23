@@ -1,9 +1,15 @@
 import React from 'react';
+import QnAComponent from './questions-answers/index.jsx';
 
-// test
+
 const App = (props) => {
+
+
+
   return (
-    <div>Hello World!</div>
+    <div>Home Page
+      <QnAComponent />
+    </div>
   )
 };
 
