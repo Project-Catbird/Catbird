@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
 import API_KEY from '../../config/config.js';
+import { Container, Row, Col } from 'react-bootstrap';
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +28,8 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 
 const RatingsReviews = () => {
   let dispatch = useDispatch();
-  const sortType = useSelector(state => state.sortType)
+  const sortType = useSelector(state => state.reviewsSortType)
+  console.log('sortType', sortType)
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {
@@ -56,8 +60,14 @@ const RatingsReviews = () => {
 
   return (
     <div id="ratings-reviews">
-      <RatingBreakdown />
-      <ReviewsList />
+      <Container>
+        <Row>
+          <RatingBreakdown />
+        </Row>
+        <Row>
+          <ReviewsList />
+        </Row>
+      </Container>
     </div>
   )
 }

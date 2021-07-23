@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Alert, Button } from 'react-bootstrap';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
 
 
@@ -12,13 +12,13 @@ const ReviewsList = () => {
 
   let renderMoreReviewsButton = () => {
     if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {
-      return <button type="button"
+      return <Button variant="primary" type="button"
         onClick={() =>
           dispatch({
             type: 'UPDATE_REVIEWS_COUNT',
             reviewsCount: reviewsCount + 2
           })
-        }>More Reviews</button>
+        }>More Reviews</Button>
     }
   }
 
@@ -41,10 +41,12 @@ const ReviewsList = () => {
           <option>Newest</option>
         </select>
       </div>
-      {reviewsList.map(review => <IndividualReviewTile review={review} />)}
+      {reviewsList.map(review => <Alert><IndividualReviewTile review={review} /></Alert>)}
       {renderMoreReviewsButton()}
     </div>
   )
 };
 
 export default ReviewsList;
+
+
