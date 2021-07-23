@@ -19,15 +19,22 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 // import NewReview from './new-review/Index.jsx';
 // import KeywordSearch from './KeywordSearch.jsx';
 
+// infinity stone product_id 16065
+
 
 
 const RatingsReviews = () => {
   let dispatch = useDispatch();
+  const sortType = useSelector(state => state.sortType)
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {
       headers: {Authorization: API_KEY},
-      params: {product_id: 16060}
+      params: {
+        product_id: 16060,
+        count: 1000,
+        sort: sortType
+      }
     }).then(response => {
       console.log(response.data);
       dispatch({

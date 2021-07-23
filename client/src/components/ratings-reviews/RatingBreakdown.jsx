@@ -25,7 +25,7 @@ const RatingBreakdown = (props) => {
 
   return (
     <div id="rating-breakdown-container">
-      <span id="average-review">Average Rating: {averageReview} </span>
+      <span id="average-review">Average Rating: {Math.round(averageReview * 10) / 10} </span>
       <div id="rating-breakdown">
         Rating Breakdown:
         <br></br>
