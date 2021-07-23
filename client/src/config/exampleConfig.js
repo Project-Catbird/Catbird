@@ -7,5 +7,6 @@
 // -----------------------------------------------
 
 const API_KEY = "PERSONAL_ACCESS_TOKEN";
+const API_URL = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
 
-export default API_KEY;
+export {API_KEY, API_URL};
