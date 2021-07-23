@@ -41,7 +41,7 @@ function AddToCart(props) {
             </Form.Select>
           </Row>
           <Row>
-            <Form.Select name="quantity"onChange={e => setQuantity(e.target.value)}>
+            <Form.Select onChange={e => setQuantity(e.target.value)}>
               <option>Select Quantity</option>
               {quantitySelector}
             </Form.Select>

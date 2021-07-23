@@ -6,7 +6,6 @@ function ProductInfo(props) {
   const productInfo = useSelector((state) => state.productInfo);
   const style = useSelector((state) => state.style);
   const {name, original_price, sale_price} = style;
-  const price = sale_price > 0 ? sale_price : original_price;
   const {id, slogan, description, category, features} = productInfo;
 
   return (
@@ -24,7 +23,10 @@ function ProductInfo(props) {
         <h5 className="product-slogan">{slogan}</h5>
       </Row>
       <Row>
-        <span className="product-price">${price}</span>
+        <span className="product-price">
+          <span className="sale-price">{sale_price > 0 ? '$'+sale_price : ''} </span>
+          <span className="original-price">{sale_price > 0 ? <strike>${original_price}</strike> : '$'+original_price}</span>
+        </span>
       </Row>
     </Container>
   )

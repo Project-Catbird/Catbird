@@ -5,3 +5,7 @@
 .row, .col {
   padding: 5px;
 }
+
+.sale-price {
+  color: red;
+}
