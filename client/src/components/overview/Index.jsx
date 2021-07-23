@@ -8,26 +8,26 @@ import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
+import Description from './Description.jsx';
+import { Col, Row, Container } from 'react-bootstrap';
 
-class Overview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        Overview!
-        <AddToCart/>
-        <ImageGallery/>
-        <ProductInfo/>
-        <StyleSelector/>
-      </div>
-    )
-  }
+function Overview(props) {
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <ImageGallery/>
+        </Col>
+        <Col>
+          <ProductInfo/>
+          <AddToCart/>
+          <StyleSelector/>
+        </Col>
+      </Row>
+      <Row>
+        <Description/>
+      </Row>
+    </Container>
+  )
 }
-
 export default Overview;
