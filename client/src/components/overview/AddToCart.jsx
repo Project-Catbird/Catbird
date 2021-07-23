@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Button, Row, Form, FormGroup, FormControl } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import API_KEY from '../../config/config'
+import axios from 'axios';
 
 function AddToCart(props) {
   const skusInfo = useSelector((state) => state.style.skus);
@@ -14,10 +16,18 @@ function AddToCart(props) {
   const sizeSelector = sizes.map((size, index) => <option value={skus[index]}>{size}</option>);
   const maxQuantity = Math.min(...quantities);
   const quantitySelector = Array.from(Array(maxQuantity).keys()).map(item => {return <option value={item}>{item}</option>});
+  const [size, setSize] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
+    if (size === '' || quantity === '') {
+      alert('Please pick a style, size, and quantity');
+    } else {
+      axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/cart/', {sku_id: size}, {headers: {Authorization: API_KEY}})
+        .then(() => { alert('Added to cart!'); })
+        .catch(err => { console.log(err); })
+    }
   }
 
   return (
@@ -25,13 +35,13 @@ function AddToCart(props) {
       <Form onSubmit={handleSubmit}>
         <FormGroup role="form">
           <Row>
-            <Form.Select>
+            <Form.Select onChange={e => setSize(e.target.value)}>
               <option>Select Size</option>
               {sizeSelector}
             </Form.Select>
           </Row>
           <Row>
-            <Form.Select>
+            <Form.Select name="quantity"onChange={e => setQuantity(e.target.value)}>
               <option>Select Quantity</option>
               {quantitySelector}
             </Form.Select>
