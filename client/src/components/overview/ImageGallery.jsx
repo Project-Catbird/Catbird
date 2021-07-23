@@ -8,7 +8,7 @@ function ImageGallery(props) {
     return <Carousel.Item><img className="d-block w-100" src={photo.thumbnail_url}/></Carousel.Item>
   })
   return (
-    <Carousel>
+    <Carousel interval={null}>
       {photoComponents}
     </Carousel>
   )
