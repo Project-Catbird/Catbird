@@ -1,10 +1,10 @@
 import React from 'react';
 
-const IndividualQuestion = (props) => {
+const IndividualQuestion = ({ question, key }) => {
   return (
     <div>
-      <h3>Q: {props.title}</h3>
-      <h3>A: {props.anwer}</h3>
+      <h3>Q: {question.question_body}</h3>
+      <h3>A: </h3>
     </div>
   )
 }

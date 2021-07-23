@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import qnaListReducer from './qnaReducer.js';
+import * as qnaReducers from './qnaReducers.js';
 
 
 
 const rootReducer = combineReducers({
 
-  qnaList: qnaListReducer
+  qnaList: qnaReducers.qnaListReducer,
+  questionId: qnaReducers.questionIdReducer
 
 });
 
