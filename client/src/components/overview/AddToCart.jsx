@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Button, Row, Form, FormGroup, FormControl } from 'react-bootstrap';
+import { Container, Button, Row, Form, FormGroup, FormControl, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import API_KEY from '../../config/config'
 import axios from 'axios';
@@ -48,6 +48,9 @@ function AddToCart(props) {
           </Row>
           <Row>
             <Button className="btn btn-primary btn-large centerButton" type="submit">Add to Cart</Button>
+          </Row>
+          <Row>
+            <Button className="btn btn-primary btn-large centerButton" type="">Like</Button>
           </Row>
         </FormGroup>
       </Form>
