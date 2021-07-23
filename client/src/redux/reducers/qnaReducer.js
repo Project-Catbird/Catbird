@@ -1,17 +1,11 @@
-const initialState = {
-  selectedProducId: '',
-  selectedProduct: {},
-  questions: [],
-  answers:[]
-};
 
 
-const selectedProductReducer = (state = initialState.selectedProduct, action) => {
+const qnaListReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'GET RESULT':
+    case 'GET_QUESTION_LIST':
       return action.payload;
   default:
     return state;
   }
 };
-export default selectedProductReducer;
+export default qnaListReducer;

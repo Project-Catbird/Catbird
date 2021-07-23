@@ -1,9 +1,9 @@
 import axios from 'axios';
-import API_KEY from '../../config/config.js';
+import { API_KEY, API_URL } from '../../config/config.js';
 
 export const changeSelectedProduct = (selectedProduct) => {
   return (dispatch) => {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=16056', {headers: {Authorization: API_KEY}})
+    axios.get(`${API_URL}qa/questions?product_id=16056`, {headers: {Authorization: API_KEY}})
     .then(result =>  {
       console.log(result.data)
       dispatch({
