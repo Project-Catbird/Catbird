@@ -8,10 +8,10 @@ import productIdReducer from './Overview/productIdReducer';
 
 const rootReducer = combineReducers({
   products: productsReducer,
+  productId: productIdReducer,
   productInfo: productInfoReducer,
   styles: styleReducer,
   style: styleInfoReducer,
-  productId: productIdReducer
   //TODO: Combine all reducers into one single rootReducer
   //Examples:
   //combineReducers({ counter: counter, todos: todos }).

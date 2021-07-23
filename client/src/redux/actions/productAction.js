@@ -16,6 +16,15 @@ export const setProductId = (product) => {
   }
 }
 
+export const setProduct = (product) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'SET_PRODUCT',
+      payload: product
+    })
+  }
+}
+
 export const getStyles = (styles) => {
   return (dispatch) => {
     dispatch({
@@ -25,20 +34,11 @@ export const getStyles = (styles) => {
   }
 }
 
-export const getStyle = (style) => {
+export const setStyle = (style) => {
   return (dispatch) => {
     dispatch({
-      type: 'GET_STYLE',
+      type: 'SET_STYLE',
       payload: style
-    })
-  }
-}
-
-export const getProduct = (product) => {
-  return (dispatch) => {
-    dispatch({
-      type: 'GET_PRODUCT',
-      payload: product
     })
   }
 }

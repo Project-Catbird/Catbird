@@ -1,11 +1,16 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Carousel } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 function ImageGallery(props) {
+  const photos = useSelector((state) => state.style.photos);
+  const photoComponents = photos.map(photo => {
+    return <Carousel.Item><img className="d-block w-100" src={photo.thumbnail_url}/></Carousel.Item>
+  })
   return (
-    <Container>
-      <img src="https://oldnavy.gap.com/webcontent/0020/287/088/cn20287088.jpg" width="400" height="600"></img>
-    </Container>
+    <Carousel>
+      {photoComponents}
+    </Carousel>
   )
 }
 

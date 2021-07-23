@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button, Row } from 'react-bootstrap';
+import { Container, Button, Row, Form, FormGroup, FormControl } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function AddToCart(props) {
@@ -13,31 +13,34 @@ function AddToCart(props) {
   });
   const sizeSelector = sizes.map((size, index) => <option value={skus[index]}>{size}</option>);
   const maxQuantity = Math.min(...quantities);
-  const quantitySelectors = Array.from(Array(maxQuantity).keys()).map(item => {return <option value={item}>{item}</option>});
+  const quantitySelector = Array.from(Array(maxQuantity).keys()).map(item => {return <option value={item}>{item}</option>});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event);
+  }
 
   return (
     <Container>
-      <Row>
-        <div className="product-sizes">
-          <label>Size: </label>
-          <select>
-            <option value="">Select Size</option>
-            {sizeSelector}
-          </select>
-        </div>
-      </Row>
-      <Row>
-        <div className="product-quantity">
-          <label>Quantity: </label>
-          <select>
-            <option value="">Select Quantity</option>
-            {quantitySelectors}
-          </select>
-        </div>
-      </Row>
-      <Row>
-        <Button variant="outline-primary">Add to Cart</Button>
-      </Row>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup role="form">
+          <Row>
+            <Form.Select>
+              <option>Select Size</option>
+              {sizeSelector}
+            </Form.Select>
+          </Row>
+          <Row>
+            <Form.Select>
+              <option>Select Quantity</option>
+              {quantitySelector}
+            </Form.Select>
+          </Row>
+          <Row>
+            <Button className="btn btn-primary btn-large centerButton" type="submit">Add to Cart</Button>
+          </Row>
+        </FormGroup>
+      </Form>
     </Container>
   )
 }
