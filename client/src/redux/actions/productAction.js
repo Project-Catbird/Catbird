@@ -25,6 +25,15 @@ export const getStyles = (styles) => {
   }
 }
 
+export const getStyle = (style) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'GET_STYLE',
+      payload: style
+    })
+  }
+}
+
 export const getProduct = (product) => {
   return (dispatch) => {
     dispatch({

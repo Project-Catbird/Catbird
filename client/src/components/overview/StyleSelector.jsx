@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Col, Row, Container, Image } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import API_KEY from '../../config/config'
+import API_KEY from '../../config/config';
 
 function StyleSelector(props) {
   const styles = useSelector((state) => state.styles.results);
