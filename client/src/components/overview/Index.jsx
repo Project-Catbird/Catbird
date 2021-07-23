@@ -1,17 +1,33 @@
-import React from 'react';
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-// Import modules to use in component creation, uncomment as neccessary
-////////////////////////////////////////////////////////////////////////////////////////////////
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import API_KEY from '../../config/config'
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Description from './Description.jsx';
 import { Col, Row, Container } from 'react-bootstrap';
+import { getProduct, getStyles } from '../../redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 function Overview(props) {
+
+  const productId = useSelector((state) => state.productId);
+  const dispatch = useDispatch();
+  const fetchItem = (action, link) => {
+    axios.get(link, {headers: {Authorization: API_KEY}})
+    .then(response => {
+      dispatch(action(response.data));
+    })
+    .catch(err => { console.log(err) })
+  }
+
+  useEffect(() => {
+    fetchItem(getProduct, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}`);
+    fetchItem(getStyles, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}/styles`);
+  }, [])
+
   return (
     <Container>
       <Row>

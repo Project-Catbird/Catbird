@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Row, Container } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProduct } from '../../redux/actions/productAction'
-import axios from 'axios';
-import API_KEY from '../../config/config'
+import { useSelector } from 'react-redux';
 
 function ProductInfo(props) {
-  const productId = useSelector((state) => state.productId);
   const productInfo = useSelector((state) => state.productInfo);
   const {id, name, slogan, description, category, default_price, features} = productInfo;
-  const dispatch = useDispatch();
-
-  const fetchProduct = () => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}`, {headers: {Authorization: API_KEY}})
-      .then(response => {
-        dispatch(getProduct(response.data));
-      })
-      .catch(err => { console.log(err) })
-  }
-
-  useEffect(() => {
-    fetchProduct();
-  }, [])
 
   return (
     <Container>
