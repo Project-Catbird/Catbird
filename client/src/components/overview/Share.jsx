@@ -6,9 +6,10 @@ const Share = () => {
     <Container>
       <Row>
         <Col>
-        <i className="fa fa-facebook" aria-hidden="true"></i>
-        <i className="fa fa-twitter" aria-hidden="true"></i>
-        <i className="fa fa-instagram" aria-hidden="true"></i>
+          <span className="share">Share</span>
+          <i className="fab fa-facebook"></i>
+          <i className="fab fa-twitter"></i>
+          <i className="fab fa-instagram"></i>
         </Col>
       </Row>
     </Container>
