@@ -22,16 +22,32 @@ const RatingBreakdown = (props) => {
     }
     for (let i = 5; i >= 1; i--) {
       result.push(
-        <span class="rating-bar-star-count">{i} Stars: <ProgressBar variant="success" now={Math.round(((reviewsMeta.ratings[i] ?? 0) / reviewTotal) * 100)} /><br></br></span>
-        // <span class="rating-bar-star-count">{i} Stars: {reviewsMeta.ratings[i] ?? 0}<br></br></span>
+        <span class="rating-bar-star-count">
+          {i} Stars:
+          <ProgressBar variant="success" now={Math.round(((reviewsMeta.ratings[i] ?? 0) / reviewTotal) * 100)} />
+          <br></br>
+        </span>
       )
     }
     return result;
   }
 
+  let getRecommended = () => {
+    let recommended = Number(reviewsMeta.recommended.true);
+    let total = Number(reviewsMeta.recommended.true) + Number(reviewsMeta.recommended.false)
+    let computed = Math.round((recommended / total) * 100);
+    return (
+      <span>
+        {computed}% of reviews recommend this product
+      </span>
+    );
+  }
+
   return (
     <div id="rating-breakdown-container">
       <span id="average-review">Average Rating: {Math.round(averageReview * 10) / 10} </span>
+      <br></br>
+      {getRecommended()}
       <div id="rating-breakdown">
         Rating Breakdown:
         <br></br>
