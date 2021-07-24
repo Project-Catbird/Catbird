@@ -1,17 +1,18 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 const SearchQuestions = () => {
   return (
     <div>
-    <form>
-        <input
+    <Form>
+        <Form.Control
         type='text'
         id='search-bar'
         placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
         />
-        <button type='submit'>Search
-        </button>
-    </form>
+        <Button variant="outline-primary">Search</Button>
+    </Form>
     </div>
   )
 }

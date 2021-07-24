@@ -1,6 +1,6 @@
 import React, { useEffect }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Accordion } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../redux/index.js';
 import AnswerList from '/Users/gitayier/Desktop/Catbird/client/src/components/questions-answers/individual-question/AnswerList.jsx';
@@ -16,10 +16,10 @@ useEffect(() => {
 }, [])
 
   return (
-    <Accordion>
-      <h4>Q: {question.question_body}</h4>
-      <h4>{answerList.length !== 0 && <AnswerList answerList={answerList}/>}</h4>
-    </Accordion>
+    <Container>
+      <Row>Q: {question.question_body}</Row>
+      <Row>{answerList.length !== 0 && <AnswerList answerList={answerList}/>}</Row>
+    </Container>
   )
 }
 
