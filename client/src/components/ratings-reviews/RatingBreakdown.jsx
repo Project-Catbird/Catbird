@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ProgressBar } from 'react-bootstrap';
 
 
 
@@ -15,9 +16,14 @@ const RatingBreakdown = (props) => {
 
   let getReviewBreakdown = () => {
     let result = [];
-    for (let i = 1; i <= 5; i++) {
+    let reviewTotal = 0;
+    for (let rating in reviewsMeta.ratings) {
+      reviewTotal += Number(reviewsMeta.ratings[rating]);
+    }
+    for (let i = 5; i >= 1; i--) {
       result.push(
-        <span class="rating-bar-star-count">{i} Stars: {reviewsMeta.ratings[i] ?? 0}<br></br></span>
+        <span class="rating-bar-star-count">{i} Stars: <ProgressBar variant="success" now={Math.round(((reviewsMeta.ratings[i] ?? 0) / reviewTotal) * 100)} /><br></br></span>
+        // <span class="rating-bar-star-count">{i} Stars: {reviewsMeta.ratings[i] ?? 0}<br></br></span>
       )
     }
     return result;
