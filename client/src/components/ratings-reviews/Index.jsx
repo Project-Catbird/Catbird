@@ -59,16 +59,16 @@ const RatingsReviews = () => {
   })
 
   return (
-    <div id="ratings-reviews">
-      <Container>
-        <Row>
+    <Container>
+        <Col md={4}>
           <RatingBreakdown />
-        </Row>
-        <Row>
+        </Col>
+        <Col md={8}>
           <ReviewsList />
-        </Row>
+        </Col>
       </Container>
-    </div>
+    // <div id="ratings-reviews">
+    // </div>
   )
 }
 

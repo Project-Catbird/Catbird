@@ -13,6 +13,7 @@ const IndividualReviewTile = (props) => {
       <br></br>
       <span class="helpfulness">Helpfulness: {props.review.helpfulness} </span>
       <br></br>
+      {props.review.recommend ? <span class="recommend"><i class="fas fa-check"></i> I recommend this product </span> : ''}
     </div>
   )
 };

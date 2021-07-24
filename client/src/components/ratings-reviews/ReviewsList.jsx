@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Alert, Button } from 'react-bootstrap';
+import { Alert, Button, Col, Container } from 'react-bootstrap';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
 
 
@@ -40,9 +40,9 @@ const ReviewsList = () => {
           <option>Helpful</option>
           <option>Newest</option>
         </select>
+        {reviewsList.map(review => <Alert><IndividualReviewTile review={review} /></Alert>)}
+        {renderMoreReviewsButton()}
       </div>
-      {reviewsList.map(review => <Alert><IndividualReviewTile review={review} /></Alert>)}
-      {renderMoreReviewsButton()}
     </div>
   )
 };
