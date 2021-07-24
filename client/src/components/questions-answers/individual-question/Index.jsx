@@ -9,7 +9,7 @@ const IndividualQuestion = ({ question }) => {
   const question_id = question.question_id;
   const dispatch = useDispatch();
   const { fetchAnswerList } = bindActionCreators(actionCreators, dispatch);
-  const answerList = useSelector(state => state.answerList);
+  const answerList = useSelector(state => state.answerList).sort((a, b) => { return b.helpfulness - a.helpfulness});
 
 useEffect(() => {
   fetchAnswerList(question_id);

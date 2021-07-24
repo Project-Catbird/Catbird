@@ -6,7 +6,8 @@ import * as qnaReducers from './qnaReducers.js';
 const rootReducer = combineReducers({
   product_id: qnaReducers.productIdReducer,
   qnaList: qnaReducers.qnaListReducer,
-  answerList: qnaReducers.answerReducer
+  answerList: qnaReducers.answerReducer,
+  addQuestion: qnaReducers.addQuestionReducer
 });
 
 

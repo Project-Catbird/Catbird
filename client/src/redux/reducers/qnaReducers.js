@@ -27,3 +27,12 @@ export const answerReducer = (state = [], action) => {
        return state;
    }
 }
+
+export const addQuestionReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'ADD_QUESTION':
+      return !state;
+    default:
+      return state;
+  }
+}

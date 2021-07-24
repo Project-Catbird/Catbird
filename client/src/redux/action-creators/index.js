@@ -48,3 +48,10 @@ export const fetchAnswerList = (question_id) => {
   }
 }
 
+export const showAddQuestion = () => {
+  return (dispatch) => {
+    dispatch({
+      type: 'ADD_QUESTION'
+    })
+  }
+}

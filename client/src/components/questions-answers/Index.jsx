@@ -18,7 +18,7 @@ import SearchQuestions from './SearchQuestions.jsx';
 const QnAComponent = (props) => {
 const qnaList = useSelector(state => state.qnaList);
 const dispatch = useDispatch();
-const { fetchQuestionList } = bindActionCreators(actionCreators, dispatch);
+const { fetchQuestionList, showAddQuestion} = bindActionCreators(actionCreators, dispatch);
 
 useEffect(() => {
   fetchQuestionList();
@@ -29,7 +29,7 @@ useEffect(() => {
     <SearchQuestions />
     {qnaList.length!==0 && <QuestionsList qnaList={qnaList}/>}
     <Button variant="outline-primary">MORE ANSWERED QUESTION</Button>
-    <Button variant="outline-primary">ADD A QUESTION + </Button>
+    <Button variant="outline-primary" onClick={showAddQuestion}>ADD A QUESTION + </Button>
     </div>
 
   )
