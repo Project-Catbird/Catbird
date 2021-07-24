@@ -7,7 +7,7 @@ const App = (props) => {
 
 
   return (
-    <div>Home Page
+    <div>
       <QnAComponent />
     </div>
   )

@@ -18,7 +18,7 @@ useEffect(() => {
   return (
     <Accordion>
       <h4>Q: {question.question_body}</h4>
-      <h4>A: {answerList.length !== 0 && <AnswerList answerList={answerList}/>}</h4>
+      <h4>{answerList.length !== 0 && <AnswerList answerList={answerList}/>}</h4>
     </Accordion>
   )
 }

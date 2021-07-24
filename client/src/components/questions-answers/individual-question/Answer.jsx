@@ -6,7 +6,7 @@ const Answer = ( { answer } ) => {
   console.log(answer);
   return(
   <div>
-  <p>{answer.body}</p>
+  <p>A:{answer.body}</p>
   <Breadcrumb>
   <Breadcrumb.Item>by {answer.answerer_name}</Breadcrumb.Item>
   <Breadcrumb.Item >{answer.date}</Breadcrumb.Item>
