@@ -6,6 +6,7 @@ import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Description from './Description.jsx';
+import Share from './Share.jsx';
 import { Col, Row, Container } from 'react-bootstrap';
 import { setProduct, getStyles, setStyle } from '../../redux/actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,7 +27,9 @@ function Overview(props) {
   useEffect(() => {
     fetchItem(setProduct, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}`);
     fetchItem(getStyles, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}/styles`)
-  }, [], dispatch(setStyle(styles[0])))
+  }, [])
+
+  dispatch(setStyle(styles[0]))
 
   return (
     <Container>
@@ -36,6 +39,7 @@ function Overview(props) {
         </Col>
         <Col>
           <ProductInfo/>
+          <Share/>
           <AddToCart/>
           <StyleSelector/>
         </Col>

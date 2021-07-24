@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 function ImageGallery(props) {
   const photos = useSelector((state) => state.style.photos);
   const photoComponents = photos.map(photo => {
-    return <Carousel.Item><img className="d-block w-100" src={photo.thumbnail_url}/></Carousel.Item>
+    return <Carousel.Item><img className="thumbnail d-flex justify-content-center" src={photo.thumbnail_url}/></Carousel.Item>
   })
   return (
     <Carousel interval={null}>
