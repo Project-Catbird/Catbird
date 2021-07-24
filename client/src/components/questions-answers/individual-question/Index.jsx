@@ -2,7 +2,7 @@ import React, { useEffect }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Accordion } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../../../redux/action-creators/index.js'
+import { actionCreators } from '../../../redux/index.js';
 import AnswerList from '/Users/gitayier/Desktop/Catbird/client/src/components/questions-answers/individual-question/AnswerList.jsx';
 
 const IndividualQuestion = ({ question }) => {
