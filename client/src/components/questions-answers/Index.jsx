@@ -1,8 +1,9 @@
-import React,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actionCreators } from '../../redux/index.js';
+import * as actionCreators from '../../redux/index.js';
 import axios from 'axios';
+
 import { API_KEY, API_URL } from '../../config/config.js';
 
 
@@ -23,7 +24,7 @@ useEffect(() => {
 }, [])
 
   return (
-     <div>
+    <div>
     {qnaList.length!==0 && <QuestionsList qnaList={qnaList}/>}
     <SearchQuestions />
     <MoreAnsweredQuestions />

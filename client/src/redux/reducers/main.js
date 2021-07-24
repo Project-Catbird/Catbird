@@ -4,10 +4,9 @@ import * as qnaReducers from './qnaReducers.js';
 
 
 const rootReducer = combineReducers({
-
+  product_id: qnaReducers.productIdReducer,
   qnaList: qnaReducers.qnaListReducer,
-  questionId: qnaReducers.questionIdReducer
-
+  answerList: qnaReducers.answerReducer
 });
 
 

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { API_KEY, API_URL } from '../../config/config.js';
-
 //ACTION CREATORS
 
 export const fetchQuestionList = () => {
@@ -13,27 +12,39 @@ export const fetchQuestionList = () => {
       }
     })
     .then(result =>  {
-      console.log(result.data)
+
       dispatch({
         type:'FETCH_QUESTION_LIST',
         questionList: result.data.results
       });
+
       dispatch({
-        type: 'FETCH_QUESTION_ID',
-        questionId: result.data.product_id
+        type: 'CURRENT_PRODUCT_ID',
+        product_id: result.data
       })
 
-    }).catch(err => console.log('error from axios call changeSelectedProduct', err))
+
+
+    }).catch(err => console.log('error from axios call fetchQuestionList', err))
 
   }
 }
 
 
-export const changeQuestions = (questions) => {
+export const fetchAnswerList = (question_id) => {
+
   return (dispatch) => {
-    dispatch({
-      type:'GET ALL QUESTIONS OF SELECTED PRODUCT',
-      payload: ''
+    axios.get(`${API_URL}/qa/questions/${question_id}/answers`,{
+      headers: {Authorization: API_KEY}
     })
+    .then(result => {
+      console.log('this is result of axios call', result.data.results)
+      dispatch({
+        type: 'FETCH_ANSWER_LIST',
+        answerList: result.data.results
+      })
+    })
+    .catch(err => console.log('error from fetchAnserList axios get request', err))
   }
 }
+

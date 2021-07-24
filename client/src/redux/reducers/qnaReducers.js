@@ -9,11 +9,21 @@ export const qnaListReducer = (state = [], action) => {
   }
 };
 
-export const questionIdReducer = (state = '', action) => {
+
+export const productIdReducer = (state = '', action) => {
   switch (action.type) {
-    case 'FETCH_QUESTION_ID':
-      return action.questionId;
-  default:
-    return state
+    case 'CURRENT_PRODUCT_ID':
+      return action.product_id;
+    default:
+       return state;
   }
+}
+
+export const answerReducer = (state = [], action) => {
+   switch (action.type) {
+     case 'FETCH_ANSWER_LIST':
+       return action.answerList;
+     default:
+       return state;
+   }
 }
