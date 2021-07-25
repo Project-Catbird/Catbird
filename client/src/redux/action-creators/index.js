@@ -20,7 +20,7 @@ export const fetchQuestionList = () => {
 
       dispatch({
         type: 'CURRENT_PRODUCT_ID',
-        product_id: result.data
+        product_id: result.data.product_id
       })
 
 
@@ -48,10 +48,22 @@ export const fetchAnswerList = (question_id) => {
   }
 }
 
-export const showAddQuestion = () => {
+
+export const getProductName = (product_id) => {
   return (dispatch) => {
-    dispatch({
-      type: 'ADD_QUESTION'
+    console.log('this is product_id in getProductname request', product_id);
+    axios.get(`${API_URL}/products/${16056}`, {
+      headers: {Authorization: API_KEY}
     })
+    .then(result => {
+      console.log('this is the result data from axios request to get product name', result.data)
+      dispatch({
+        type: 'GET_PRODUCT_NAME',
+        product_name: result.data.name
+      })
+    })
+    .catch(err => {
+      console.log('this is the error from axios request to get product name', err)
+    });
   }
 }

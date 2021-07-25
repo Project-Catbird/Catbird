@@ -1,16 +1,24 @@
 import React from 'react';
 import Answer from './Answer.jsx';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
-const AnswerList = ({ answerList }) => {
+const AnswerList = ({ answerList, question_id, question_body }) => {
 
-  return answerList.map(answer => {
-    // console.log('this is answer in AnswerList component', answer);
+
+  const answersShwon = answerList.slice(0, 2);
+  const answers = answersShwon.map(answer => {
     return(
-      <div key={answer.answer_id}>
-      <Answer answer={answer}/>
-      </div>
+      <Container key={answer.answer_id}>
+      <Answer answer={answer} question_id={question_id} question_body={question_body}/>
+      </Container>
     )
   })
+
+  return (
+    <Container>
+    {answers}
+    </Container>
+  )
 }
 
 export default AnswerList;

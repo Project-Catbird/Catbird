@@ -4,10 +4,15 @@ import * as qnaReducers from './qnaReducers.js';
 
 
 const rootReducer = combineReducers({
+
   product_id: qnaReducers.productIdReducer,
+  product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
   answerList: qnaReducers.answerReducer,
-  addQuestion: qnaReducers.addQuestionReducer
+  openAddQuestionModal: qnaReducers.openAddQuestionModalReducer,
+  addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
+  searchBarInput:qnaReducers.searchBarInputReducer
+
 });
 
 

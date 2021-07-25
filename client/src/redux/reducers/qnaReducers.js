@@ -28,10 +28,39 @@ export const answerReducer = (state = [], action) => {
    }
 }
 
-export const addQuestionReducer = (state = false, action) => {
+export const openAddQuestionModalReducer = (state = false, action) => {
   switch (action.type) {
-    case 'ADD_QUESTION':
+    case 'OPEN_ADD_QUESTION':
       return !state;
+    default:
+      return state;
+  }
+}
+
+export const addAnswerModalIsOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_ADD_ANSWER':
+      return !state;
+    default:
+      return state;
+  }
+}
+
+export const productNameReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'GET_PRODUCT_NAME':
+      return action.product_name;
+    default:
+      return state;
+  }
+}
+
+
+
+export const searchBarInputReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'SEARCHBAR_INPUT':
+      return action.searchBarInput;
     default:
       return state;
   }

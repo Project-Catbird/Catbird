@@ -1,19 +1,40 @@
 import React from 'react';
 import IndividualQuestion from './individual-question/Index.jsx';
-import { Accordion } from 'react-bootstrap';
+import { Container, Button, Row, Col } from 'react-bootstrap';
 
 const QuestionsList = ({ qnaList }) => {
 
-  return qnaList.map(question => {
+     let qList = qnaList.map(question => {
      return (
-      <Accordion key={question.question_id} >
+      <Container key={question.question_id} >
+
         <IndividualQuestion question={question} />
-      </Accordion>
 
-
+      </Container>
 
       )
   })
+
+  return (
+    <Container>
+        {qList}
+       <Row>
+      <Col xs lg="2">
+      </Col>
+      <Col md="auto">
+      <Button variant="outline-primary">MORE ANSWERED QUESTION</Button>
+      </Col>
+
+      <Col md="auto">
+      <Button variant="outline-primary" >ADD A QUESTION + </Button>
+      </Col>
+
+      <Col xs lg="2">
+      </Col>
+
+       </Row>
+    </Container>
+  )
 
 
 }
