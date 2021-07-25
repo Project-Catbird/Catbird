@@ -1,5 +1,32 @@
 .answerStamp {
-  font-size: x-small;
+  font-size: 10px;
   font-family: math;
   color:gray;
+}
+
+.qna-title {
+  font-size: 15px;
+  font-family: Noto Sans, sans-serif;
+  color:gray;
+}
+.qna-a {
+  font-size: 12px;
+  font-family: Noto Sans, sans-serif;
+  color:gray;
+}
+
+.qna-q {
+  font-size: 15px;
+  font-family: Noto Sans, sans-serif;
+  color:gray;
+}
+
+.markHelpful:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.addanswer :hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

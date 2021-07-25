@@ -31,7 +31,7 @@ useEffect(() => {
       <br />
       <Row>
        <Col xs lg="2"></Col>
-       <Col md="auto">QUESTION AND ANSWERS</Col>
+       <Col md="auto" >QUESTION AND ANSWERS</Col>
        <Col xs lg ="2"></Col>
       </Row>
       <br />

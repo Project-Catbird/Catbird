@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
+// import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { Modal, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -36,11 +36,16 @@ const AddAnswer = ( { question_id, question_body }) => {
 
   return (
     <div>
-    <Breadcrumb>
-      <Breadcrumb.Item onClick={() => {
+
+      <div className="addanswer">
+        <span
+      onClick={() => {
         openAddAnswerModal();
-      }}>Add Answer</Breadcrumb.Item>
-    </Breadcrumb>
+      }}>
+        Add Answer
+        </span>
+      </div>
+
 
 
     <Modal centered show={addAnswerModalIsOpen} onHide={closeAddAnswerModal}>

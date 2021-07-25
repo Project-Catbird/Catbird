@@ -17,7 +17,9 @@ const QuestionsList = ({ qnaList }) => {
 
   return (
     <Container>
+      <Row>
         {qList}
+      </Row>
        <Row>
       <Col xs lg="2">
       </Col>

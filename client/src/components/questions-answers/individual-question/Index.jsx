@@ -20,7 +20,7 @@ useEffect(() => {
 
   return (
     <Container>
-      <Row><strong>Q: {question_body}</strong></Row>
+      <Row><span className="qna-title">Q:  <span className="qna-q">{question_body}</span></span></Row>
       <Row>{answerList.length !== 0 && <AnswerList answerList={answerList} question_id={question_id} question_body={question_body} />}</Row>
     </Container>
   )

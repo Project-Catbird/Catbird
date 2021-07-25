@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_KEY, API_URL } from '../../config/config.js';
+
 //ACTION CREATORS
 
 export const fetchQuestionList = () => {
@@ -43,6 +44,7 @@ export const fetchAnswerList = (question_id) => {
         type: 'FETCH_ANSWER_LIST',
         answerList: result.data.results
       })
+
     })
     .catch(err => console.log('error from fetchAnserList axios get request', err))
   }
@@ -66,4 +68,13 @@ export const getProductName = (product_id) => {
       console.log('this is the error from axios request to get product name', err)
     });
   }
+}
+
+
+export const markAnswerHelpful = (answer_id) => {
+
+  return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, {
+    headers: { Authorization: API_KEY}
+  })
+
 }

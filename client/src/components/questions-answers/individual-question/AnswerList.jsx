@@ -8,15 +8,17 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   const answersShwon = answerList.slice(0, 2);
   const answers = answersShwon.map(answer => {
     return(
-      <Container key={answer.answer_id}>
+      <Row key={answer.answer_id}>
       <Answer answer={answer} question_id={question_id} question_body={question_body}/>
-      </Container>
+      </Row>
     )
   })
 
   return (
     <Container>
+
     {answers}
+
     </Container>
   )
 }

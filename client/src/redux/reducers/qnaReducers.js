@@ -65,3 +65,40 @@ export const searchBarInputReducer = (state = '', action) => {
       return state;
   }
 }
+
+export const answer_idReducer = (state='', action) => {
+  switch (action.type) {
+    case 'GET_ANSWER_ID':
+      return action.answer_id;
+    default:
+      return state;
+  }
+}
+
+// export const markHelpfulReducer = (state='', action) => {
+//   switch (action.type) {
+//     case 'MARK_HELPFULL':
+//       return action.markHelpful;
+//     default:
+//       return state;
+//   }
+// }
+
+
+export const markAnswerHelpfulReducer = (state='', action) => {
+  switch (action.type) {
+    case 'HELPFUL':
+      return action.helpful;
+    default:
+      return state;
+  }
+}
+
+export const isAnswerMarkedHelpfulReducer = (state=false, action) => {
+  switch (action.type) {
+    case 'ANSWER_HELPFUL_CLICKED':
+      return true;
+    default:
+      return state;
+  }
+}
