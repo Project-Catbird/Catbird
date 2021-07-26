@@ -6,8 +6,8 @@ function ProductInfo(props) {
   const widget = 'product-info';
   const productInfo = useSelector((state) => state.productInfo);
   const style = useSelector((state) => state.style);
-  const {name, original_price, sale_price} = style;
-  const {id, slogan, description, category, features} = productInfo;
+  const {original_price, sale_price} = style;
+  const {id, name, slogan, description, category, features} = productInfo;
 
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>

@@ -6,6 +6,7 @@ import { setStyle } from '../../redux/actions/productAction';
 function StyleSelector(props) {
   const widget = 'style-selector';
   const styles = useSelector((state) => state.styles.results);
+  const style = useSelector((state) => state.style);
   const dispatch = useDispatch();
 
   const styleComponents = () => {
@@ -28,6 +29,9 @@ function StyleSelector(props) {
 
   return (
     <Container>
+      <span className="style-name">
+        <strong>STYLE > </strong> {style.name}
+      </span>
         {styleComponents()}
     </Container>
   )
