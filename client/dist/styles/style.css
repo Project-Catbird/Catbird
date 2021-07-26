@@ -33,6 +33,20 @@
   padding: 1%;
 }
 
-.fab:hover {
+.fab:hover, .style-thumbnail:hover {
   opacity:0.7;
+  cursor: pointer;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+label:before {
+  position: absolute;
+  z-index: 100;
+}
+
+:checked+label:before {
+  content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
 }
