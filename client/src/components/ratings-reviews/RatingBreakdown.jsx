@@ -22,7 +22,7 @@ const RatingBreakdown = (props) => {
     }
     for (let i = 5; i >= 1; i--) {
       result.push(
-        <span class="rating-bar-star-count">
+        <span className="rating-bar-star-count" key={`star-count-${i}`}>
           {i} Stars:
           <ProgressBar variant="success" now={Math.round(((reviewsMeta.ratings[i] ?? 0) / reviewTotal) * 100)} />
           <br></br>

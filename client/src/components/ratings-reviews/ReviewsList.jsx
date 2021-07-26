@@ -43,7 +43,7 @@ const ReviewsList = () => {
   }
 
   return (
-    <div id="reviews-list">
+    <div id="reviews-list-module">
       <div>
         <span>{fullReviewsList.length} reviews, sorted by </span>
         <select onChange={handleSortChange}>
@@ -51,7 +51,9 @@ const ReviewsList = () => {
           <option>Helpful</option>
           <option>Newest</option>
         </select>
-        {reviewsList.map(review => <Alert><IndividualReviewTile review={review} /></Alert>)}
+        <div id="reviews-list">
+          {reviewsList.map(review => <Alert key={`review-tile-${review.review_id}`}><IndividualReviewTile review={review} /></Alert>)}
+        </div>
         {renderMoreReviewsButton()}  {renderAddReviewButton()}
         <NewReview />
       </div>
