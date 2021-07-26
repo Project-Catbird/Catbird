@@ -11,7 +11,7 @@ function Description(props) {
   })
 
   return (
-    <Container>
+    <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       <Row>
         <Col>
           <span className="product-description">

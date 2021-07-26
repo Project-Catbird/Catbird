@@ -24,6 +24,12 @@ function Overview(props) {
     .catch(err => { console.log(err) })
   }
 
+  const handleInteractions = (element, widget) => {
+    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/interactions', {time: new Date(), element, widget}, {headers: {Authorization: API_KEY}})
+      .then((res) => { console.log(res) })
+      .catch((err) => { console.log(err) })
+  }
+
   useEffect(() => {
     fetchItem(setProduct, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}`);
     fetchItem(getStyles, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}/styles`)
@@ -35,17 +41,17 @@ function Overview(props) {
     <Container>
       <Row>
         <Col>
-          <ImageGallery/>
+          <ImageGallery handleInteractions={handleInteractions}/>
         </Col>
         <Col>
-          <ProductInfo/>
-          <Share/>
-          <AddToCart/>
-          <StyleSelector/>
+          <ProductInfo handleInteractions={handleInteractions}/>
+          <Share handleInteractions={handleInteractions}/>
+          <AddToCart handleInteractions={handleInteractions}/>
+          <StyleSelector handleInteractions={handleInteractions}/>
         </Col>
       </Row>
       <Row>
-        <Description/>
+        <Description handleInteractions={handleInteractions}/>
       </Row>
     </Container>
   )

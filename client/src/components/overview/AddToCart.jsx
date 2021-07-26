@@ -5,6 +5,7 @@ import API_KEY from '../../config/config'
 import axios from 'axios';
 
 function AddToCart(props) {
+  const widget = 'add-to-cart'
   const skusInfo = useSelector((state) => state.style.skus);
   const skus = Object.keys(skusInfo);
   const sizes = [];
@@ -32,25 +33,25 @@ function AddToCart(props) {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form id="add-to-cart-form" onSubmit={handleSubmit} onClick={e => {props.handleInteractions(e.target.id, widget)}}>
         <FormGroup role="form">
           <Row>
-            <Form.Select onChange={e => setSize(e.target.value)}>
+            <Form.Select id="add-to-cart-size" onChange={e => setSize(e.target.value)}>
               <option>Select Size</option>
               {sizeSelector}
             </Form.Select>
           </Row>
           <Row>
-            <Form.Select onChange={e => setQuantity(e.target.value)}>
+            <Form.Select id="add-to-cart-quantity" onChange={e => setQuantity(e.target.value)}>
               <option>Select Quantity</option>
               {quantitySelector}
             </Form.Select>
           </Row>
           <Row>
-            <Button className="btn btn-primary btn-large centerButton" type="submit">Add to Cart</Button>
+            <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>
           </Row>
           <Row>
-            <Button className="btn btn-primary btn-large centerButton" type="">Like</Button>
+            <Button className="btn btn-primary btn-large centerButton" id="like-btn" type="" >Like</Button>
           </Row>
         </FormGroup>
       </Form>

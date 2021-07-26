@@ -3,15 +3,16 @@ import { Row, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function ProductInfo(props) {
+  const widget = 'product-info';
   const productInfo = useSelector((state) => state.productInfo);
   const style = useSelector((state) => state.style);
   const {name, original_price, sale_price} = style;
   const {id, slogan, description, category, features} = productInfo;
 
   return (
-    <Container>
+    <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       <Row>
-        <span className="product-rating">✰✰✰✰✰ 5.0 <a href="#">Read all reviews</a></span>
+        <span className="product-rating" >✰✰✰✰✰ 5.0 <a href="#">Read all reviews</a></span>
       </Row>
       <Row>
         <span className="product-category">{category}</span>

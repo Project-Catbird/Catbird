@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const Share = () => {
+const Share = (props) => {
+  const widget = 'share';
   return (
-    <Container>
+    <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       <Row>
         <Col>
           <span className="share">Share</span>
