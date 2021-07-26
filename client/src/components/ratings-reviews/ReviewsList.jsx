@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Alert, Button, Col, Container } from 'react-bootstrap';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
+import NewReview from './new-review/Index.jsx';
 
 
 const ReviewsList = () => {
@@ -31,6 +32,16 @@ const ReviewsList = () => {
     })
   }
 
+  let renderAddReviewButton = () => {
+    return <Button variant="primary" type="button"
+      onClick={() => {
+        dispatch({
+          type: 'UPDATE_NEW_REVIEW_MODAL',
+          showNewReviewModal: true
+        })
+      }}>Add Review</Button>
+  }
+
   return (
     <div id="reviews-list">
       <div>
@@ -41,7 +52,8 @@ const ReviewsList = () => {
           <option>Newest</option>
         </select>
         {reviewsList.map(review => <Alert><IndividualReviewTile review={review} /></Alert>)}
-        {renderMoreReviewsButton()}
+        {renderMoreReviewsButton()}  {renderAddReviewButton()}
+        <NewReview />
       </div>
     </div>
   )
