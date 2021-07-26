@@ -14,9 +14,9 @@ function AddToCart(props) {
     sizes.push(sku.size);
     quantities.push(sku.quantity);
   });
-  const sizeSelector = sizes.map((size, index) => <option value={skus[index]}>{size}</option>);
+  const sizeSelector = sizes.map((size, index) => <option  key={index} value={skus[index]}>{size}</option>);
   const maxQuantity = Math.min(...quantities);
-  const quantitySelector = Array.from(Array(maxQuantity).keys()).map(item => {return <option value={item}>{item}</option>});
+  const quantitySelector = Array.from(Array(maxQuantity).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>});
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState('');
 

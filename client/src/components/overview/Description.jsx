@@ -6,8 +6,8 @@ function Description(props) {
   const productInfo = useSelector((state) => state.productInfo);
   const {id, description, features} = productInfo;
 
-  const featureComponents = features.map(feature => {
-    return <li>{feature.feature} - {feature.value}</li>
+  const featureComponents = features.map((feature, index) => {
+    return <li key={index}>{feature.feature} - {feature.value}</li>
   })
 
   return (
