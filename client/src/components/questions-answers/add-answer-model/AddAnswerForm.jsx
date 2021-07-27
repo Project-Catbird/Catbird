@@ -18,9 +18,9 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
     e.preventDefault();
     console.log('submited', name, body, email, photos);
     dispatch({ type: 'TOGGLE_ADD_ANSWER'});
-    if (name,length === 0 ) {
-      alert();
-    }
+    // if (name.length === 0 ) {
+    //   alert();
+    // }
     axios.post(`${API_URL}/qa/questions/${question_id}/answers`, {
       body: body,
       name: name,

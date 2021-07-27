@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../redux/index.js';
-import AnswerList from '/Users/gitayier/Desktop/Catbird/client/src/components/questions-answers/individual-question/AnswerList.jsx';
+import AnswerList from './AnswerList.jsx';
 import AddAnswer from '../add-answer-model/Index.jsx';
 import QuestionHelpfulness from './QuestionHelpfulness.jsx';
 
