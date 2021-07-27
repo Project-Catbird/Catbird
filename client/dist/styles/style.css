@@ -14,13 +14,6 @@ img {
   color: red;
 }
 
-.thumbnail {
-  max-height: 500px;
-  width: auto;
-  height: auto;
-  margin: auto;
-}
-
 .carousel-control-next-icon:after {
   content: '>';
   font-size: 55px;
@@ -53,4 +46,21 @@ label:before {
 
 :checked+label:before {
   content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
+}
+
+.carousel,.item,.active{
+  height:100%;
+}
+.carousel-inner{
+   height:100%;
+}
+
+.thumbnail {
+  width: 75%;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin: auto;
 }

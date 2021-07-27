@@ -9,10 +9,19 @@ function ProductInfo(props) {
   const {original_price, sale_price} = style;
   const {id, name, slogan, description, category, features} = productInfo;
 
+  const reviewsList = useSelector(state => state.reviewsList.results);
+  const reviewsMeta = useSelector(state => state.reviewsMeta);
+
+  let reviewStats = [];
+  for (let review of reviewsList) {
+    reviewStats.push(review.rating);
+  }
+  let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length;
+
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       <Row>
-        <span className="product-rating" >✰✰✰✰✰ 5.0 <a href="#">Read all reviews</a></span>
+        <span className="product-rating" >✰✰✰✰✰ {Math.round(averageReview * 10) / 10} <a href="#">Read all reviews</a></span>
       </Row>
       <Row>
         <span className="product-category">{category}</span>
