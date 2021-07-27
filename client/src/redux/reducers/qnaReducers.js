@@ -19,14 +19,14 @@ export const productIdReducer = (state = '', action) => {
   }
 }
 
-export const answerReducer = (state = [], action) => {
-   switch (action.type) {
-     case 'FETCH_ANSWER_LIST':
-       return action.answerList;
-     default:
-       return state;
-   }
-}
+// export const answerReducer = (state = [], action) => {
+//    switch (action.type) {
+//      case 'FETCH_ANSWER_LIST':
+//        return action.answerList;
+//      default:
+//        return state;
+//    }
+// }
 
 // export const openAddQuestionModalReducer = (state = false, action) => {
 //   switch (action.type) {

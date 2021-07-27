@@ -2,26 +2,28 @@ import React from 'react';
 import IndividualQuestion from './individual-question/Index.jsx';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import AddQuestion from './add-question-model/Index.jsx';
+import ListGroup from 'react-bootstrap/ListGroup'
+
 
 
 const QuestionsList = ({ qnaList }) => {
 
      let qList = qnaList.map(question => {
      return (
-      <Container key={question.question_id} >
+      <ListGroup.Item key={question.question_id} >
 
         <IndividualQuestion question={question} />
 
-      </Container>
+      </ListGroup.Item>
 
       )
   })
 
   return (
     <Container>
-      <Row>
+      <ListGroup variant="flush">
         {qList}
-      </Row>
+      </ListGroup>
 
       <br />
 
@@ -32,9 +34,7 @@ const QuestionsList = ({ qnaList }) => {
 
       <Col className="flex-md-fill">
         <AddQuestion />
-      {/* <Button variant="outline-primary" size="sm" >ADD A QUESTION + </Button> */}
       </Col>
-
        </Row>
     </Container>
   )

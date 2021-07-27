@@ -34,20 +34,9 @@ export const fetchQuestionList = () => {
 
 export const fetchAnswerList = (question_id) => {
 
-  return (dispatch) => {
-    axios.get(`${API_URL}/qa/questions/${question_id}/answers`,{
+  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, {
       headers: {Authorization: API_KEY}
     })
-    .then(result => {
-      console.log('this is result of axios call', result.data.results)
-      dispatch({
-        type: 'FETCH_ANSWER_LIST',
-        answerList: result.data.results
-      })
-
-    })
-    .catch(err => console.log('error from fetchAnserList axios get request', err))
-  }
 }
 
 

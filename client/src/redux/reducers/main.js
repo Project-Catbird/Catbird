@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   product_id: qnaReducers.productIdReducer,
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
-  answerList: qnaReducers.answerReducer,
+  // answerList: qnaReducers.answerReducer,
   // openAddQuestionModal: qnaReducers.openAddQuestionModalReducer,
   addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,

@@ -8,7 +8,7 @@ import AddAnswerForm from './AddAnswerForm.jsx';
 
 
 const AddAnswer = ( { question_id, question_body }) => {
-  // console.log('this is question body from AddAnswer', question_body)
+
 
   const dispatch = useDispatch();
   const addAnswerModalIsOpen = useSelector(state =>state.addAnswerModalIsOpen);

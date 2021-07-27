@@ -12,9 +12,9 @@ const QuestionHelpfulness = ( { helpfulness, addHelpfulness } ) => {
   };
 
    return (
-   <div
+   <span
      className="questionHelpfulness">Helpful? <span className="markHelpful" onClick={handleClick}>Yes ({helpful})</span>
-    </div>
+    </span>
    )
 
 }

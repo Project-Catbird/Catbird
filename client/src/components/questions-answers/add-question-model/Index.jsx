@@ -47,8 +47,6 @@ const AddQuestion = () => {
          />
     </Modal.Body>
     <Modal.Footer>
-
-    <Button variant="secondary" onClick={closeAddQuestionModal}>Close</Button>
     </Modal.Footer>
 </Modal>
 

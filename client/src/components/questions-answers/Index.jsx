@@ -5,6 +5,7 @@ import { actionCreators } from '../../redux/index.js';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col } from 'react-bootstrap';
+// import ListGroup from 'react-bootstrap/ListGroup';
 
 // import { API_KEY, API_URL } from '../../config/config.js';
 
@@ -25,19 +26,35 @@ useEffect(() => {
   fetchQuestionList();
 }, [])
 
+
+
+// return (
+// <ListGroup variant="flush">
+//   <ListGroup.Item>Cras justo odio</ListGroup.Item>
+// </ListGroup>
+
+// )
+
+
   return (
     <Container>
       <br />
-      <br />
+
       <Row>
-       <Col xs lg="2"></Col>
-       <Col md="auto" >QUESTION AND ANSWERS</Col>
-       <Col xs lg ="2"></Col>
-      </Row>
+        <Col></Col>
+        <Col xs={5} className="qna-title text-center">QUESTION AND ANSWERS</Col>
+        <Col></Col>
+     </Row>
+
+
       <br />
+      <Container fluid="md" className="flex-nowrap text-center">
       <Row>
-      <SearchQuestions />
-      </Row>
+
+        <Col><SearchQuestions /></Col>
+
+        </Row>
+        </Container>
       <Row>
       {qnaList.length !==0 && <QuestionsList qnaList={qnaList}/>}
       </Row>
