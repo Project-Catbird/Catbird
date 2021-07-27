@@ -22,8 +22,6 @@ function AddToCart(props) {
     if (size === '' || atcQuantity < 1) {
       alert('Please pick a style, size, and quantity');
     } else {
-      console.log('atcqty', atcQuantity);
-      console.log('size', size);
       axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/cart/', {sku_id: size}, {headers: {Authorization: API_KEY}})
         .then(() => { alert('Added to cart!'); })
         .catch(err => { console.log(err); })
