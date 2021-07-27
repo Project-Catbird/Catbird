@@ -29,7 +29,7 @@ function AddToCart(props) {
     <Container>
       <Form id="add-to-cart-form" onSubmit={handleSubmit} onClick={e => {props.handleInteractions(e.target.id, widget)}}>
         <FormGroup role="form">
-          <Row>
+          {/* <Row>
             <Form.Select id="add-to-cart-size" onChange={e => {
               if (e.target.value === "") {
                 setSize('');
@@ -47,7 +47,7 @@ function AddToCart(props) {
               <option value="0">Select Quantity</option>
               {Array.from(Array(quantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
             </Form.Select>
-          </Row>
+          </Row> */}
           <Row>
             {quantity === 0 ? '' : <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>}
           </Row>
