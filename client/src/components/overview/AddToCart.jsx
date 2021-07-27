@@ -14,7 +14,7 @@ function AddToCart(props) {
   });
   const sizeSelector = sizes.map((size, index) => <option  key={index} value={skus[index]}>{size}</option>);
   const [size, setSize] = useState('');
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(null);
   const [atcQuantity, setATCQuantity] = useState(0);
 
   const handleSubmit = (event) => {
@@ -52,7 +52,7 @@ function AddToCart(props) {
             </Form.Select>
           </Row>
           <Row>
-            <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>
+            {quantity === 0 ? '' : <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>}
           </Row>
           <Row>
             <Button className="btn btn-primary btn-large centerButton" id="like-btn" type="" >Like</Button>
