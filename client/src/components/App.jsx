@@ -1,11 +1,10 @@
 import React from 'react';
-import { RelatedProducts, OutfitList } from './related-comparisons';
+import RelatedComparisons from './related-comparisons/index.jsx';
 // test
 const App = (props) => {
   return (
     <div>
-      <RelatedProducts/>
-      <OutfitList/>
+      <RelatedComparisons/>
     </div>
   )
 };
