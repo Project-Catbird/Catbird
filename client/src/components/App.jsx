@@ -1,16 +1,14 @@
 import React from 'react';
 import RatingsReviews from './ratings-reviews/Index.jsx';
+import Overview from './overview/Index.jsx';
 
-
-// test
-// const App = (props) => {
-//   return (
-//     <RatingsReviews />
-//   )
-// };
 const App = (props) => {
+
   return (
-    <div>Hello World!</div>
+    <div>
+      <Overview />
+      <RatingsReviews />
+    </div>
   )
 };
 

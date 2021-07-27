@@ -29,13 +29,14 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 const RatingsReviews = () => {
   let dispatch = useDispatch();
   const sortType = useSelector(state => state.reviewsSortType)
+  const productId = useSelector(state => state.productId)
   console.log('sortType', sortType)
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {
       headers: {Authorization: API_KEY},
       params: {
-        product_id: 16060,
+        product_id: productId,
         count: 1000,
         sort: sortType
       }
@@ -48,7 +49,7 @@ const RatingsReviews = () => {
     })
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/meta', {
       headers: {Authorization: API_KEY},
-      params: {product_id: 16060}
+      params: {product_id: productId}
     }).then(response => {
       console.log(response.data);
       dispatch({
@@ -69,8 +70,6 @@ const RatingsReviews = () => {
         </Col>
       </Row>
     </Container>
-    // <div id="ratings-reviews">
-    // </div>
   )
 }
 

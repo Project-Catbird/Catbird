@@ -6,8 +6,22 @@ import reviewsSortTypeReducer from './ratings-reviews/reviewsSortType.js';
 import showNewReviewModalReducer from './ratings-reviews/showNewReviewModal.js';
 import newReviewValidationReducer from './ratings-reviews/newReviewValidation.js';
 import photoUploadReducer from './ratings-reviews/photoUpload.js';
+import productsReducer from './Overview/productsReducer';
+import productInfoReducer from './Overview/productInfoReducer';
+import styleReducer from './Overview/styleReducer';
+import styleInfoReducer from './Overview/styleInfoReducer';
+import productIdReducer from './Overview/productIdReducer';
+
 
 const rootReducer = combineReducers({
+  // Overview
+  products: productsReducer,
+  productId: productIdReducer,
+  productInfo: productInfoReducer,
+  styles: styleReducer,
+  style: styleInfoReducer,
+
+  // RatingsReviews
   reviewsList: reviewsListReducer,
   reviewsCount: reviewsCountReducer,
   reviewsMeta: reviewsMetaReducer,
@@ -15,10 +29,7 @@ const rootReducer = combineReducers({
   showNewReviewModal: showNewReviewModalReducer,
   newReviewValidation: newReviewValidationReducer,
   photoUpload: photoUploadReducer
-  //TODO: Combine all reducers into one single rootReducer
-  //Examples:
-  //combineReducers({ counter: counter, todos: todos }).
-  //ES6 property shorthand:  combineReducers({ counter, todos })
+
 });
 
 
