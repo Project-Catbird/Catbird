@@ -35,7 +35,7 @@ img {
   cursor: pointer;
 }
 
-input[type=radio] {
+.style-item {
   display: none;
 }
 

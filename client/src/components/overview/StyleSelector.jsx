@@ -16,7 +16,7 @@ function StyleSelector(props) {
       row.push(styles.slice(i, i+4).map((style, index) => {
         return (
           <div key={style.style_id} style={{display: 'inline-block'}}>
-            <input type="radio" name="style" defaultChecked={index === 0 && i === 0} id={style.style_id} onClick={e => {
+            <input className="style-item" type="radio" name="style" defaultChecked={index === 0 && i === 0} id={style.style_id} onClick={e => {
               props.handleInteractions(e.target.className, widget);
               dispatch(setStyle(style))}}/>
             <label for={style.style_id}>
