@@ -24,5 +24,5 @@ test('renders sizes for the current style', () => {
 })
 
 test('renders max quantity for the current style', () => {
-  expect(div.querySelector('#add-to-cart-quantity').textContent).toContain('3');
+  expect(div.querySelector('#add-to-cart-quantity').textContent).toContain('0');
 })

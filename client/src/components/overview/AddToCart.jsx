@@ -19,9 +19,11 @@ function AddToCart(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (size === '' || quantity === '') {
+    if (size === '' || atcQuantity < 1) {
       alert('Please pick a style, size, and quantity');
     } else {
+      console.log('atcqty', atcQuantity);
+      console.log('size', size);
       axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/cart/', {sku_id: size}, {headers: {Authorization: API_KEY}})
         .then(() => { alert('Added to cart!'); })
         .catch(err => { console.log(err); })
@@ -47,7 +49,7 @@ function AddToCart(props) {
           </Row>
           <Row>
             <Form.Select id="add-to-cart-quantity" onChange={e => setATCQuantity(e.target.value)}>
-              <option>Select Quantity</option>
+              <option value="0">Select Quantity</option>
               {Array.from(Array(quantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
             </Form.Select>
           </Row>
