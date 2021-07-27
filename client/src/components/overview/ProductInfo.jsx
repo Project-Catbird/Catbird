@@ -16,38 +16,35 @@ function ProductInfo(props) {
   for (let review of reviewsList) {
     reviewStats.push(review.rating);
   }
-  let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length / 2;
-  console.log(averageReview);
+  let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length;
 
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       <span className="product-rating">
         <Row>
           <Col className="col-sm-auto">
-              <span class="score">
-                <div class="score-wrap">
-                  <span class="stars-active" style={{width: `${averageReview * 10 * 2}%`}}>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
+            {Math.round(averageReview * 10) / 10} / 10
+          </Col>
+          <Col>
+              <span className="score">
+                <div className="score-wrap">
+                  <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
                   </span>
-                  <span class="stars-inactive">
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <span className="stars-inactive">
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
                   </span>
                 </div>
               </span>
-            </Col>
-            <Col>
-              {Math.round(averageReview * 10) / 10} / 5.0
-            </Col>
-        </Row>
-        <Row>
+          </Col>
           <a href="#">Read all reviews</a>
         </Row>
       </span>
