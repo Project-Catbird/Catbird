@@ -1,9 +1,12 @@
 import React from 'react';
-
+import { RelatedProducts, OutfitList } from './related-comparisons';
 // test
 const App = (props) => {
   return (
-    <div>Hello World!</div>
+    <div>
+      <RelatedProducts/>
+      <OutfitList/>
+    </div>
   )
 };
 
