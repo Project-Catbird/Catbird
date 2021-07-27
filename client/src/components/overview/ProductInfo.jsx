@@ -18,6 +18,12 @@ function ProductInfo(props) {
   }
   let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length;
 
+  const scrollToId = (id) => {
+    event.preventDefault();
+    let elmnt = document.getElementById(id);
+    elmnt.scrollIntoView();
+  };
+
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       <span className="product-rating">
@@ -45,7 +51,7 @@ function ProductInfo(props) {
                 </div>
               </span>
           </Col>
-          <a href="#">Read all reviews</a>
+          <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
         </Row>
       </span>
       <Row>
