@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import * as qnaReducers from './qnaReducers.js';
 import reviewsListReducer from './ratings-reviews/reviewsList.js';
 import reviewsCountReducer from './ratings-reviews/reviewsCount.js';
 import reviewsMetaReducer from './ratings-reviews/reviewsMeta.js';
@@ -11,6 +12,8 @@ import productInfoReducer from './Overview/productInfoReducer';
 import styleReducer from './Overview/styleReducer';
 import styleInfoReducer from './Overview/styleInfoReducer';
 import productIdReducer from './Overview/productIdReducer';
+
+
 
 
 const rootReducer = combineReducers({
@@ -28,7 +31,16 @@ const rootReducer = combineReducers({
   reviewsSortType: reviewsSortTypeReducer,
   showNewReviewModal: showNewReviewModalReducer,
   newReviewValidation: newReviewValidationReducer,
-  photoUpload: photoUploadReducer
+  photoUpload: photoUploadReducer,
+
+  //qna
+
+  product_id: qnaReducers.productIdReducer,
+  product_name: qnaReducers.productNameReducer,
+  qnaList: qnaReducers.qnaListReducer,
+  addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
+  addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
+  searchBarInput:qnaReducers.searchBarInputReducer,
 
 });
 
