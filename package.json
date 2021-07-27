@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
     "express": "^4.17.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
