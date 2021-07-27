@@ -15,12 +15,14 @@ function StyleSelector(props) {
       var row = [];
       row.push(styles.slice(i, i+4).map((style, index) => {
         return (
-        <div key={index} style={{display: 'inline-block'}}>
-          <input type="radio" name="style" id={style.style_id} onClick={() => {dispatch(setStyle(style))}}/>
-          <label className="form-check-label">
-          <Image key={style.style_id} className="style-thumbnail" src={style.photos[0].thumbnail_url} style_id={style.style_id} width="50px" height="50px"  onClick={e => {props.handleInteractions(e.target.className, widget)}} roundedCircle/>
-          </label>
-        </div>)
+          <div style={{display: 'inline-block'}}>
+            <input type="radio" name="style" id={style.style_id} onClick={e => {
+              props.handleInteractions(e.target.className, widget);
+              dispatch(setStyle(style))}}/>
+            <label className="form-check-label" for={style.style_id}>
+            <Image key={style.style_id} className="style-thumbnail" src={style.photos[0].thumbnail_url} style_id={style.style_id} width="50px" height="50px" roundedCircle/>
+            </label>
+          </div>)
      }))
      rows.push(row.map((item, index) => {return <div key={index}>{item}</div>}))
     }
@@ -29,8 +31,9 @@ function StyleSelector(props) {
 
   return (
     <Container>
-      <span className="style-name">
-        <strong>STYLE > </strong> {style.name}
+      <span className="style">
+        <strong>STYLE > </strong>
+        <span className="style-name">{style.name}</span>
       </span>
         {styleComponents()}
     </Container>

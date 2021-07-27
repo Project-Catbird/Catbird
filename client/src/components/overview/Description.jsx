@@ -3,6 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function Description(props) {
+  const widget = 'description-features';
   const productInfo = useSelector((state) => state.productInfo);
   const {id, description, features} = productInfo;
 

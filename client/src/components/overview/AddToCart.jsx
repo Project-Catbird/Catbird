@@ -9,16 +9,13 @@ function AddToCart(props) {
   const skusInfo = useSelector((state) => state.style.skus);
   const skus = Object.keys(skusInfo);
   const sizes = [];
-  const quantities = []
   Object.values(skusInfo).forEach(sku => {
     sizes.push(sku.size);
-    quantities.push(sku.quantity);
   });
   const sizeSelector = sizes.map((size, index) => <option  key={index} value={skus[index]}>{size}</option>);
-  const maxQuantity = Math.min(...quantities);
-  const quantitySelector = Array.from(Array(maxQuantity).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>});
   const [size, setSize] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [atcQuantity, setATCQuantity] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,15 +33,22 @@ function AddToCart(props) {
       <Form id="add-to-cart-form" onSubmit={handleSubmit} onClick={e => {props.handleInteractions(e.target.id, widget)}}>
         <FormGroup role="form">
           <Row>
-            <Form.Select id="add-to-cart-size" onChange={e => setSize(e.target.value)}>
-              <option>Select Size</option>
+            <Form.Select id="add-to-cart-size" onChange={e => {
+              if (e.target.value === "") {
+                setSize('');
+                setQuantity(0);
+              } else {
+                setSize(e.target.value);
+                setQuantity(skusInfo[e.target.value].quantity);
+              }}}>
+              <option value="">Select Size</option>
               {sizeSelector}
             </Form.Select>
           </Row>
           <Row>
-            <Form.Select id="add-to-cart-quantity" onChange={e => setQuantity(e.target.value)}>
+            <Form.Select id="add-to-cart-quantity" onChange={e => setATCQuantity(e.target.value)}>
               <option>Select Quantity</option>
-              {quantitySelector}
+              {Array.from(Array(quantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
             </Form.Select>
           </Row>
           <Row>
