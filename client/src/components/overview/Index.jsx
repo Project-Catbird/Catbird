@@ -32,10 +32,10 @@ function Overview(props) {
 
   useEffect(() => {
     fetchItem(setProduct, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}`);
-    fetchItem(getStyles, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}/styles`)
+    fetchItem(getStyles, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}/styles`);
   }, [])
 
-  dispatch(setStyle(styles[0]))
+  dispatch(setStyle(styles[0]));
 
   return (
     <Container>
