@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
-import API_KEY from '../../config/config.js';
+import { API_KEY } from '../../config/config.js';
 import { Container, Row, Col } from 'react-bootstrap';
 
 

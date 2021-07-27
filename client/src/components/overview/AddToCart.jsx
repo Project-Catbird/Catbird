@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Form, FormGroup, FormControl, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import API_KEY from '../../config/config'
+import { API_KEY } from '../../config/config'
 import axios from 'axios';
 function AddToCart(props) {
   const widget = 'add-to-cart'
