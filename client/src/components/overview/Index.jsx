@@ -11,7 +11,6 @@ import { Col, Row, Container } from 'react-bootstrap';
 import { setProduct, getStyles, setStyle } from '../../redux/actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-
 function Overview(props) {
   const productId = useSelector((state) => state.productId);
   const styles = useSelector((state) => state.styles.results);

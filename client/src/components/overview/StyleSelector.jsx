@@ -15,16 +15,16 @@ function StyleSelector(props) {
       var row = [];
       row.push(styles.slice(i, i+4).map((style, index) => {
         return (
-          <div key={index} style={{display: 'inline-block'}}>
+          <div key={style.style_id} style={{display: 'inline-block'}}>
             <input type="radio" name="style" defaultChecked={index === 0 && i === 0} id={style.style_id} onClick={e => {
               props.handleInteractions(e.target.className, widget);
               dispatch(setStyle(style))}}/>
-            <label className="form-check-label">
+            <label for={style.style_id}>
             <Image key={style.style_id} className="style-thumbnail" src={style.photos[0].thumbnail_url} style_id={style.style_id} width="50px" height="50px" roundedCircle/>
             </label>
           </div>)
      }))
-     rows.push(row.map((item, index) => {return <div key={index}>{item}</div>}))
+     rows.push(row.map((item, index) => {return <div>{item}</div>}))
     }
     return rows;
   }
@@ -41,3 +41,4 @@ function StyleSelector(props) {
 }
 
 export default StyleSelector;
+
