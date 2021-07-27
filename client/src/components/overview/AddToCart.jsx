@@ -39,7 +39,7 @@ function AddToCart(props) {
                 setQuantity(0);
               } else {
                 setSize(e.target.value);
-                setQuantity(skusInfo[e.target.value].quantity);
+                setQuantity(Math.min(15, skusInfo[e.target.value].quantity));
               }}}>
               <option value="">Select Size</option>
               {sizeSelector}
