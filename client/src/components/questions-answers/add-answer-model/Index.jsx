@@ -53,7 +53,12 @@ const AddAnswer = ( { question_id, question_body }) => {
        <Modal.Title>Add ANSWER</Modal.Title>
      </Modal.Header>
      <Modal.Body>
-       <AddAnswerForm product_name={product_name} question_body={question_body} closeAddAnswerModal={closeAddAnswerModal}/>
+       <AddAnswerForm
+         product_name={product_name}
+         question_body={question_body}
+         question_id={question_id}
+         closeAddAnswerModal={closeAddAnswerModal}
+         />
     </Modal.Body>
     <Modal.Footer>
 

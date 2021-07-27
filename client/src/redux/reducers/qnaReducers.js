@@ -28,18 +28,27 @@ export const answerReducer = (state = [], action) => {
    }
 }
 
-export const openAddQuestionModalReducer = (state = false, action) => {
+// export const openAddQuestionModalReducer = (state = false, action) => {
+//   switch (action.type) {
+//     case 'OPEN_ADD_QUESTION':
+//       return !state;
+//     default:
+//       return state;
+//   }
+// }
+
+export const addAnswerModalIsOpenReducer = (state = false, action) => {
   switch (action.type) {
-    case 'OPEN_ADD_QUESTION':
+    case 'TOGGLE_ADD_ANSWER':
       return !state;
     default:
       return state;
   }
 }
 
-export const addAnswerModalIsOpenReducer = (state = false, action) => {
+export const addQuestionModalIsOpenReducer = (state = false, action) => {
   switch (action.type) {
-    case 'TOGGLE_ADD_ANSWER':
+    case 'TOGGLE_ADD_QUESTION':
       return !state;
     default:
       return state;
@@ -94,11 +103,11 @@ export const markAnswerHelpfulReducer = (state='', action) => {
   }
 }
 
-export const isAnswerMarkedHelpfulReducer = (state=false, action) => {
-  switch (action.type) {
-    case 'ANSWER_HELPFUL_CLICKED':
-      return true;
-    default:
-      return state;
-  }
-}
+// export const isAnswerMarkedHelpfulReducer = (state=false, action) => {
+//   switch (action.type) {
+//     case 'ANSWER_HELPFUL_CLICKED':
+//       return true;
+//     default:
+//       return state;
+//   }
+// }

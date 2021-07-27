@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Moment from 'react-moment';
 import { Container, Col, Row } from 'react-bootstrap';
-import AddAnswer from '../add-answer-model/Index.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import AddAnswer from '../add-answer-model/Index.jsx';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../redux/index.js';
 import AnswerHelpfulness from './AnswerHelpfulness.jsx';
 // import Moment from 'react-moment';
@@ -11,26 +11,21 @@ import AnswerHelpfulness from './AnswerHelpfulness.jsx';
 const Answer = ( { answer, question_id, question_body } ) => {
 // const isAnswerMarkedHelpful = useSelector(state => state.isAnswerMarkedHelpful);
 
-const dispatch = useDispatch();
+// const dispatch = useDispatch();
 var helpfulness = answer.helpfulness;
 var addedHelpful = helpfulness;
 const markAnswerHelpful = actionCreators.markAnswerHelpful;
-useEffect(() => {
-  console.log('useEffect')
-}, [addedHelpful]);
+// useEffect(() => {
+// }, [addedHelpful]);
 
   const addHelpfulness = () => {
-    // dispatch({
-    //   type: 'ANSWER_HELPFUL_CLICKED',
-    // })
     markAnswerHelpful(answer.answer_id)
-    .then( result => {
-      console.log('added helpful');
-
+    .then( (res) => {
+      console.log(res)
       addedHelpful = addedHelpful + 1;
-      console.log(addedHelpful);
+
     }
-    ).catch(err => {console.log(err)})
+    ).catch(err => console.log(err))
 
   }
 
@@ -48,7 +43,7 @@ useEffect(() => {
         <AnswerHelpfulness helpfulness={addedHelpful} addHelpfulness={addHelpfulness}/>
       </Col>
       <Col></Col>
-      <Col className="answerStamp"><AddAnswer question_id={question_id} question_body={question_body}/></Col>
+      {/* <Col className="answerStamp"><AddAnswer question_id={question_id} question_body={question_body}/></Col> */}
     </Row>
   </Container>
 

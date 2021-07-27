@@ -1,6 +1,8 @@
 import React from 'react';
 import IndividualQuestion from './individual-question/Index.jsx';
 import { Container, Button, Row, Col } from 'react-bootstrap';
+import AddQuestion from './add-question-model/Index.jsx';
+
 
 const QuestionsList = ({ qnaList }) => {
 
@@ -20,18 +22,17 @@ const QuestionsList = ({ qnaList }) => {
       <Row>
         {qList}
       </Row>
-       <Row>
-      <Col xs lg="2">
-      </Col>
-      <Col md="auto">
-      <Button variant="outline-primary">MORE ANSWERED QUESTION</Button>
+
+      <br />
+
+       <Row className="flex-nowrap text-center">
+      <Col className="flex-md-fill">
+      <Button variant="outline-primary" size="sm">MORE ANSWERED QUESTION</Button>
       </Col>
 
-      <Col md="auto">
-      <Button variant="outline-primary" >ADD A QUESTION + </Button>
-      </Col>
-
-      <Col xs lg="2">
+      <Col className="flex-md-fill">
+        <AddQuestion />
+      {/* <Button variant="outline-primary" size="sm" >ADD A QUESTION + </Button> */}
       </Col>
 
        </Row>
