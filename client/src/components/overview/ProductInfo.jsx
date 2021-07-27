@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Container } from 'react-bootstrap';
+import { Row, Container, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function ProductInfo(props) {
@@ -16,13 +16,41 @@ function ProductInfo(props) {
   for (let review of reviewsList) {
     reviewStats.push(review.rating);
   }
-  let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length;
+  let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length / 2;
+  console.log(averageReview);
 
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
-      <Row>
-        <span className="product-rating" >✰✰✰✰✰ {Math.round(averageReview * 10) / 10} <a href="#">Read all reviews</a></span>
-      </Row>
+      <span className="product-rating">
+        <Row>
+          <Col className="col-sm-auto">
+              <span class="score">
+                <div class="score-wrap">
+                  <span class="stars-active" style={{width: `${averageReview * 10 * 2}%`}}>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </span>
+                  <span class="stars-inactive">
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </span>
+            </Col>
+            <Col>
+              {Math.round(averageReview * 10) / 10} / 5.0
+            </Col>
+        </Row>
+        <Row>
+          <a href="#">Read all reviews</a>
+        </Row>
+      </span>
       <Row>
         <span className="product-category">{category}</span>
       </Row>
