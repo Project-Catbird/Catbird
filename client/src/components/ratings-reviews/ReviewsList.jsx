@@ -13,7 +13,7 @@ const ReviewsList = () => {
 
   let renderMoreReviewsButton = () => {
     if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {
-      return <Button variant="primary" type="button"
+      return <Button variant="primary" type="button" id="more-reviews"
         onClick={() =>
           dispatch({
             type: 'UPDATE_REVIEWS_COUNT',

@@ -1,16 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form } from 'react-bootstrap';
+
 
 const Characteristics = () => {
   const characteristics = ['Size', 'Width', 'Comfort', 'Quality', 'Length', 'Fit'];
+  const validator = useSelector(state => state.newReviewValidation);
+  const dispatch = useDispatch();
+
+  let handleChange = (event) => {
+    let tempState = validator;
+    tempState[event.target.getAttribute('name')] = true;
+    dispatch({
+      type: 'VALIDATE_REVIEW',
+      reviewValidator: tempState
+    })
+  }
 
   let renderCharacteristics = () => {
     let result = [];
     for (let i = 0; i < characteristics.length; i++) {
       let type = characteristics[i];
       let options;
-      console.log('result', result)
       if (type === 'Size') {
         options = {
           1: 'A size too small',
@@ -19,8 +30,6 @@ const Characteristics = () => {
           4: '1/2 a size too big',
           5: 'A size too big'
         };
-      console.log('options', options)
-
       } else if (type === 'Width') {
         options = {
           1: 'Too narrow',
@@ -69,8 +78,10 @@ const Characteristics = () => {
             {Object.keys(options).map(option => (
               <Form.Check
               inline
-              label={options[option]}
+              label={`${options[option]} `}
               type="radio"
+              name={type}
+              onChange={handleChange}
               />
             ))}
           </Form.Group>

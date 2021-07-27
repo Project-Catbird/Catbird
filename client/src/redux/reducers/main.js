@@ -3,14 +3,16 @@ import reviewsListReducer from './ratings-reviews/reviewsList.js';
 import reviewsCountReducer from './ratings-reviews/reviewsCount.js';
 import reviewsMetaReducer from './ratings-reviews/reviewsMeta.js';
 import reviewsSortTypeReducer from './ratings-reviews/reviewsSortType.js';
-import showNewReviewModalReducer from './ratings-reviews/showNewReviewModalReducer.js';
+import showNewReviewModalReducer from './ratings-reviews/showNewReviewModal.js';
+import newReviewValidationReducer from './ratings-reviews/newReviewValidation.js';
 
 const rootReducer = combineReducers({
   reviewsList: reviewsListReducer,
   reviewsCount: reviewsCountReducer,
   reviewsMeta: reviewsMetaReducer,
   reviewsSortType: reviewsSortTypeReducer,
-  showNewReviewModal: showNewReviewModalReducer
+  showNewReviewModal: showNewReviewModalReducer,
+  newReviewValidation: newReviewValidationReducer
   //TODO: Combine all reducers into one single rootReducer
   //Examples:
   //combineReducers({ counter: counter, todos: todos }).

@@ -1,62 +1,64 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { Form, Button } from 'react-bootstrap';
 import Characteristics from './Characteristics.jsx';
+import RatingRecommendation from './RatingRecommendation.jsx';
+import PhotoUpload from './PhotoUpload.jsx';
 
 
 
 const NewReviewForm = () => {
+  const validator = useSelector(state => state.newReviewValidation)
+  console.log('validator', validator)
+
+  let checkValidator = () => {
+    for (let key in validator) {
+      if (validator[key] === false) {
+        return false
+      }
+    }
+    return true;
+  }
+
+  let handleSubmit = (event) => {
+    event.preventDefault();
+    let validated = checkValidator();
+    // let form = event.currentTarget;
+    // console.log(form.checkValidity())
+    if (validated === false) {
+      event.preventDefault();
+      alert('Whoops! Looks like you still need to fill out some areas of your review! Make sure all fields are entered.')
+      event.stopPropagation();
+    } else {
+      console.log('valid')
+    }
+  }
   return (
-    <Form>
-      <Form.Group className="mb-3">
-        <Form.Label>Overall Rating:</Form.Label>
-        <Form.Check
-          inline
-          label="1"
-          name="group1"
-          type="radio"
-          id={`inline-radio-1`}
-        />
-        <Form.Check
-          inline
-          label="2"
-          name="group1"
-          type="radio"
-          id={`inline-radio-2`}
-        />
-        <Form.Check
-          inline
-          label="3"
-          type="radio"
-          id={`inline-radio-3`}
-        />
-        <Form.Check
-          inline
-          label="4"
-          type="radio"
-          id={`inline-radio-4`}
-        />
-        <Form.Check
-          inline
-          label="5"
-          type="radio"
-          id={`inline-radio-5`}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Do You Recommend This Product?</Form.Label>
-        <Form.Check
-          inline
-          label="Yes"
-          type="radio"
-        />
-        <Form.Check
-          inline
-          label="No"
-          type="radio"
-        />
-      </Form.Group>
+    <Form onSubmit={handleSubmit}>
+      <RatingRecommendation />
       <br></br>
       <Characteristics />
+      <br></br>
+      <Form.Group>
+        <Form.Label>Review Summary </Form.Label>
+        <Form.Control
+          placeholder="Leave a short summary of your review. No more than 60 characters"
+          controlId="new-review-summary"
+        />
+        <br></br>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Review Body </Form.Label>
+        <Form.Control
+          as="textarea"
+          placeholder="Leave your review here"
+          controlId="new-review-body"
+          rows={5}
+          required
+        />
+      </Form.Group>
+      <PhotoUpload />
+      <Button type="submit">Submit form</Button>
     </Form>
   )
 }
