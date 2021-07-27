@@ -41,7 +41,7 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
         <strong>Question Body: {question_body}</strong>
       </Form.Label>
 
-    <Form.Group controlId="answer">
+    <Form.Group controlId={body}>
       <Form.Label>Your Answer: </Form.Label>
       <Form.Control
         as="textarea"
@@ -52,7 +52,7 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
         />
     </Form.Group>
 
-    <Form.Group controlId="nickName">
+    <Form.Group controlId={name}>
       <Form.Label>What is your nickname: </Form.Label>
       <Form.Control
         type="text"
@@ -62,7 +62,7 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
         />
     </Form.Group>
 
-    <Form.Group controlId="email">
+    <Form.Group controlId={email}>
       <Form.Label>Your email: </Form.Label>
       <Form.Control
         type="text"

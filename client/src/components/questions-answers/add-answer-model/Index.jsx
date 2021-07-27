@@ -23,16 +23,8 @@ const AddAnswer = ( { question_id, question_body }) => {
   }
 
   const { getProductName } = bindActionCreators(actionCreators, dispatch);
-
   const product_id = useSelector(state => state.product_id);
   const product_name = useSelector(state => state.product_name);
-
-
-  //why this calling getProductName so many time even I put empty array as second arg
-  // useEffect(() => {
-  //    getProductName(product_id);
-  // }, [])
-
 
   return (
     <div>
@@ -61,8 +53,6 @@ const AddAnswer = ( { question_id, question_body }) => {
          />
     </Modal.Body>
     <Modal.Footer>
-
-    {/* <Button variant="secondary" onClick={closeAddAnswerModal}>Close</Button> */}
     </Modal.Footer>
 </Modal>
 
