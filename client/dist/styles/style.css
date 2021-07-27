@@ -1,0 +1,56 @@
+.container {
+  padding: 10px;
+}
+
+img {
+  margin: 20px;
+}
+
+.row, .col {
+  padding: 5px;
+}
+
+.sale-price {
+  color: red;
+}
+
+.thumbnail {
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.carousel-control-next-icon:after {
+  content: '>';
+  font-size: 55px;
+  color: grey;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: grey;
+}
+
+.fab {
+  padding: 1%;
+}
+
+.fab:hover, .style-thumbnail:hover {
+  opacity:0.7;
+  cursor: pointer;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+label:before {
+  position: absolute;
+  z-index: 100;
+}
+
+:checked+label:before {
+  content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
+}
