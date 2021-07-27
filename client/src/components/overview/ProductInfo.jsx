@@ -26,34 +26,35 @@ function ProductInfo(props) {
 
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
-      <span className="product-rating">
-        <Row>
-          <Col className="col-sm-auto">
-            {Math.round(averageReview * 10) / 10} / 10
-          </Col>
-          <Col>
-              <span className="score">
-                <div className="score-wrap">
-                  <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
+      {reviewsList.length > 0 ?
+            <span className="product-rating">
+            <Row>
+              <Col className="col-sm-auto">
+                {Math.round(averageReview * 10) / 10} / 10
+              </Col>
+              <Col>
+                  <span className="score">
+                    <div className="score-wrap">
+                      <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                      <span className="stars-inactive">
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                    </div>
                   </span>
-                  <span className="stars-inactive">
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                  </span>
-                </div>
-              </span>
-          </Col>
-          <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
-        </Row>
-      </span>
+              </Col>
+              <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
+            </Row>
+          </span> : ''}
       <Row>
         <span className="product-category">{category}</span>
       </Row>
