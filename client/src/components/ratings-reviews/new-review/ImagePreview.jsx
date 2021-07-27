@@ -12,7 +12,7 @@ const ImagePreview = () => {
           console.log(photoUrl)
           return (
             <Col>
-              <Image src={photoUrl} style={{maxWidth: '20%'}} />
+              <Image src={photoUrl} thumbnail />
             </Col>
           )
       })}

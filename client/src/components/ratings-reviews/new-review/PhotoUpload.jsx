@@ -12,27 +12,17 @@ const PhotoUpload = () => {
     event.preventDefault();
     if (photos === null || photos.length <= 5) {
       let tempState = photos ?? [];
-      let url = URL.createObjectURL(event.target.files[0]);
-      tempState.push(url);
+      let fileList = event.target.files;
+      for (let i = 0; i < fileList.length; i++) {
+        tempState.push(URL.createObjectURL(fileList[i]))
+      }
       dispatch({
         type: 'UPLOAD_PHOTO',
         photo: tempState
       })
-      console.log(imgPreview)
-      imgPreview.push(<Image src={url} thumbnail />)
     }
   }
 
-  let imgPreview = [];
-
-  // let imgPreview = () => {
-  //   let thumbnails = [];
-  //   for (let photo of photos) {
-  //     thumbnails.push(<img src={photo} style={{maxWidth: '20%'}} />)
-  //   }
-  //   console.log(thumbnails)
-  //   return thumbnails;
-  // }
 
   return (
     <React.Fragment>
@@ -41,9 +31,8 @@ const PhotoUpload = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Control type="file" onChange={uploadPhoto} />
+          <Form.Control type="file" onChange={uploadPhoto} multiple />
         </Form.Group>
-        {/* <Button type="button" className="btn btn-primary btn-block" onClick={this.upload}>Upload</Button> */}
     </React.Fragment>
   )
 }
@@ -51,43 +40,3 @@ const PhotoUpload = () => {
 
 
 export default PhotoUpload;
-// export default class PhotoUpload extends React.Component {
-//   constructor(props) {
-//       super(props)
-//       this.state = {
-//           file: null
-//       }
-//       this.uploadSingleFile = this.uploadSingleFile.bind(this)
-//       this.upload = this.upload.bind(this)
-//   }
-
-//   uploadSingleFile(e) {
-//     this.setState({
-//       file: URL.createObjectURL(e.target.files[0])
-//     })
-//   }
-
-//   upload(e) {
-//     e.preventDefault()
-//     console.log(this.state.file)
-//   }
-
-//   render() {
-//     let imgPreview;
-//     if (this.state.file) {
-//       imgPreview = <img src={this.state.file} alt='' style={{maxWidth: '20%'}} />;
-//     }
-//     return (
-      // <form>
-      //   <div className="form-group preview">
-      //     {imgPreview}
-      //   </div>
-
-      //   <div className="form-group">
-      //     <input type="file" className="form-control" onChange={this.uploadSingleFile} />
-      //   </div>
-      //   <button type="button" className="btn btn-primary btn-block" onClick={this.upload}>Upload</button>
-      // </form >
-//     )
-//   }
-// }
