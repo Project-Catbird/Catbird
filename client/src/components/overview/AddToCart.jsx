@@ -3,7 +3,6 @@ import { Container, Button, Row, Form, FormGroup, FormControl, Col } from 'react
 import { useSelector } from 'react-redux';
 import API_KEY from '../../config/config'
 import axios from 'axios';
-
 function AddToCart(props) {
   const widget = 'add-to-cart'
   const skusInfo = useSelector((state) => state.style.skus);
@@ -16,7 +15,6 @@ function AddToCart(props) {
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState(null);
   const [atcQuantity, setATCQuantity] = useState(0);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (size === '' || atcQuantity < 1) {
@@ -27,12 +25,11 @@ function AddToCart(props) {
         .catch(err => { console.log(err); })
     }
   }
-
   return (
     <Container>
       <Form id="add-to-cart-form" onSubmit={handleSubmit} onClick={e => {props.handleInteractions(e.target.id, widget)}}>
         <FormGroup role="form">
-          <Row>
+          {/* <Row>
             <Form.Select id="add-to-cart-size" onChange={e => {
               if (e.target.value === "") {
                 setSize('');
@@ -50,7 +47,7 @@ function AddToCart(props) {
               <option value="0">Select Quantity</option>
               {Array.from(Array(quantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
             </Form.Select>
-          </Row>
+          </Row> */}
           <Row>
             {quantity === 0 ? '' : <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>}
           </Row>
@@ -62,5 +59,4 @@ function AddToCart(props) {
     </Container>
   )
 }
-
 export default AddToCart;
