@@ -15,6 +15,7 @@ function AddToCart(props) {
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState(null);
   const [atcQuantity, setATCQuantity] = useState(0);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (size === '' || atcQuantity < 1) {
@@ -25,6 +26,12 @@ function AddToCart(props) {
         .catch(err => { console.log(err); })
     }
   }
+
+  const handleLike = (event) => {
+    event.preventDefault();
+    alert('Liked!');
+  }
+
   return (
     <Container>
       <Form id="add-to-cart-form" onSubmit={handleSubmit} onClick={e => {props.handleInteractions(e.target.id, widget)}}>
@@ -52,7 +59,7 @@ function AddToCart(props) {
             {quantity === 0 ? '' : <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>}
           </Row>
           <Row>
-            <Button className="btn btn-primary btn-large centerButton" id="like-btn" type="" >Like</Button>
+            <Button className="btn btn-primary btn-large centerButton" id="like-btn" type="" onClick={handleLike}>Like</Button>
           </Row>
         </FormGroup>
       </Form>

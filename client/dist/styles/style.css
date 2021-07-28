@@ -112,12 +112,12 @@
   display: none;
 } */
 
-label:before {
+.style-label:before {
   position: absolute;
   z-index: 100;
 }
 
-/* :checked+label:before {
+:checked+.style-label:before {
   content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
 } */
 
