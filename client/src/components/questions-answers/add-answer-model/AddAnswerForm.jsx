@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { API_KEY, API_URL } from '../../../config/config.js';
@@ -35,7 +35,7 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
   <Form onSubmit={handleSubmit}>
 
       <Form.Label>
-        <strong>Product Name: {product_name}></strong>
+        <strong>Product Name: {product_name}</strong>
         <br />
         <br />
         <strong>Question Body: {question_body}</strong>
@@ -75,21 +75,35 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
     <br/>
 
     <Form.Group controlId="formFile">
-      <Form.Label>Choose Photos </Form.Label>
+      <Form.Label>Choose Photos   </Form.Label>
       <Form.Control type="file" value={photos}
           onChange={e => setPhotos(e.target.value)}/>
     </Form.Group>
     <br />
-      <Row>
+
+    <Container className="modalTwoButtons">
+      <Row className="flex-nowrap text-center">
         <Col>
-          <Button variant="primary" type="submit">Submit your Answer</Button>
+          <Button
+            variant="outline-primary"
+            size="sm"
+            type="submit"
+            >Submit your Answer
+          </Button>
         </Col>
 
 
         <Col>
-          <Button variant="secondary" onClick={closeAddAnswerModal}>Close</Button>
+          <Button
+            variant="outline-primary"
+            size="sm"
+            onClick={closeAddAnswerModal}
+            >Close
+            </Button>
         </Col>
       </Row>
+    </Container>
+
   </Form>
 
   )

@@ -21,21 +21,23 @@ const QuestionsList = ({ qnaList }) => {
 
   return (
     <Container>
-      <ListGroup variant="flush" p-0>
+      <ListGroup variant="flush">
         {qList}
       </ListGroup>
 
       <br />
-
+      <Container className="twoMainButton">
        <Row className="flex-nowrap text-center">
-      <Col className="flex-md-fill">
-      <Button variant="outline-primary" size="sm">MORE ANSWERED QUESTION</Button>
-      </Col>
+          <Col className="flex-md-fill">
+          <Button variant="outline-primary" size="sm" >MORE ANSWERED QUESTION</Button>
+          </Col>
 
-      <Col className="flex-md-fill">
-        <AddQuestion />
-      </Col>
+          <Col className="flex-md-fill">
+            <AddQuestion />
+          </Col>
        </Row>
+       </Container>
+
     </Container>
   )
 

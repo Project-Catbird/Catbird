@@ -37,7 +37,7 @@ import AddAnswerForm from './AddAnswerForm.jsx';
       </div>
 
     <Modal centered show={addAnswerModalIsOpen} onHide={closeAddAnswerModal}>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton className="modalCloseButton">
        <Modal.Title>Add ANSWER</Modal.Title>
      </Modal.Header>
      <Modal.Body>

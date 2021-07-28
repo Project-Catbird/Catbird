@@ -2,11 +2,33 @@
   font-size: clamp(12px, 2vw, 16px);
   font-family: math;
   color:gray;
+  margin: none;
+  border: none;
+}
+
+
+.questionHeader {
+  display: flex;
+}
+
+.helpAndAddAnswer {
+  display: flex;
+}
+
+.helpfulBody {
+  padding-right: 8px;
+  border-right: 2px solid gray;
+  height: 20px;
+}
+
+.addAnswersBody {
+  padding-left: 8px;
 }
 
 .qna-title {
   font-size: clamp(15px, 2vw, 25px);
   color:gray;
+  flex:1
 }
 .qna-a {
   font-size:clamp(14px, 2vw, 20px);
@@ -15,8 +37,9 @@
 }
 
 .qna-q {
-  font-size: clamp(15px, 2vw, 25px);
+  font-size: clamp(18px, 2vw, 25px);
   font-family: math;
+  font-weight: lighter;
   color:gray;
 }
 
@@ -31,11 +54,33 @@
 }
 
 .questionHelpfulness {
-  font-size: clamp(12px, 2vw, 16px);
+  font-size: clamp(10px, 2vw, 16px);
   font-family: math;
   color:gray;
 }
 
+.twoMainButton button {
+  font-size: clamp(8px, 2vw, 20px);
+}
+/* .AddQuestionModalTwoButtons {
+  justify-items: stretch;
+  align-items: center;
+} */
+.modalTwoButtons button {
+  font-size: clamp(10px, 2vw, 18px);
+}
+
+/* .addAnswerCloseButton button {
+  outline: none;
+  background-color: Transparent;
+  border: none;
+} */
+
+.modalCloseButton button {
+  outline: none;
+  background-color: Transparent;
+  border: none;
+}
 
 .form {
   display:flex;
@@ -58,9 +103,11 @@
   font-size: clamp(12px, 2vw, 18px);
   font-family: math;
   color:gray;
+  background-color: Transparent;
   border: none;
   margin-left: 3%;
   margin-bottom: none;
+  outline:none;
 }
 
 .see-more-answers:hover{

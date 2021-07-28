@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -26,32 +26,26 @@ const AddQuestion = () => {
 
   return (
     <div>
-
-    <div>
-     <Button variant="outline-primary" size="sm" onClick={openAddQuestionModal}>ADD A QUESTION + </Button>
-    </div>
-
-    <Modal centered show={addQuestionModalIsOpen} onHide={closeAddQuestionModal}>
-      <Modal.Header closeButton>
-       <Modal.Title>
-         Ask Your Question
-         <div>About the {product_name} </div>
-       </Modal.Title>
-
-     </Modal.Header>
-     <Modal.Body>
-       <AddQuestionForm
-         product_id={product_id}
-         product_name={product_name}
-         closeAddQuestionModal={closeAddQuestionModal}
-         />
-    </Modal.Body>
-    <Modal.Footer>
-    </Modal.Footer>
-</Modal>
-
-
-
+      <div>
+        <Button variant="outline-primary" size="sm" onClick={openAddQuestionModal}>ADD A QUESTION + </Button>
+      </div>
+      <Modal centered animation show={addQuestionModalIsOpen} onHide={closeAddQuestionModal}>
+        <Modal.Header closeButton className="modalCloseButton">
+          <Modal.Title>
+            Ask Your Question
+            <div>About the {product_name} </div>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddQuestionForm
+            product_id={product_id}
+            product_name={product_name}
+            closeAddQuestionModal={closeAddQuestionModal}
+            />
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
     </div>
 )
 }
