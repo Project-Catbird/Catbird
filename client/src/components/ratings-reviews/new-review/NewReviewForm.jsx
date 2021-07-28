@@ -55,6 +55,31 @@ const NewReviewForm = () => {
         />
       </Form.Group>
       <PhotoUpload />
+      <br></br>
+      <Form.Group>
+        <Form.Label><b>What Is Your Nickname? </b></Form.Label>
+        <Form.Control
+          placeholder="Example: jackson11!"
+          controlId="new-review-nickname"
+          required
+        />
+        <Form.Text className="text-muted">
+          For privacy reasons, do not use your full name or email address
+        </Form.Text>
+      </Form.Group>
+      <br></br>
+      <Form.Group>
+        <Form.Label><b>Email: </b></Form.Label>
+        <Form.Control
+          placeholder="Example: jackson11@email.com"
+          controlId="new-review-email"
+          required
+          type="email"
+        />
+        <Form.Text className="text-muted">
+          For authentication reasons, you will not be emailed
+        </Form.Text>
+      </Form.Group>
       <Button type="submit">Submit form</Button>
     </Form>
   )

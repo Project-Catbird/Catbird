@@ -56,6 +56,7 @@ const RatingRecommendation = () => {
             onChange={handleChange}
           />
         </Form.Group>
+        <br></br>
         <Form.Group>
           <Form.Label><b>Do You Recommend This Product? </b></Form.Label>
           <Form.Check
