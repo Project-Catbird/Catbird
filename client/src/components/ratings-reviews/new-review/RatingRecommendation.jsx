@@ -98,7 +98,6 @@ const RatingRecommendation = () => {
                       name="rating"
                       value={rating.value}
                       onClick={() => handleChange('rating', rating.value)}
-                      validated={validator.rating ? true : false}
                     >
                     {rating.star}
                     </Button>
@@ -117,7 +116,6 @@ const RatingRecommendation = () => {
             type="radio"
             name="recommendation"
             onChange={() => handleChange('recommend', true)}
-            validated={validator.recommendation ? true : false}
           />
           <Form.Check
             inline
@@ -125,7 +123,6 @@ const RatingRecommendation = () => {
             type="radio"
             name="recommendation"
             onChange={() => handleChange('recommend', false)}
-            validated={validator.recommendation ? true : false}
           />
       </Form.Group>
     </React.Fragment>
