@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, ButtonGroup, ToggleButton, Row, Col } from 'react-bootstrap';
+import { Form, Button, ButtonGroup, ToggleButton, Row, Col, ButtonToolbar } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -73,132 +73,33 @@ const RatingRecommendation = () => {
     </span>,
     value: 5}
   ]
-  // const starRatings = [
-  //   {star:
-  //   <span className="score">
-  //     <div className="score-wrap">
-  //       <span className="stars-active" style={{width: "20%"}}>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //       </span>
-  //     </div>
-  //   </span>,
-  //   value: 1},
-  //   {star:
-  //   <span className="score">
-  //     <div className="score-wrap">
-  //       <span className="stars-active" style={{width: "40%"}}>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //       </span>
-  //     </div>
-  //   </span>,
-  //   value: 2},
-  //   {star:
-  //   <span className="score">
-  //     <div className="score-wrap">
-  //       <span className="stars-active" style={{width: "60%"}}>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //       </span>
-  //     </div>
-  //   </span>,
-  //   value: 3},
-  //   {star:
-  //   <span className="score">
-  //     <div className="score-wrap">
-  //       <span className="stars-active" style={{width: "80%"}}>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //       </span>
-  //     </div>
-  //   </span>,
-  //   value: 4},
-  //   {star:
-  //   <span className="score">
-  //     <div className="score-wrap">
-  //       <span className="stars-active" style={{width: "100%"}}>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //         <i className="fa fa-star" aria-hidden="true"></i>
-  //       </span>
-  //     </div>
-  //   </span>,
-  //   value: 5}
-  // ]
 
   return (
     <React.Fragment>
       <Form.Group>
           <Form.Label><b>Overall Rating: </b></Form.Label>
           <Row>
-            <ButtonGroup>
-              {starRatings.map((rating) => (
-                <Col>
-                  <ToggleButton
-                    key={rating.value}
-                    id="new-review-rating"
-                    type="radio"
-                    variant="outline-light"
-                    name="star-ratings"
-                    value={rating.value}
-                  >
-                  {rating.star}
-                  </ToggleButton>
-                </Col>
-              ))}
-            </ButtonGroup>
+            <ButtonToolbar>
+              <ButtonGroup>
+                {starRatings.map((rating) => (
+                  <Col>
+                    <Button
+                      key={rating.value}
+                      id={`new-review-rating-${rating.value}`}
+                      type="button"
+                      variant="light"
+                      name="rating"
+                      value={rating.value}
+                      onClick={handleChange}
+                      validated={validator.rating ? true : false}
+                    >
+                    {rating.star}
+                    </Button>
+                  </Col>
+                ))}
+              </ButtonGroup>
+            </ButtonToolbar>
           </Row>
-          <Form.Check
-            validated={validator.rating ? true : false}
-            inline
-            label="1"
-            name="rating"
-            type="radio"
-            onChange={handleChange}
-          />
-          <Form.Check
-            inline
-            label="2"
-            name="rating"
-            type="radio"
-            onChange={handleChange}
-          />
-          <Form.Check
-            inline
-            label="3"
-            type="radio"
-            name="rating"
-            onChange={handleChange}
-          />
-          <Form.Check
-            inline
-            label="4"
-            type="radio"
-            name="rating"
-            onChange={handleChange}
-          />
-          <Form.Check
-            inline
-            label="5"
-            type="radio"
-            name="rating"
-            onChange={handleChange}
-          />
         </Form.Group>
         <br></br>
         <Form.Group>
@@ -209,6 +110,7 @@ const RatingRecommendation = () => {
             type="radio"
             name="recommendation"
             onChange={handleChange}
+            validated={validator.recommendation ? true : false}
           />
           <Form.Check
             inline
@@ -216,6 +118,7 @@ const RatingRecommendation = () => {
             type="radio"
             name="recommendation"
             onChange={handleChange}
+            validated={validator.recommendation ? true : false}
           />
       </Form.Group>
     </React.Fragment>

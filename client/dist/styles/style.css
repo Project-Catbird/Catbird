@@ -168,3 +168,8 @@
   -webkit-text-stroke: initial;
   /* overflow: hidden; */
 }
+
+.individual-review-tile {
+  border: 1px solid black;
+  border-radius: 10px;
+}

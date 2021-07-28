@@ -82,6 +82,8 @@ const Characteristics = () => {
               type="radio"
               name={type}
               onChange={handleChange}
+              validated={validator[type] ? true : false}
+
               />
             ))}
           </Form.Group>

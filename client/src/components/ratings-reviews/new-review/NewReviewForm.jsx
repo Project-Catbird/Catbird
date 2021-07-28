@@ -40,7 +40,7 @@ const NewReviewForm = () => {
         <Form.Label><b>Review Summary </b></Form.Label>
         <Form.Control
           placeholder="Leave a short summary of your review. No more than 60 characters"
-          controlId="new-review-summary"
+          controlid="new-review-summary"
         />
         <br></br>
       </Form.Group>
@@ -49,7 +49,7 @@ const NewReviewForm = () => {
         <Form.Control
           as="textarea"
           placeholder="Leave your review here"
-          controlId="new-review-body"
+          controlid="new-review-body"
           rows={5}
           required
         />
@@ -60,7 +60,7 @@ const NewReviewForm = () => {
         <Form.Label><b>What Is Your Nickname? </b></Form.Label>
         <Form.Control
           placeholder="Example: jackson11!"
-          controlId="new-review-nickname"
+          controlid="new-review-nickname"
           required
         />
         <Form.Text className="text-muted">
@@ -72,7 +72,7 @@ const NewReviewForm = () => {
         <Form.Label><b>Email: </b></Form.Label>
         <Form.Control
           placeholder="Example: jackson11@email.com"
-          controlId="new-review-email"
+          controlid="new-review-email"
           required
           type="email"
         />
