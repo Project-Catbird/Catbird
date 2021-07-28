@@ -39,7 +39,7 @@ const IndividualQuestion = ({ question }) => {
 useEffect(() => {
   fetchAnswerList(question_id)
   .then(result => {
-    console.log(result.data.results)
+    // console.log(result.data.results)
     setAnswerList(result.data.results)
   })
   .catch(err => console.log('error from fetching answerslist', err ))

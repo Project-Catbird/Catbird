@@ -16,7 +16,7 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
 
   const handleSubmit = (e)=> {
     e.preventDefault();
-    console.log('submited', name, body, email, photos);
+    // console.log('submited', name, body, email, photos);
     dispatch({ type: 'TOGGLE_ADD_ANSWER'});
     // if (name.length === 0 ) {
     //   alert();
