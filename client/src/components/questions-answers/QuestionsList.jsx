@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 
 
-const QuestionsList = ({ qnaList }) => {
+const QuestionsList = ({ qnaList, getMoreQuestions, noMoreQuestion }) => {
 
      let qList = qnaList.map(question => {
      return (
@@ -28,9 +28,12 @@ const QuestionsList = ({ qnaList }) => {
       <br />
       <Container className="twoMainButton">
        <Row className="flex-nowrap text-center">
-          <Col className="flex-md-fill">
-          <Button variant="outline-primary" size="sm" >MORE ANSWERED QUESTION</Button>
-          </Col>
+
+         {!noMoreQuestion &&
+            <Col className="flex-md-fill">
+            <Button variant="outline-primary" size="sm" onClick={getMoreQuestions} >MORE ANSWERED QUESTION</Button>
+            </Col>
+         }
 
           <Col className="flex-md-fill">
             <AddQuestion />

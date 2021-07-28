@@ -19,7 +19,7 @@
 
 .helpfulBody {
   padding-right: 8px;
-  border-right: 2px solid gray;
+  border-right: 0.1em solid gray;
   height: 20px;
 }
 

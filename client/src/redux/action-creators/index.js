@@ -3,27 +3,32 @@ import { API_KEY, API_URL } from '../../config/config.js';
 
 //ACTION CREATORS
 
-export const fetchQuestionList = () => {
+export const fetchQuestionList = (product_id, page, count) => {
   return (dispatch) => {
     axios.get(`${API_URL}/qa/questions`,
     {
       headers: {Authorization: API_KEY},
       params: {
-      product_id: 16056
+      // product_id: product_id,
+      product_id: 16056,
+      page: page,
+      count:count
       }
     })
     .then(result =>  {
+
+      console.log(result.data);
 
       dispatch({
         type:'FETCH_QUESTION_LIST',
         questionList: result.data.results
       });
 
-      dispatch({
-        type: 'CURRENT_PRODUCT_ID',
-        product_id: result.data.product_id
-      })
-    }).catch(err => console.log('error from axios call fetchQuestionList', err))
+      // dispatch({
+      //   type: 'CURRENT_PRODUCT_ID',
+      //   product_id: result.data.product_id
+      // })
+    }).catch(err => console.log('error from axios call fetchQuestionList', product_id, err))
 
   }
 }
@@ -61,3 +66,4 @@ export const markAnswerHelpful = (answer_id) => {
 export const markQuestionHelpful = (question_id) => {
   return axios.put(`${API_URL}/qa/answers/${question_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 }
+

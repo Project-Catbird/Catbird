@@ -22,7 +22,7 @@ import AddAnswerForm from './AddAnswerForm.jsx';
   }
 
   const { getProductName } = bindActionCreators(actionCreators, dispatch);
-  const product_id = useSelector(state => state.product_id);
+  const product_id = useSelector(state => state.productId);
   const product_name = useSelector(state => state.product_name);
 
   return (
