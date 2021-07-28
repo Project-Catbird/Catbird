@@ -10,7 +10,7 @@ const ImagePreview = () => {
         {photos.map(photoUrl => {
           return (
             <Col>
-              <Image src={photoUrl} thumbnail />
+              <Image className="review-thumbnail" src={photoUrl} thumbnail />
             </Col>
           )
       })}
