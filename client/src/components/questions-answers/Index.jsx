@@ -37,10 +37,10 @@ useEffect(() => {
       <Container fluid className="flex-nowrap text-center">
       <Row>
           <Col>
-            <SearchQuestions />
+           <SearchQuestions />
           </Col>
         </Row>
-      </Container>
+        </Container>
       <Row>
       {qnaList.length !==0 && <QuestionsList qnaList={qnaList}/>}
       </Row>

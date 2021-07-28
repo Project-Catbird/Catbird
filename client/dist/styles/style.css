@@ -7,12 +7,14 @@
 }
 
 
+
 .questionHeader {
   display: flex;
 }
 
 .helpAndAddAnswer {
   display: flex;
+  align-self: center;
 }
 
 .helpfulBody {
@@ -23,6 +25,7 @@
 
 .addAnswersBody {
   padding-left: 8px;
+
 }
 
 .qna-title {
@@ -62,19 +65,11 @@
 .twoMainButton button {
   font-size: clamp(8px, 2vw, 20px);
 }
-/* .AddQuestionModalTwoButtons {
-  justify-items: stretch;
-  align-items: center;
-} */
+
 .modalTwoButtons button {
   font-size: clamp(10px, 2vw, 18px);
 }
 
-/* .addAnswerCloseButton button {
-  outline: none;
-  background-color: Transparent;
-  border: none;
-} */
 
 .modalCloseButton button {
   outline: none;

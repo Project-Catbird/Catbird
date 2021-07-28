@@ -27,7 +27,6 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
   useEffect(() => {
     fetchAnswerList(question_id)
     .then(result => {
-      // console.log(result.data.results)
       setAnswerList(result.data.results)
     })
     .catch(err => console.log('error from fetching answerslist', err ))
@@ -37,10 +36,7 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
 
 
 return (
-    <div className="answerList">
-
-
-
+    <div>
       <div className="questionHeader">
         <div className="qna-title">Q:  <span className="qna-q">{question_body}</span>
         </div>
@@ -60,11 +56,7 @@ return (
           </div>
       </div>
 
-
-
-
-
-      <div>
+      <div className="answerList">
         {sortedAnswerList.length !== 0 && <AnswerList answerList={sortedAnswerList} question_id={question_id} question_body={question_body} />}
       </div>
 

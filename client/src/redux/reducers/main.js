@@ -35,7 +35,7 @@ const rootReducer = combineReducers({
 
   //qna
 
-  product_id: qnaReducers.productIdReducer,
+  // product_id: qnaReducers.productIdReducer,
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
   addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,

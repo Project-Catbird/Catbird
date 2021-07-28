@@ -27,9 +27,11 @@ const markAnswerHelpful = actionCreators.markAnswerHelpful;
     <Row>
       <div ><span className="qna-title">A:    </span><span className="qna-a">{answer.body}</span></div>
     </Row>
+
     <Row>
       <Col className="answerStamp">by {answer.answerer_name}</Col>
-      <Col className="answerStamp"><Moment format="MMM Do YYYY">{answer.date}</Moment></Col>
+        <Col className="answerStamp"><Moment format="MMM Do YYYY">{answer.date}</Moment>
+      </Col>
       <Col>
         <AnswerHelpfulness helpfulness={addedHelpful} addHelpfulness={addHelpfulness}/>
       </Col>

@@ -10,7 +10,7 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   const [ answersHidden, setAnswersHidden] = useState( answerList.length > 2 ? answerList.slice(2) : []);
   const answers = answersShwon.map(answer => {
     return(
-      <ListGroup.Item key={answer.answer_id}>
+      <ListGroup.Item className="h-50 d-inline-block" key={answer.answer_id}>
       <Answer answer={answer} question_id={question_id} question_body={question_body}/>
       </ListGroup.Item>
     )
@@ -20,7 +20,6 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   const handleSeeMoreAnswer = () => {
 
     setButtonClicked(true);
-
     setAnswersShown([
       ...answersShwon,
       ...answersHidden
@@ -36,9 +35,9 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   }
 
   return (
-    <Container style={{ paddingLeft: 0, paddingRight: 0 }}>
+    <Container >
 
-    <ListGroup variant="flush">
+    <ListGroup className="answerList" variant="flush">
     {answers}
     </ListGroup>
      {answersHidden.length > 0 && !buttonClicked ? <button className="see-more-answers" onClick={handleSeeMoreAnswer}>see more answers</button> : <button className="see-more-answers" onClick={handleSeeLessAnswer}>see less answers</button> }
