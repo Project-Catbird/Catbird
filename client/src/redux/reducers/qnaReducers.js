@@ -49,10 +49,10 @@ export const productNameReducer = (state = '', action) => {
 
 
 
-export const searchBarInputReducer = (state = '', action) => {
+export const searchBarTypedReducer = (state = false, action) => {
   switch (action.type) {
-    case 'SEARCHBAR_INPUT':
-      return action.searchBarInput;
+    case 'SEARCHBAR_START_TYPING':
+      return action.searchBarTyped
     default:
       return state;
   }

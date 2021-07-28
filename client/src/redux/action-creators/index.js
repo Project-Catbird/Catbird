@@ -17,8 +17,6 @@ export const fetchQuestionList = (product_id, page, count) => {
     })
     .then(result =>  {
 
-      console.log(result.data);
-
       dispatch({
         type:'FETCH_QUESTION_LIST',
         questionList: result.data.results

@@ -14,9 +14,10 @@ const QnAComponent = (props) => {
 const qnaList = useSelector(state => state.qnaList).sort((a, b) => b.question_helpfulness - a.question_helpfulness);
 
 const productId = useSelector(state => state.productId);
+var searchBarTyped = useSelector(state => state.searchBarTyped);
 
-const [ count, setCount ] = useState(4);
-const [ noMoreQuestion, setNoMoreQuestion ] = useState(false);
+var [ count, setCount ] = useState(4);
+var [ noMoreQuestion, setNoMoreQuestion ] = useState(false);
 const dispatch = useDispatch();
 const { fetchQuestionList } = bindActionCreators(actionCreators, dispatch);
 var qnaListShown = qnaList.slice(0, count);
@@ -33,10 +34,40 @@ var qnaListShown = qnaList.slice(0, count);
    if (count >= qnaList.length) {
      setNoMoreQuestion(true);
    }
-    console.log(count);
-    console.log(qnaList.length);
-    console.log(noMoreQuestion);
   }
+
+  const rennderComponents = () => {
+
+
+
+    if (qnaList.length !==0 && !searchBarTyped) {
+       return (
+        <QuestionsList qnaList={qnaListShown} getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}/>
+       )
+    }
+
+    if (qnaList.length === 0) {
+      return (
+        <Container className="twoMainButton"><Row className="flex-nowrap text-center"><Col className="flex-md-fill">
+            <AddQuestion />
+          </Col></Row></Container>
+      )
+    }
+
+    if (searchBarTyped) {
+      return null;
+    }
+
+
+      // qnaList.length !==0 && !searchBarTyped ? <QuestionsList qnaList={qnaListShown} getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}/> : <Container className="twoMainButton"><Row className="flex-nowrap text-center"><Col className="flex-md-fill">
+      //       <AddQuestion />
+      //     </Col></Row></Container>
+
+
+
+  }
+
+
 
   return (
     <Container>
@@ -56,14 +87,40 @@ var qnaListShown = qnaList.slice(0, count);
       <Container fluid className="flex-nowrap text-center">
       <Row>
           <Col>
-           <SearchQuestions />
+            <SearchQuestions qnaList={qnaList}/>
           </Col>
         </Row>
         </Container>
       <Row>
-      {qnaList.length !==0 ? <QuestionsList qnaList={qnaListShown} getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}/> : <Container className="twoMainButton"><Row className="flex-nowrap text-center"><Col className="flex-md-fill">
+      {/* {
+        if (qnaList.length !== 0 && !searchBarTyped) {
+          return (
+            QuestionsList qnaList={qnaListShown} getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}/>
+          )
+        }
+
+        if (qnaList.length === 0 ) {
+
+            return (
+
+            <Container className="twoMainButton"><Row className="flex-nowrap text-center"><Col className="flex-md-fill">
             <AddQuestion />
-          </Col></Row></Container>}
+          </Col></Row></Container>
+          )
+        }
+      } */}
+       {rennderComponents() }
+
+      {/* {
+
+      qnaList.length !==0 && !searchBarTyped ? <QuestionsList qnaList={qnaListShown} getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}/> : <Container className="twoMainButton"><Row className="flex-nowrap text-center"><Col className="flex-md-fill">
+            <AddQuestion />
+          </Col></Row></Container>
+
+
+      } */}
+
+
       </Row>
     </Container>
 

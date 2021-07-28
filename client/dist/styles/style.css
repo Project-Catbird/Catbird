@@ -1,6 +1,6 @@
 .answerStamp {
-  font-size: clamp(12px, 2vw, 16px);
-  font-family: math;
+  font-size: clamp(10px, 2vw, 16px);
+  /* font-family: math; */
   color:gray;
   margin: none;
   border: none;
@@ -35,14 +35,14 @@
 }
 .qna-a {
   font-size:clamp(14px, 2vw, 20px);
-  font-family: math;
+  /* font-family: math; */
   color:gray;
 }
 
 .qna-q {
   font-size: clamp(18px, 2vw, 25px);
-  font-family: math;
-  font-weight: lighter;
+  /* font-family: math; */
+  /* font-weight: lighter; */
   color:gray;
 }
 
@@ -87,6 +87,8 @@
 .search-input{
   flex-grow:2;
   border:none;
+  font-weight: lighter;
+  font-size: clamp(15px, 2vw, 25px);
 }
 
 .search-input:focus {

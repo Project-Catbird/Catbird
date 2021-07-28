@@ -3,13 +3,15 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { API_KEY, API_URL } from '../../../config/config.js';
-import bindActionCreators from 'redux';
+import { actionCreators } from '../../../redux/index.js';
+import { bindActionCreators } from 'redux';
 
 const AddQuestionForm = ({ product_name, product_id, closeAddQuestionModal }) => {
 
 
   const addQuestionrModalIsOpen = useSelector(state => state.addQuestionModalIsOpen);
   const dispatch = useDispatch();
+  const { fetchQuestionList } = bindActionCreators(actionCreators, dispatch);
   const [ body, setBody ] = useState('');
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -27,7 +29,11 @@ const AddQuestionForm = ({ product_name, product_id, closeAddQuestionModal }) =>
       email: email,
       product_id: productIdNumber
     }, { headers: { Authorization: API_KEY } })
-    .then((res) => console.log(res.data))
+    .then((res) => {
+      console.log(res.data);
+      fetchQuestionList(product_id, 1, 1000);
+
+    })
     .catch(err => console.log('error from AddQuestionForm handlesubmit post request', err));
   };
   return (

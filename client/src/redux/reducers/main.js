@@ -40,7 +40,7 @@ const rootReducer = combineReducers({
   qnaList: qnaReducers.qnaListReducer,
   addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
-  searchBarInput:qnaReducers.searchBarInputReducer,
+  searchBarTyped:qnaReducers.searchBarTypedReducer
 
 });
 
