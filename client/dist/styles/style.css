@@ -1,3 +1,76 @@
+.answerStamp {
+  font-size: 11px;
+  font-family: math;
+  color:gray;
+}
+
+.qna-title {
+  font-size: 15px;
+  color:gray;
+}
+.qna-a {
+  font-size: 12px;
+  font-family: math;
+  color:gray;
+}
+
+.qna-q {
+  font-size: 15px;
+  font-family: math;
+  color:gray;
+}
+
+.markHelpful:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.addanswer :hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.questionHelpfulness {
+  font-size: 11px;
+  font-family: math;
+  color:gray;
+}
+
+
+.form {
+
+  display:flex;
+  flex-direction:row;
+  border:1px solid grey;
+  padding:2px;
+}
+
+.search-input{
+
+  flex-grow:2;
+
+  border:none;
+}
+
+.search-input:focus {
+
+  outline: none;
+}
+
+
+.see-more-answers {
+  font-size: 12px;
+  font-family: math;
+  color:gray;
+  border: none;
+  margin-left: 4em;
+  margin-bottom: none;
+}
+
+.see-more-answers:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
 .container {
   padding: 10px;
 }
