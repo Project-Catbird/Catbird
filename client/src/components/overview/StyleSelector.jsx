@@ -19,7 +19,7 @@ function StyleSelector(props) {
             <input className="style-item" type="radio" name="style" defaultChecked={index === 0 && i === 0} id={style.style_id} onClick={e => {
               props.handleInteractions(e.target.className, widget);
               dispatch(setStyle(style))}}/>
-            <label for={style.style_id}>
+            <label for={style.style_id} className="style-label">
             <Image key={style.style_id} className="style-thumbnail" src={style.photos[0].thumbnail_url} style_id={style.style_id} width="50px" height="50px" roundedCircle/>
             </label>
           </div>)
