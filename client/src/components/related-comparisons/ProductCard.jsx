@@ -39,7 +39,6 @@ const ProductCard = (props) => {
       })
     })
     .then((response) => {
-      console.log(response.data);
       setProductReviewMeta(response.data)
     })
     .catch((err) => {
@@ -55,7 +54,7 @@ const ProductCard = (props) => {
       top: 0,
       right: 0,
       color:"#ddd",
-      webkitTextStroke:"2px #666"}}>
+      WebkitTextStroke:"2px #666"}}>
     </i>
   );
 
@@ -94,31 +93,26 @@ const ProductCard = (props) => {
   );
   const starRating = (
     <div>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
+      <i className="far fa-star"></i>
+      <i className="far fa-star"></i>
+      <i className="far fa-star"></i>
+      <i className="far fa-star"></i>
+      <i className="far fa-star"></i>
     </div>
   )
 
   return (
-    <div className='mx-2'>
+    <div className="mx-2">
       {defaultStyle.photos &&
         <Card style={{width: "18rem"}}>
           {props.cardType === "related" && favoriteButton}
           {props.cardType === "outfit" && removeButton}
-          <Card.Img variant="top" src={defaultStyle.photos[0].thumbnail_url} style={{height: "20rem", objectFit: 'cover'}}/>
+          <Card.Img variant="top" src={defaultStyle.photos[0].thumbnail_url} style={{height: "20rem", objectFit: "cover"}}/>
           <Card.Body>
             <Card.Subtitle className="text-muted">{productDetail.category}</Card.Subtitle>
             <Card.Title>{productDetail.name}</Card.Title>
-            <Card.Text>
-              {productPrice}
-              {/* {productDetail.description} */}
-            </Card.Text>
-            <Card.Text>
-              {starRating}
-            </Card.Text>
+            {productPrice}
+            {starRating}
           </Card.Body>
           {/* <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>

@@ -28,12 +28,12 @@ const OutfitList = (props) => {
     <ProductCard key={productId} productId={productId} cardType="outfit"/>
   )
   return(
-    <div>
+    <div className='container d-flex flex-column flex-nowrap'>
       <div>
         <h2>Outfit List</h2>
       </div>
       { relatedProducts.length > 0 &&
-        <CardGroup className='d-flex flex-nowrap containers'>
+        <CardGroup>
           {relatedProductList}
         </CardGroup>
       }
