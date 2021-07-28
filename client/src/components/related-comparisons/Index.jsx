@@ -1,9 +1,14 @@
 import React from 'react';
+import RelatedProducts from './RelatedProducts.jsx';
+import OutfitList from './OutfitList.jsx';
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-// Import modules to use in component creation, uncomment as neccessary
-////////////////////////////////////////////////////////////////////////////////////////////////
+const RelatedComparisons = () => {
+  return (
+    <div>
+      <RelatedProducts/>
+      <OutfitList/>
+    </div>
+  );
+}
 
-// import RelatedProductCards from './related-product-cards/Index.jsx';
-// import RelatedProductsList from './related-products-list/Index.jsx';
-// import OutfitList from './outfit-list/Index.jsx';
+export default RelatedComparisons;
