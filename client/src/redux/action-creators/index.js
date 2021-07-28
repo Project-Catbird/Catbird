@@ -74,3 +74,12 @@ export const markQuestionHelpful = (question_id) => {
     headers: { Authorization: API_KEY}
   })
 }
+
+export const updateOutfitList = (outfit) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'UPDATE_OUTFIT_LIST',
+      payload: outfit
+    })
+  }
+}
