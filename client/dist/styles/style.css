@@ -83,18 +83,6 @@
   color: red;
 }
 
-.carousel-control-next-icon:after {
-  content: '>';
-  font-size: 55px;
-  color: grey;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: grey;
-}
-
 .fab {
   padding: 1%;
 }
@@ -169,14 +157,14 @@
 	overflow-x: auto;
 }
 
-.arrow{
+.slider-arrow{
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
 	transition: .3s;
 }
 
-.arrow:hover{
+.slider-arrow:hover{
 	opacity: .5;
 	width: 35px;
 	height: 35px;

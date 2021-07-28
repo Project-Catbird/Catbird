@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Carousel } from 'react-bootstrap';
+import { Container, Modal, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function ImageGallery(props) {
   const widget = 'image-gallery';
   const photos = useSelector((state) => state.style.photos);
   const [currentImg, setCurrentImg] = useState(0);
+  const [show, setShow] = useState(false);
 
   const changeActive = () => {
     let activeImage = document.getElementsByClassName('active');
@@ -41,15 +42,19 @@ function ImageGallery(props) {
   })
 
   return (
-    <div className="image-gallery justify-content-center">
-      <img className="img-fluid" id="featured" src={photos[0].thumbnail_url}></img>
+    <div className="image-gallery">
+      <img className="img-fluid" id="featured" src={photos[0].thumbnail_url} onClick={() => setShow(!show)}></img>
       <div id="slide-wrapper">
-        <img id="slideLeft" className="arrow" src="https://raw.githubusercontent.com/divanov11/image_slider_frontend/master/images/arrow-left.png" onClick={e => {handleArrow(e.target.id)}}></img>
+        <img id="slideLeft" className="slider-arrow" src="./arrow-left.png" onClick={e => {handleArrow(e.target.id)}}></img>
         <div id="slider">
           {photoComponents}
         </div>
-        <img id="slideRight" className="arrow" src="https://raw.githubusercontent.com/divanov11/image_slider_frontend/master/images/arrow-right.png" onClick={e => {handleArrow(e.target.id)}}></img>
+        <img id="slideRight" className="slider-arrow" src="./arrow-right.png" onClick={e => {handleArrow(e.target.id)}}></img>
       </div>
+      <Modal show={show} onHide={() => setShow(!show)}>
+        <Modal.Header closeButton>Image Preview</Modal.Header>
+        <Modal.Body><img className="img-modal img-fluid" src={photos[currentImg].thumbnail_url} style={{width: "125%"}}></img></Modal.Body>
+      </Modal>
     </div>
   )
 }
