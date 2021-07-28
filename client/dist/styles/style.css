@@ -73,7 +73,7 @@
   padding: 10px;
 }
 
-img {
+.style-thumbnail {
   margin: 20px;
 }
 
@@ -83,13 +83,6 @@ img {
 
 .sale-price {
   color: red;
-}
-
-.thumbnail {
-  max-height: 500px;
-  width: auto;
-  height: auto;
-  margin: auto;
 }
 
 .carousel-control-next-icon:after {
@@ -113,7 +106,7 @@ img {
   cursor: pointer;
 }
 
-input[type=radio] {
+.style-item {
   display: none;
 }
 
@@ -124,4 +117,52 @@ label:before {
 
 :checked+label:before {
   content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
+}
+
+.carousel,.item,.active{
+  height:100%;
+}
+.carousel-inner{
+   height:100%;
+}
+
+.thumbnail {
+  width: 75%;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin: auto;
+}
+
+.score {
+  display: block;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-wrap {
+  display: inline-block;
+  position: relative;
+  height: 19px;
+}
+
+.score .stars-active {
+  color: #EEBD01;
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.score .stars-inactive {
+  color: grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-text-stroke: initial;
+  /* overflow: hidden; */
 }

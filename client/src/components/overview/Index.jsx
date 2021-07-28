@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import API_KEY from '../../config/config'
+import { API_KEY } from '../../config/config'
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
@@ -10,7 +10,6 @@ import Share from './Share.jsx';
 import { Col, Row, Container } from 'react-bootstrap';
 import { setProduct, getStyles, setStyle } from '../../redux/actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
-
 
 function Overview(props) {
   const productId = useSelector((state) => state.productId);

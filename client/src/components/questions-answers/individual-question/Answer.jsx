@@ -13,7 +13,7 @@ const markAnswerHelpful = actionCreators.markAnswerHelpful;
   const addHelpfulness = () => {
     markAnswerHelpful(answer.answer_id)
     .then( (res) => {
-      console.log(res)
+      // console.log(res)
       addedHelpful = addedHelpful + 1;
     }
     ).catch(err => console.log(err))

@@ -59,5 +59,12 @@ export const markAnswerHelpful = (answer_id) => {
 
 
 export const markQuestionHelpful = (question_id) => {
+<<<<<<< HEAD
   return axios.put(`${API_URL}/qa/answers/${question_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 }
+=======
+  return axios.put(`${API_URL}/qa/answers/${question_id}/helpful`, {}, {
+    headers: { Authorization: API_KEY}
+  })
+}
+>>>>>>> d9f8d07b774dc944869dbec1725b75e56ec8ad1d
