@@ -27,7 +27,7 @@ function ImageGallery(props) {
   const handleArrow = (arrowId) => {
     if (arrowId === 'slideRight' && currentImg < photos.length - 1) {
       setCurrentImg(prev => prev + 1);
-    } else if (arrowId === 'slideLeft' && currentImg > 1) {
+    } else if (arrowId === 'slideLeft' && currentImg >= 1) {
       setCurrentImg(prev => prev - 1);
     }
   }
