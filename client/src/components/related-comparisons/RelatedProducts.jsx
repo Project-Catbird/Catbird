@@ -7,8 +7,7 @@ import { API_KEY, API_URL } from '../../config/config.js';
 
 const RelatedProducts = (props) => {
   //Temporary product id. Replace with current product from state.
-  const productId = 16056;
-
+  const productId = useSelector((state) => state.productId);
   const [relatedProducts, setRelatedProducts] = useState([]);
   useEffect(() => {
     axios.get(`${API_URL}/products/${productId}/related`, {
@@ -22,21 +21,23 @@ const RelatedProducts = (props) => {
     .catch((err) => {
       console.log(err);
     })
-  }, []);
+  }, [productId]);
 
   const relatedProductList = relatedProducts.map((productId) =>
-    <ProductCard key={productId} productId={productId} cardType="related"/>
+    <ProductCard key={'related-' + productId} productId={productId} cardType="related"/>
   )
   return(
-    <div className='container d-flex flex-column flex-nowrap'>
+    <div className='container d-flex flex-column'>
       <div>
         <h2>Related Products</h2>
       </div>
+      {/* <div className='d-flex flex-row flex-nowrap' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}> */}
       { relatedProducts.length > 0 &&
-        <CardGroup>
+        <CardGroup className='d-flex flex-nowrap' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}>
           {relatedProductList}
         </CardGroup>
       }
+      {/* </div> */}
     </div>
   )
 }
