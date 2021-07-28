@@ -42,9 +42,9 @@ img {
   cursor: pointer;
 }
 
-input[type=radio] {
+/* input[type=radio] {
   display: none;
-}
+} */
 
 label:before {
   position: absolute;

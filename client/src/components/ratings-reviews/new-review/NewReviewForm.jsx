@@ -9,7 +9,6 @@ import PhotoUpload from './PhotoUpload.jsx';
 
 const NewReviewForm = () => {
   const validator = useSelector(state => state.newReviewValidation)
-  console.log('validator', validator)
 
   let checkValidator = () => {
     for (let key in validator) {
@@ -23,8 +22,6 @@ const NewReviewForm = () => {
   let handleSubmit = (event) => {
     event.preventDefault();
     let validated = checkValidator();
-    // let form = event.currentTarget;
-    // console.log(form.checkValidity())
     if (validated === false) {
       event.preventDefault();
       alert('Whoops! Looks like you still need to fill out some areas of your review! Make sure all fields are entered.')
@@ -40,7 +37,7 @@ const NewReviewForm = () => {
       <Characteristics />
       <br></br>
       <Form.Group>
-        <Form.Label>Review Summary </Form.Label>
+        <Form.Label><b>Review Summary </b></Form.Label>
         <Form.Control
           placeholder="Leave a short summary of your review. No more than 60 characters"
           controlId="new-review-summary"
@@ -48,7 +45,7 @@ const NewReviewForm = () => {
         <br></br>
       </Form.Group>
       <Form.Group>
-        <Form.Label>Review Body </Form.Label>
+        <Form.Label><b>Review Body </b></Form.Label>
         <Form.Control
           as="textarea"
           placeholder="Leave your review here"

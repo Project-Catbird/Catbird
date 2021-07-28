@@ -4,12 +4,10 @@ import { Image, Row, Col } from 'react-bootstrap';
 
 const ImagePreview = () => {
   const photos = useSelector(state => state.photoUpload);
-  console.log(photos)
   if (photos !== null) {
     return (
       <Row>
         {photos.map(photoUrl => {
-          console.log(photoUrl)
           return (
             <Col>
               <Image src={photoUrl} thumbnail />

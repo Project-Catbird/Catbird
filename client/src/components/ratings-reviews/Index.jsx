@@ -30,7 +30,6 @@ const RatingsReviews = () => {
   let dispatch = useDispatch();
   const sortType = useSelector(state => state.reviewsSortType)
   const productId = useSelector(state => state.productId)
-  console.log('sortType', sortType)
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {
@@ -41,7 +40,6 @@ const RatingsReviews = () => {
         sort: sortType
       }
     }).then(response => {
-      console.log(response.data);
       dispatch({
         type: 'UPDATE_REVIEWS_LIST',
         reviewsList: response.data
@@ -51,7 +49,6 @@ const RatingsReviews = () => {
       headers: {Authorization: API_KEY},
       params: {product_id: productId}
     }).then(response => {
-      console.log(response.data);
       dispatch({
         type: 'UPDATE_REVIEWS_META',
         reviewsMeta: response.data

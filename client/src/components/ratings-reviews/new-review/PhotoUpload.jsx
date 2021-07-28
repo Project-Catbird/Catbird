@@ -6,7 +6,6 @@ import ImagePreview from './ImagePreview.jsx';
 const PhotoUpload = () => {
   const photos = useSelector(state => state.photoUpload);
   const dispatch = useDispatch();
-  console.log(photos)
 
   let uploadPhoto = (event) => {
     event.preventDefault();
@@ -26,13 +25,15 @@ const PhotoUpload = () => {
 
   return (
     <React.Fragment>
-        <Form.Group>
-          <ImagePreview />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Control type="file" onChange={uploadPhoto} multiple />
-        </Form.Group>
+      <Form.Group>
+        <ImagePreview />
+      </Form.Group>
+      <br></br>
+      <Form.Label><b>Upload Your Photos</b></Form.Label>
+      <Form.Group>
+        <Form.Control type="file" onChange={uploadPhoto} multiple />
+      </Form.Group>
+      <br></br>
     </React.Fragment>
   )
 }

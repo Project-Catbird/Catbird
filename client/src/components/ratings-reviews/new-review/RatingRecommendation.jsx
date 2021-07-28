@@ -18,7 +18,7 @@ const RatingRecommendation = () => {
   return (
     <React.Fragment>
       <Form.Group>
-          <Form.Label>Overall Rating: </Form.Label>
+          <Form.Label><b>Overall Rating: </b></Form.Label>
           <Form.Check
             validated={validator.rating ? true : false}
             inline
@@ -57,7 +57,7 @@ const RatingRecommendation = () => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Do You Recommend This Product? </Form.Label>
+          <Form.Label><b>Do You Recommend This Product? </b></Form.Label>
           <Form.Check
             inline
             label="Yes"
