@@ -62,7 +62,7 @@ const RatingsReviews = () => {
         <Col md={4}>
           <RatingBreakdown />
         </Col>
-        <Col md={8}>
+        <Col md={8} align="center">
           <ReviewsList />
         </Col>
       </Row>
