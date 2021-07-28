@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button, ButtonGroup, ToggleButton, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -15,10 +15,154 @@ const RatingRecommendation = () => {
       reviewValidator: tempState
     })
   }
+
+  const starRatings = [
+    {star:
+    <span className="score">
+      <div className="score-wrap">
+        <span className="stars-active">
+          <i className="fa fa-star" aria-hidden="true"></i>
+        </span>
+      </div>
+    </span>,
+    value: 1},
+    {star:
+    <span className="score">
+      <div className="score-wrap">
+        <span className="stars-active">
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+        </span>
+      </div>
+    </span>,
+    value: 2},
+    {star:
+    <span className="score">
+      <div className="score-wrap">
+        <span className="stars-active">
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+        </span>
+      </div>
+    </span>,
+    value: 3},
+    {star:
+    <span className="score">
+      <div className="score-wrap">
+        <span className="stars-active">
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+        </span>
+      </div>
+    </span>,
+    value: 4},
+    {star:
+    <span className="score">
+      <div className="score-wrap">
+        <span className="stars-active">
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+        </span>
+      </div>
+    </span>,
+    value: 5}
+  ]
+  // const starRatings = [
+  //   {star:
+  //   <span className="score">
+  //     <div className="score-wrap">
+  //       <span className="stars-active" style={{width: "20%"}}>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //       </span>
+  //     </div>
+  //   </span>,
+  //   value: 1},
+  //   {star:
+  //   <span className="score">
+  //     <div className="score-wrap">
+  //       <span className="stars-active" style={{width: "40%"}}>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //       </span>
+  //     </div>
+  //   </span>,
+  //   value: 2},
+  //   {star:
+  //   <span className="score">
+  //     <div className="score-wrap">
+  //       <span className="stars-active" style={{width: "60%"}}>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //       </span>
+  //     </div>
+  //   </span>,
+  //   value: 3},
+  //   {star:
+  //   <span className="score">
+  //     <div className="score-wrap">
+  //       <span className="stars-active" style={{width: "80%"}}>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //       </span>
+  //     </div>
+  //   </span>,
+  //   value: 4},
+  //   {star:
+  //   <span className="score">
+  //     <div className="score-wrap">
+  //       <span className="stars-active" style={{width: "100%"}}>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //         <i className="fa fa-star" aria-hidden="true"></i>
+  //       </span>
+  //     </div>
+  //   </span>,
+  //   value: 5}
+  // ]
+
   return (
     <React.Fragment>
       <Form.Group>
           <Form.Label><b>Overall Rating: </b></Form.Label>
+          <Row>
+            <ButtonGroup>
+              {starRatings.map((rating) => (
+                <Col>
+                  <ToggleButton
+                    key={rating.value}
+                    id="new-review-rating"
+                    type="radio"
+                    variant="outline-light"
+                    name="star-ratings"
+                    value={rating.value}
+                  >
+                  {rating.star}
+                  </ToggleButton>
+                </Col>
+              ))}
+            </ButtonGroup>
+          </Row>
           <Form.Check
             validated={validator.rating ? true : false}
             inline

@@ -117,9 +117,9 @@ label:before {
   z-index: 100;
 }
 
-:checked+label:before {
+/* :checked+label:before {
   content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
-}
+} */
 
 .carousel,.item,.active{
   height:100%;
