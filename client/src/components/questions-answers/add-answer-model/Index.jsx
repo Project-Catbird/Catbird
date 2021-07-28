@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { Modal, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -7,7 +6,7 @@ import { actionCreators } from '../../../redux/index.js';
 import AddAnswerForm from './AddAnswerForm.jsx';
 
 
-const AddAnswer = ( { question_id, question_body }) => {
+  const AddAnswer = ( { question_id, question_body }) => {
 
 
   const dispatch = useDispatch();
@@ -28,7 +27,6 @@ const AddAnswer = ( { question_id, question_body }) => {
 
   return (
     <div>
-
       <div className="addanswer">
         <span
       onClick={() => {
@@ -37,8 +35,6 @@ const AddAnswer = ( { question_id, question_body }) => {
         Add Answer
         </span>
       </div>
-
-
 
     <Modal centered show={addAnswerModalIsOpen} onHide={closeAddAnswerModal}>
       <Modal.Header closeButton>
@@ -55,7 +51,6 @@ const AddAnswer = ( { question_id, question_body }) => {
     <Modal.Footer>
     </Modal.Footer>
 </Modal>
-
     </div>
 )
 }

@@ -21,7 +21,7 @@ const QuestionsList = ({ qnaList }) => {
 
   return (
     <Container>
-      <ListGroup variant="flush">
+      <ListGroup variant="flush" p-0>
         {qList}
       </ListGroup>
 

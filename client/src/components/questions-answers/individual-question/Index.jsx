@@ -21,12 +21,6 @@ const IndividualQuestion = ({ question }) => {
 
 
 
-
-
-
-
-
-
  const addHelpfulness = () => {
    markQuestionHelpful(question_id)
    .then((res) => {
@@ -43,8 +37,6 @@ useEffect(() => {
     setAnswerList(result.data.results)
   })
   .catch(err => console.log('error from fetching answerslist', err ))
-
-
 }, [question_id])
 
 
@@ -60,18 +52,10 @@ return (
         <span className="qna-title">Q:  <span className="qna-q">{question_body}</span></span>
         </Col>
 
-
-        <Col className="answerStamp align-self-center" md={{ span: 3, offset: 3 }} >
-
+        <Col className="answerStamp align-self-center" xs={{ span: 2, offset: 2 }} >
         <QuestionHelpfulness helpfulness={addedHelpful} addHelpfulness={addHelpfulness}/>
         <AddAnswer question_id={question_id} question_body={question_body}/>
-
-
-          {/* Helpful? <span className="markHelpful" >Yes({question_helpfulness})</span> */}
         </Col>
-
-
-
 
 
       </Row>

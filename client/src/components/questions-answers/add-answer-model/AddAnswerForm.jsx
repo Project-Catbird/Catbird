@@ -64,32 +64,32 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
 
     <Form.Group controlId={email}>
       <Form.Label>Your email: </Form.Label>
-      <Form.Control
-        type="text"
-        placeholder="Your email"
-        maxLength={60}
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        />
+        <Form.Control
+          type="text"
+          placeholder="Your email"
+          maxLength={60}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          />
     </Form.Group>
     <br/>
 
     <Form.Group controlId="formFile">
-    <Form.Label>Choose Photos</Form.Label>
-    <Form.Control type="file" value={photos}
-        onChange={e => setPhotos(e.target.value)}/>
+      <Form.Label>Choose Photos </Form.Label>
+      <Form.Control type="file" value={photos}
+          onChange={e => setPhotos(e.target.value)}/>
     </Form.Group>
     <br />
-    <Row>
-    <Col>
-    <Button variant="primary" type="submit">Submit your Answer</Button>
-    </Col>
+      <Row>
+        <Col>
+          <Button variant="primary" type="submit">Submit your Answer</Button>
+        </Col>
 
 
-    <Col>
-    <Button variant="secondary" onClick={closeAddAnswerModal}>Close</Button>
-    </Col>
-    </Row>
+        <Col>
+          <Button variant="secondary" onClick={closeAddAnswerModal}>Close</Button>
+        </Col>
+      </Row>
   </Form>
 
   )

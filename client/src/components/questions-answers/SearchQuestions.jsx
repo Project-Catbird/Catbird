@@ -10,20 +10,12 @@ const SearchQuestions = () => {
   const dispatch = useDispatch();
   const searchBarInput = useSelector(state => state.searchBarInput);
 
-  // const handleFilter = (e) => {
-  //   const searchWord = e.target.input;
-  // }
-
-
 
   return (
-
     <form className="form">
       <input className="search-input" placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'/>
       <SearchIcon />
    </form>
-
-
   )
 }
 

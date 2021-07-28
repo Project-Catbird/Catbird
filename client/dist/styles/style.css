@@ -1,21 +1,21 @@
 .answerStamp {
-  font-size: 11px;
+  font-size: clamp(12px, 2vw, 16px);
   font-family: math;
   color:gray;
 }
 
 .qna-title {
-  font-size: 15px;
+  font-size: clamp(15px, 2vw, 25px);
   color:gray;
 }
 .qna-a {
-  font-size: 12px;
+  font-size:clamp(14px, 2vw, 20px);
   font-family: math;
   color:gray;
 }
 
 .qna-q {
-  font-size: 15px;
+  font-size: clamp(15px, 2vw, 25px);
   font-family: math;
   color:gray;
 }
@@ -31,14 +31,13 @@
 }
 
 .questionHelpfulness {
-  font-size: 11px;
+  font-size: clamp(12px, 2vw, 16px);
   font-family: math;
   color:gray;
 }
 
 
 .form {
-
   display:flex;
   flex-direction:row;
   border:1px solid grey;
@@ -46,24 +45,21 @@
 }
 
 .search-input{
-
   flex-grow:2;
-
   border:none;
 }
 
 .search-input:focus {
-
   outline: none;
 }
 
 
 .see-more-answers {
-  font-size: 12px;
+  font-size: clamp(12px, 2vw, 18px);
   font-family: math;
   color:gray;
   border: none;
-  margin-left: 4em;
+  margin-left: 3%;
   margin-bottom: none;
 }
 
@@ -71,6 +67,8 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+
 .container {
   padding: 10px;
 }

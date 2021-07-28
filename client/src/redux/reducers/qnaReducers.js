@@ -19,23 +19,6 @@ export const productIdReducer = (state = '', action) => {
   }
 }
 
-// export const answerReducer = (state = [], action) => {
-//    switch (action.type) {
-//      case 'FETCH_ANSWER_LIST':
-//        return action.answerList;
-//      default:
-//        return state;
-//    }
-// }
-
-// export const openAddQuestionModalReducer = (state = false, action) => {
-//   switch (action.type) {
-//     case 'OPEN_ADD_QUESTION':
-//       return !state;
-//     default:
-//       return state;
-//   }
-// }
 
 export const addAnswerModalIsOpenReducer = (state = false, action) => {
   switch (action.type) {
@@ -84,15 +67,6 @@ export const answer_idReducer = (state='', action) => {
   }
 }
 
-// export const markHelpfulReducer = (state='', action) => {
-//   switch (action.type) {
-//     case 'MARK_HELPFULL':
-//       return action.markHelpful;
-//     default:
-//       return state;
-//   }
-// }
-
 
 export const markAnswerHelpfulReducer = (state='', action) => {
   switch (action.type) {
@@ -102,12 +76,3 @@ export const markAnswerHelpfulReducer = (state='', action) => {
       return state;
   }
 }
-
-// export const isAnswerMarkedHelpfulReducer = (state=false, action) => {
-//   switch (action.type) {
-//     case 'ANSWER_HELPFUL_CLICKED':
-//       return true;
-//     default:
-//       return state;
-//   }
-// }
