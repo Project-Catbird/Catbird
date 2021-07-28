@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Container } from 'react-bootstrap';
+import { Row, Container, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function ProductInfo(props) {
@@ -9,11 +9,52 @@ function ProductInfo(props) {
   const {original_price, sale_price} = style;
   const {id, name, slogan, description, category, features} = productInfo;
 
+  const reviewsList = useSelector(state => state.reviewsList.results);
+  const reviewsMeta = useSelector(state => state.reviewsMeta);
+
+  let reviewStats = [];
+  for (let review of reviewsList) {
+    reviewStats.push(review.rating);
+  }
+  let averageReview = reviewStats.reduce((acc, current) => acc + current) / reviewStats.length;
+
+  const scrollToId = (id) => {
+    event.preventDefault();
+    let elmnt = document.getElementById(id);
+    elmnt.scrollIntoView();
+  };
+
   return (
     <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
-      <Row>
-        <span className="product-rating" >✰✰✰✰✰ 5.0 <a href="#">Read all reviews</a></span>
-      </Row>
+      {reviewsList.length > 0 ?
+            <span className="product-rating">
+            <Row>
+              <Col className="col-sm-auto">
+                {Math.round(averageReview * 10) / 10} / 10
+              </Col>
+              <Col>
+                  <span className="score">
+                    <div className="score-wrap">
+                      <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                      <span className="stars-inactive">
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                          <i className="fa fa-star" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </span>
+              </Col>
+              <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
+            </Row>
+          </span> : ''}
       <Row>
         <span className="product-category">{category}</span>
       </Row>
