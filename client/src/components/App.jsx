@@ -11,9 +11,9 @@ const App = (props) => {
   return (
     <div>
       <Overview />
-      <RatingsReviews />
       <RelatedComparisons/>
       <QnAComponent />
+      <RatingsReviews />
     </div>
   )
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ProgressBar } from 'react-bootstrap';
+import { ProgressBar, Row, Col } from 'react-bootstrap';
 
 
 
@@ -45,7 +45,32 @@ const RatingBreakdown = (props) => {
 
   return (
     <div id="rating-breakdown-container">
-      <span id="average-review">Average Rating: {Math.round(averageReview * 10) / 10} </span>
+      <Row>
+        <Col md={4}>
+          <span>Average Rating: </span>
+        </Col>
+        <Col md={8}>
+          <span className="score">
+            <div className="score-wrap">
+              <span className="stars-active" style={{width: `${averageReview * 20}%`}}>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <span className="stars-inactive">
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+              </span>
+            </div>
+          </span>
+        </Col>
+      </Row>
+      {/* <span id="average-review">Average Rating: {Math.round(averageReview * 10) / 10} </span> */}
       <br></br>
       {getRecommended()}
       <div id="rating-breakdown">

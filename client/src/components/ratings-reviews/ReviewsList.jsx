@@ -25,7 +25,6 @@ const ReviewsList = () => {
 
   let handleSortChange = (event) => {
     let sortType = event.target.value.toLowerCase()
-    console.log(sortType);
     dispatch({
       type: 'UPDATE_REVIEWS_SORT_TYPE',
       sortType: sortType

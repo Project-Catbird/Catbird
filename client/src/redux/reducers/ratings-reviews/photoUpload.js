@@ -1,7 +1,7 @@
 import Redux from 'redux';
 
 
-const photoUploadReducer = (state = [], action) => {
+const photoUploadReducer = (state = null, action) => {
   switch (action.type) {
     case 'UPLOAD_PHOTO':
       return action.photo;
