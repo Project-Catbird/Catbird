@@ -1,14 +1,20 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import Characteristics from './Characteristics.jsx';
 import RatingRecommendation from './RatingRecommendation.jsx';
 import PhotoUpload from './PhotoUpload.jsx';
+import { API_KEY, API_URL } from '../../../config/config.js';
 
 
 
 const NewReviewForm = () => {
-  const validator = useSelector(state => state.newReviewValidation)
+  const validator = useSelector(state => state.newReviewValidation);
+  const formInfo = useSelector(state => state.reviewForm);
+  const productId = useSelector(state => state.productId);
+  const photos = useSelector(state => state.photoUpload);
+  const dispatch = useDispatch();
 
   let checkValidator = () => {
     for (let key in validator) {
@@ -27,9 +33,35 @@ const NewReviewForm = () => {
       alert('Whoops! Looks like you still need to fill out some areas of your review! Make sure all fields are entered.')
       event.stopPropagation();
     } else {
-      console.log('valid')
+      let reviewParams = {
+        product_id: productId,
+        rating: formInfo.rating,
+        summary: formInfo.summary,
+        body: formInfo.body,
+        recommend: formInfo.recommend,
+        name: formInfo.name,
+        email: formInfo.email,
+        photos: photos ?? [],
+        characteristics: formInfo.characteristics
+      }
+      console.log(reviewParams)
+      axios.post(`${API_URL}/reviews`, reviewParams, {
+        headers: {Authorization: API_KEY}
+      }).then(data => console.log(data))
+      .catch(err => console.log(err));
     }
   }
+
+  let handleChange = (event) => {
+    event.preventDefault();
+    let tempState = formInfo;
+    tempState[event.target.getAttribute('name')] = event.target.value
+    dispatch({
+      type: 'UPDATE_NEW_REVIEW_FORM',
+      payload: tempState
+    })
+  }
+
   return (
     <Form onSubmit={handleSubmit}>
       <RatingRecommendation />
@@ -41,6 +73,8 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Leave a short summary of your review. No more than 60 characters"
           controlid="new-review-summary"
+          name="summary"
+          onChange={handleChange}
         />
         <br></br>
       </Form.Group>
@@ -50,8 +84,10 @@ const NewReviewForm = () => {
           as="textarea"
           placeholder="Leave your review here"
           controlid="new-review-body"
+          name="body"
           rows={5}
           required
+          onChange={handleChange}
         />
       </Form.Group>
       <PhotoUpload />
@@ -61,7 +97,9 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Example: jackson11!"
           controlid="new-review-nickname"
+          name="name"
           required
+          onChange={handleChange}
         />
         <Form.Text className="text-muted">
           For privacy reasons, do not use your full name or email address
@@ -73,8 +111,10 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Example: jackson11@email.com"
           controlid="new-review-email"
+          name="email"
           required
           type="email"
+          onChange={handleChange}
         />
         <Form.Text className="text-muted">
           For authentication reasons, you will not be emailed

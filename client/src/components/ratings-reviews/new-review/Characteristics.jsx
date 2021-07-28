@@ -4,23 +4,33 @@ import { Form } from 'react-bootstrap';
 
 
 const Characteristics = () => {
-  const characteristics = ['Size', 'Width', 'Comfort', 'Quality', 'Length', 'Fit'];
+  const characteristics = useSelector(state => state.reviewsMeta.characteristics);
   const validator = useSelector(state => state.newReviewValidation);
+  const formInfo = useSelector(state => state.reviewForm);
   const dispatch = useDispatch();
 
-  let handleChange = (event) => {
-    let tempState = validator;
-    tempState[event.target.getAttribute('name')] = true;
+  let handleChange = (label, value, id) => {
+    console.log(label)
+    let validatorState = validator;
+    validatorState[label] = true;
     dispatch({
       type: 'VALIDATE_REVIEW',
-      reviewValidator: tempState
+      reviewValidator: validatorState
+    })
+    let formState = formInfo;
+    let characteristicsState = formInfo.characteristics;
+    characteristicsState[id] = value;
+    formState.characteristics = characteristicsState;
+    dispatch({
+      type:'UPDATE_NEW_REVIEW_FORM',
+      payload: formState
     })
   }
 
   let renderCharacteristics = () => {
     let result = [];
-    for (let i = 0; i < characteristics.length; i++) {
-      let type = characteristics[i];
+    for (let key in characteristics) {
+      let type = key;
       let options;
       if (type === 'Size') {
         options = {
@@ -71,6 +81,14 @@ const Characteristics = () => {
           5: 'Runs loose'
         };
       }
+      if (!validator[type]) {
+        let validatorState = validator;
+        validatorState[type] = false;
+        dispatch({
+          type: 'VALIDATE_REVIEW',
+          reviewValidator: validatorState
+        })
+      }
       result.push(
         <React.Fragment>
           <Form.Group>
@@ -81,9 +99,8 @@ const Characteristics = () => {
               label={`${options[option]} `}
               type="radio"
               name={type}
-              onChange={handleChange}
+              onChange={() => handleChange(type, Number(option), characteristics[type].id)}
               validated={validator[type] ? true : false}
-
               />
             ))}
           </Form.Group>

@@ -5,14 +5,21 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const RatingRecommendation = () => {
   const validator = useSelector(state => state.newReviewValidation);
+  const formInfo = useSelector(state => state.reviewForm);
   const dispatch = useDispatch();
 
-  let handleChange = (event) => {
-    let tempState = validator;
-    tempState[event.target.getAttribute('name')] = true;
+  let handleChange = (label, value) => {
+    let validatorState = validator;
+    validatorState[label] = true;
     dispatch({
       type: 'VALIDATE_REVIEW',
-      reviewValidator: tempState
+      reviewValidator: validatorState
+    })
+    let formState = formInfo;
+    formState[label] = value;
+    dispatch({
+      type: 'UPDATE_NEW_REVIEW_FORM',
+      payload: formState
     })
   }
 
@@ -90,7 +97,7 @@ const RatingRecommendation = () => {
                       variant="light"
                       name="rating"
                       value={rating.value}
-                      onClick={handleChange}
+                      onClick={() => handleChange('rating', rating.value)}
                       validated={validator.rating ? true : false}
                     >
                     {rating.star}
@@ -109,7 +116,7 @@ const RatingRecommendation = () => {
             label="Yes"
             type="radio"
             name="recommendation"
-            onChange={handleChange}
+            onChange={() => handleChange('recommend', true)}
             validated={validator.recommendation ? true : false}
           />
           <Form.Check
@@ -117,7 +124,7 @@ const RatingRecommendation = () => {
             label="No"
             type="radio"
             name="recommendation"
-            onChange={handleChange}
+            onChange={() => handleChange('recommend', false)}
             validated={validator.recommendation ? true : false}
           />
       </Form.Group>
