@@ -47,6 +47,24 @@ export const productNameReducer = (state = '', action) => {
   }
 }
 
+export const questionBodyReducer = ( state = '', action ) => {
+  switch (action.type) {
+    case 'SET_QUESTION_BODY':
+      return action.question_body;
+    default:
+      return state;
+  }
+}
+
+
+export const questionIdReducer = ( state = '', action ) => {
+  switch (action.type) {
+    case 'SET_QUESTION_ID':
+      return action.question_id
+    default:
+      return state;
+  }
+}
 
 
 export const searchBarTypedReducer = (state = false, action) => {

@@ -4,9 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { API_KEY, API_URL } from '../../../config/config.js';
 
-const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswerModal }) => {
+const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
+
 
   const addAnswerModalIsOpen = useSelector(state => state.addAnswerModalIsOpen);
+
+  const product_name = useSelector(state => state.product_name)
   const dispatch = useDispatch();
   const [ body, setBody ] = useState('');
   const [ name, setName ] = useState('');
@@ -16,18 +19,15 @@ const AddAnswerForm = ({ product_name, question_body, question_id, closeAddAnswe
 
   const handleSubmit = (e)=> {
     e.preventDefault();
-    // console.log('submited', name, body, email, photos);
     dispatch({ type: 'TOGGLE_ADD_ANSWER'});
-    // if (name.length === 0 ) {
-    //   alert();
-    // }
+
     axios.post(`${API_URL}/qa/questions/${question_id}/answers`, {
       body: body,
       name: name,
       email: email,
       photos: photos
     }, { headers: { Authorization: API_KEY } })
-    .then(alert ('Thank you for your feedback!'))
+    .then(res => console.log('Thank you for your feedback!', res.data))
     .catch(err => console.log('error from AddAnswerForm handlesubmit post request', err));
   };
   return (

@@ -40,7 +40,9 @@ const rootReducer = combineReducers({
   qnaList: qnaReducers.qnaListReducer,
   addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
-  searchBarTyped:qnaReducers.searchBarTypedReducer
+  searchBarTyped:qnaReducers.searchBarTypedReducer,
+  questionBody: qnaReducers.questionBodyReducer,
+  quedtionId: qnaReducers.questionIdReducer
 
 });
 

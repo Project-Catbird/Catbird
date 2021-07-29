@@ -10,7 +10,7 @@ const QuestionsList = ({ qnaList, getMoreQuestions, noMoreQuestion }) => {
 
      let qList = qnaList.map(question => {
      return (
-      <ListGroup.Item key={question.question_id} >
+      <ListGroup.Item key={'QuestionsList' + question.question_id} >
 
         <IndividualQuestion question={question} />
 

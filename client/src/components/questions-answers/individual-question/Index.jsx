@@ -9,6 +9,7 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
 
   const IndividualQuestion = ({ question }) => {
 
+
     const question_id = question.question_id;
     const question_body = question.question_body;
     const question_helpfulness = question.question_helpfulness;
@@ -20,6 +21,7 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
     const addHelpfulness = () => {
       markQuestionHelpful(question_id)
       .then((res) => {
+      console.log(res.data);
       addedHelpful = addedHelpful + 1;
     })
     .catch(err => console.log(err))
@@ -44,12 +46,15 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
             <div className="helpAndAddAnswer">
               <div className="answerStamp helpfulBody">
                 <QuestionHelpfulness
+                  question_id={question_id}
                   helpfulness={addedHelpful}
                   addHelpfulness={addHelpfulness}
+                  key={'QuestionHelpfulness' + question_id}
                   />
               </div>
-              <div className="answerStamp addAnswersBody">
+              <div className="answerStamp addAnswersBody" key={'AddAnswerDiv' + question_id}>
                 <AddAnswer
+                  key={question_id + 'AddAnswerButton'}
                   question_id={question_id}
                   question_body={question_body}
                   />
