@@ -9,7 +9,7 @@ const ReviewsList = () => {
   const fullReviewsList = useSelector(state => state.reviewsList.results);
   const reviewsCount = useSelector(state => state.reviewsCount);
   const dispatch = useDispatch();
-  let reviewsList = fullReviewsList.slice(0, reviewsCount);
+  let reviewsList = reviewsCount > 2 ? fullReviewsList : fullReviewsList.slice(0, 2);
 
   let renderMoreReviewsButton = () => {
     if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {
@@ -50,8 +50,19 @@ const ReviewsList = () => {
           <option>Helpful</option>
           <option>Newest</option>
         </select>
-        <div id="reviews-list">
-          {reviewsList.map(review => <Alert key={`review-tile-${review.review_id}`}><IndividualReviewTile review={review} /></Alert>)}
+        <div id="reviews-list" style={
+          reviewsCount > 2 ? {
+          height: "850px",
+          position: "relative"
+        } : {}}>
+          <div style={
+            reviewsCount > 2 ?
+            {
+            maxHeight: "100%",
+            overflow: "auto"
+          } : {}}>
+            {reviewsList.map(review => <Alert key={`review-tile-${review.review_id}`}><IndividualReviewTile review={review} /></Alert>)}
+          </div>
         </div>
         {renderMoreReviewsButton()}  {renderAddReviewButton()}
         <NewReview />
@@ -61,5 +72,3 @@ const ReviewsList = () => {
 };
 
 export default ReviewsList;
-
-
