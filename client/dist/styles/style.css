@@ -112,6 +112,12 @@
   text-decoration: underline;
 }
 
+/* .searchedQuestions {
+  display: flex;
+  justify-items: left;
+  justify-self: left;
+} */
+
 
 .container {
   padding: 10px;
