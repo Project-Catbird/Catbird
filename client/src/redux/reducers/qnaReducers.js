@@ -19,23 +19,6 @@ export const productIdReducer = (state = '', action) => {
   }
 }
 
-// export const answerReducer = (state = [], action) => {
-//    switch (action.type) {
-//      case 'FETCH_ANSWER_LIST':
-//        return action.answerList;
-//      default:
-//        return state;
-//    }
-// }
-
-// export const openAddQuestionModalReducer = (state = false, action) => {
-//   switch (action.type) {
-//     case 'OPEN_ADD_QUESTION':
-//       return !state;
-//     default:
-//       return state;
-//   }
-// }
 
 export const addAnswerModalIsOpenReducer = (state = false, action) => {
   switch (action.type) {
@@ -64,12 +47,30 @@ export const productNameReducer = (state = '', action) => {
   }
 }
 
-
-
-export const searchBarInputReducer = (state = '', action) => {
+export const questionBodyReducer = ( state = '', action ) => {
   switch (action.type) {
-    case 'SEARCHBAR_INPUT':
-      return action.searchBarInput;
+    case 'SET_QUESTION_BODY':
+      return action.question_body;
+    default:
+      return state;
+  }
+}
+
+
+export const questionIdReducer = ( state = '', action ) => {
+  switch (action.type) {
+    case 'SET_QUESTION_ID':
+      return action.question_id
+    default:
+      return state;
+  }
+}
+
+
+export const searchBarTypedReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'SEARCHBAR_START_TYPING':
+      return action.searchBarTyped
     default:
       return state;
   }
@@ -84,15 +85,6 @@ export const answer_idReducer = (state='', action) => {
   }
 }
 
-// export const markHelpfulReducer = (state='', action) => {
-//   switch (action.type) {
-//     case 'MARK_HELPFULL':
-//       return action.markHelpful;
-//     default:
-//       return state;
-//   }
-// }
-
 
 export const markAnswerHelpfulReducer = (state='', action) => {
   switch (action.type) {
@@ -102,12 +94,3 @@ export const markAnswerHelpfulReducer = (state='', action) => {
       return state;
   }
 }
-
-// export const isAnswerMarkedHelpfulReducer = (state=false, action) => {
-//   switch (action.type) {
-//     case 'ANSWER_HELPFUL_CLICKED':
-//       return true;
-//     default:
-//       return state;
-//   }
-// }

@@ -3,13 +3,16 @@ import { API_KEY, API_URL } from '../../config/config.js';
 
 //ACTION CREATORS
 
-export const fetchQuestionList = () => {
+export const fetchQuestionList = (product_id, page, count) => {
   return (dispatch) => {
     axios.get(`${API_URL}/qa/questions`,
     {
       headers: {Authorization: API_KEY},
       params: {
-      product_id: 16056
+      // product_id: product_id,
+      product_id: 16056,
+      page: page,
+      count:count
       }
     })
     .then(result =>  {
@@ -19,35 +22,27 @@ export const fetchQuestionList = () => {
         questionList: result.data.results
       });
 
-      dispatch({
-        type: 'CURRENT_PRODUCT_ID',
-        product_id: result.data.product_id
-      })
-
-
-
-    }).catch(err => console.log('error from axios call fetchQuestionList', err))
+      // dispatch({
+      //   type: 'CURRENT_PRODUCT_ID',
+      //   product_id: result.data.product_id
+      // })
+    }).catch(err => console.log('error from axios call fetchQuestionList', product_id, err))
 
   }
 }
 
 
 export const fetchAnswerList = (question_id) => {
-
-  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, {
-      headers: {Authorization: API_KEY}
-    })
+  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, { headers: {Authorization: API_KEY} })
 }
 
 
 export const getProductName = (product_id) => {
   return (dispatch) => {
-    console.log('this is product_id in getProductname request', product_id);
     axios.get(`${API_URL}/products/${16056}`, {
       headers: {Authorization: API_KEY}
     })
     .then(result => {
-      console.log('this is the result data from axios request to get product name', result.data)
       dispatch({
         type: 'GET_PRODUCT_NAME',
         product_name: result.data.name
@@ -61,18 +56,13 @@ export const getProductName = (product_id) => {
 
 
 export const markAnswerHelpful = (answer_id) => {
-
-  return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, {
-    headers: { Authorization: API_KEY}
-  })
+  return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 
 }
 
 
 export const markQuestionHelpful = (question_id) => {
-  return axios.put(`${API_URL}/qa/answers/${question_id}/helpful`, {}, {
-    headers: { Authorization: API_KEY}
-  })
+  return axios.put(`${API_URL}/qa/questions/${question_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 }
 
 export const updateOutfitList = (outfit) => {
