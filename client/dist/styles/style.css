@@ -268,10 +268,7 @@
   height: 100px;
 }
 
-.product-breakdown-bar {
-  position: relative;
-}
-
-.indicator {
-  position: absolute;
+.review-carousel-img {
+  max-width: 100%;
+  max-height: 100%;
 }
