@@ -11,7 +11,7 @@ function AddToCart(props) {
   Object.values(skusInfo).forEach(sku => {
     sizes.push(sku.size);
   });
-  const sizeSelector = sizes.map((size, index) => <option  key={index} value={skus[index]}>{size}</option>);
+  const sizeSelector = sizes.map((size, index) => <option key={index} value={skus[index]}>{size}</option>);
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState(null);
   const [atcQuantity, setATCQuantity] = useState(0);

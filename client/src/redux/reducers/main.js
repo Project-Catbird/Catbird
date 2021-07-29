@@ -13,7 +13,7 @@ import productInfoReducer from './Overview/productInfoReducer';
 import styleReducer from './Overview/styleReducer';
 import styleInfoReducer from './Overview/styleInfoReducer';
 import productIdReducer from './Overview/productIdReducer';
-
+import outfitListReducer from './related-comparisons/outfitListReducer';
 
 
 
@@ -37,7 +37,6 @@ const rootReducer = combineReducers({
 
 
   //qna
-
   product_id: qnaReducers.productIdReducer,
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
@@ -45,6 +44,8 @@ const rootReducer = combineReducers({
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
   searchBarInput:qnaReducers.searchBarInputReducer,
 
+  //related & comparison
+  outfitList: outfitListReducer
 });
 
 
