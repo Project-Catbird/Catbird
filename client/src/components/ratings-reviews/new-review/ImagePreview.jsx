@@ -9,7 +9,7 @@ const ImagePreview = () => {
       <Row>
         {photos.map(photoUrl => {
           return (
-            <Col>
+            <Col key={photoUrl.slice(50)}>
               <Image className="review-thumbnail" src={photoUrl} thumbnail />
             </Col>
           )

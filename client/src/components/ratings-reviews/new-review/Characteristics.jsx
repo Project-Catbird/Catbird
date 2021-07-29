@@ -95,12 +95,12 @@ const Characteristics = () => {
             <Form.Label><b>{type}:</b></Form.Label>
             {Object.keys(options).map(option => (
               <Form.Check
+              key={options[option]}
               inline
               label={`${options[option]} `}
               type="radio"
               name={type}
               onChange={() => handleChange(type, Number(option), characteristics[type].id)}
-              validated={validator[type] ? true : false}
               />
             ))}
           </Form.Group>
