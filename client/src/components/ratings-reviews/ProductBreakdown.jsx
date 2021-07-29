@@ -50,8 +50,6 @@ const ProductBreakdown = () => {
       let average = Number(characteristics[type].value) * 20;
       let lower = average - 5;
       let upper = 90 - lower;
-      // console.table('type', type, 'average:', average, 'lower', lower, 'upper', upper, 'total', lower + upper + 10)
-      console.log(type, average)
 
       result.push(
         <Form.Group key={`${type}-group`}>

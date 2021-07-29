@@ -267,3 +267,8 @@
   width: 100px;
   height: 100px;
 }
+
+.review-carousel-img {
+  max-width: 100%;
+  max-height: 100%;
+}
