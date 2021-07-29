@@ -65,3 +65,11 @@ export const markQuestionHelpful = (question_id) => {
   return axios.put(`${API_URL}/qa/questions/${question_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 }
 
+export const updateOutfitList = (outfit) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'UPDATE_OUTFIT_LIST',
+      payload: outfit
+    })
+  }
+}

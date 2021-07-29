@@ -7,36 +7,41 @@ import { API_KEY, API_URL } from '../../config/config.js';
 
 const OutfitList = (props) => {
   //Temporary product id. Replace with current product from state.
-  const productId = 16056;
+  // const productId = 16056;
 
-  const [relatedProducts, setRelatedProducts] = useState([]);
+  // const [relatedProducts, setRelatedProducts] = useState([]);
+  const productId = useSelector((state) => state.productId);
+  const outfits = useSelector((state) => state.outfitList);
+
   useEffect(() => {
-    axios.get(`${API_URL}/products/${productId}/related`, {
-      headers: {
-        Authorization: API_KEY
-      }
-    })
-    .then((response) => {
-      setRelatedProducts(response.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }, []);
+    // axios.get(`${API_URL}/products/${productId}/related`, {
+    //   headers: {
+    //     Authorization: API_KEY
+    //   }
+    // })
+    // .then((response) => {
+    //   setRelatedProducts(response.data);
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // })
+  }, [outfits, productId]);
 
-  const relatedProductList = relatedProducts.map((productId) =>
-    <ProductCard key={productId} productId={productId} cardType="outfit"/>
+  const outfitList = outfits.map((outfit) =>
+    <div>
+      <ProductCard key={'outfit-' + outfit} productId={outfit} cardType="outfit"/>
+    </div>
   )
   return(
-    <div className='container d-flex flex-column flex-nowrap'>
+    <div className='container d-flex flex-column'>
       <div>
         <h2>Outfit List</h2>
       </div>
-      { relatedProducts.length > 0 &&
-        <CardGroup>
-          {relatedProductList}
-        </CardGroup>
-      }
+
+      <CardGroup className='d-flex flex-nowrap' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}>
+        <ProductCard key={'curProduct-' + productId} productId={productId} cardType="curProduct"/>
+        {outfitList}
+      </CardGroup>
     </div>
   )
 }

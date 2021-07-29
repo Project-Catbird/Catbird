@@ -18,7 +18,7 @@ import IndividualReviewTile from './IndividualReviewTile.jsx';
 // import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 // import Recommendations from './Recommendations.jsx';
-// import ProductBreakdown from './ProductBreakdown.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
 // import NewReview from './new-review/Index.jsx';
 // import KeywordSearch from './KeywordSearch.jsx';
 
@@ -30,7 +30,6 @@ const RatingsReviews = () => {
   let dispatch = useDispatch();
   const sortType = useSelector(state => state.reviewsSortType)
   const productId = useSelector(state => state.productId)
-  // console.log('sortType', sortType)
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {
@@ -41,7 +40,6 @@ const RatingsReviews = () => {
         sort: sortType
       }
     }).then(response => {
-      // console.log(response.data);
       dispatch({
         type: 'UPDATE_REVIEWS_LIST',
         reviewsList: response.data
@@ -51,7 +49,6 @@ const RatingsReviews = () => {
       headers: {Authorization: API_KEY},
       params: {product_id: productId}
     }).then(response => {
-      // console.log(response.data);
       dispatch({
         type: 'UPDATE_REVIEWS_META',
         reviewsMeta: response.data
@@ -64,8 +61,9 @@ const RatingsReviews = () => {
       <Row>
         <Col md={4}>
           <RatingBreakdown />
+          <ProductBreakdown />
         </Col>
-        <Col md={8}>
+        <Col md={8} align="center">
           <ReviewsList />
         </Col>
       </Row>

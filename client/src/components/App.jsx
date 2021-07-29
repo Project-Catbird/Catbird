@@ -10,10 +10,10 @@ const App = (props) => {
 
   return (
     <div>
-      {/* <Overview />
-      <RatingsReviews />
-      <RelatedComparisons/> */}
+      <Overview />
+      <RelatedComparisons/>
       <QnAComponent />
+      <RatingsReviews />
     </div>
   )
 };

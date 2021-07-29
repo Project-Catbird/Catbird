@@ -1,42 +1,43 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Form, Button, Image } from 'react-bootstrap';
+import ImagePreview from './ImagePreview.jsx';
 
-export default class PhotoUpload extends React.Component {
-  constructor(props) {
-      super(props)
-      this.state = {
-          file: null
+const PhotoUpload = () => {
+  const photos = useSelector(state => state.photoUpload);
+  const dispatch = useDispatch();
+
+  let uploadPhoto = (event) => {
+    event.preventDefault();
+    if (photos === null || photos.length <= 5) {
+      let tempState = photos ?? [];
+      let fileList = event.target.files;
+      for (let i = 0; i < fileList.length; i++) {
+        tempState.push(URL.createObjectURL(fileList[i]))
       }
-      this.uploadSingleFile = this.uploadSingleFile.bind(this)
-      this.upload = this.upload.bind(this)
-  }
-
-  uploadSingleFile(e) {
-    this.setState({
-      file: URL.createObjectURL(e.target.files[0])
-    })
-  }
-
-  upload(e) {
-    e.preventDefault()
-    console.log(this.state.file)
-  }
-
-  render() {
-    let imgPreview;
-    if (this.state.file) {
-      imgPreview = <img src={this.state.file} alt='' style={{maxWidth: '20%'}} />;
+      dispatch({
+        type: 'UPLOAD_PHOTO',
+        photo: tempState
+      })
     }
-    return (
-      <form>
-        <div className="form-group preview">
-          {imgPreview}
-        </div>
-
-        <div className="form-group">
-          <input type="file" className="form-control" onChange={this.uploadSingleFile} />
-        </div>
-        <button type="button" className="btn btn-primary btn-block" onClick={this.upload}>Upload</button>
-      </form >
-    )
   }
+
+
+  return (
+    <React.Fragment>
+      <Form.Group>
+        <ImagePreview />
+      </Form.Group>
+      <br></br>
+      <Form.Label><b>Upload Your Photos</b></Form.Label>
+      <Form.Group>
+        <Form.Control type="file" onChange={uploadPhoto} multiple />
+      </Form.Group>
+      <br></br>
+    </React.Fragment>
+  )
 }
+
+
+
+export default PhotoUpload;

@@ -44,12 +44,7 @@ const SearchQuestions = () => {
   } else {
     setFilteredData(newFilter);
   }
-
-
 }
-
-
-
 
 
   let filteredqList = filteredData.map(question => {
@@ -76,7 +71,7 @@ const SearchQuestions = () => {
             placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
             onChange={handleSearch}
             />
-          <SearchIcon />
+          <SearchIcon className="searchIcon"/>
          </form>
 
       </Row>
