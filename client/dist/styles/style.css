@@ -38,7 +38,6 @@
 
 
 .form {
-
   display:flex;
   flex-direction:row;
   border:1px solid grey;
@@ -46,14 +45,11 @@
 }
 
 .search-input{
-
   flex-grow:2;
-
   border:none;
 }
 
 .search-input:focus {
-
   outline: none;
 }
 
@@ -87,18 +83,6 @@
   color: red;
 }
 
-.carousel-control-next-icon:after {
-  content: '>';
-  font-size: 55px;
-  color: grey;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: grey;
-}
-
 .fab {
   padding: 1%;
 }
@@ -121,21 +105,69 @@
   content: url("https://cdn.iconscout.com/icon/free/png-32/check-3083963-2563149.png");
 } */
 
-.carousel,.item,.active{
-  height:100%;
-}
-.carousel-inner{
-   height:100%;
+.image-gallery{
+	width: 600px;
+	padding: 10px;
 }
 
-.thumbnail {
-  width: 75%;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  margin: auto;
+#featured{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+	max-width: 500px;
+	max-height: 600px;
+	object-fit: cover;
+	cursor: pointer;
+	border: 2px solid black;
+}
+
+.thumbnail{
+	object-fit: cover;
+	max-width: 180px;
+	max-height: 100px;
+	cursor: pointer;
+	opacity: 0.5;
+	margin: 5px;
+	border: 2px solid black;
+}
+
+.thumbnail:hover{
+	opacity:1;
+}
+
+.active{
+	opacity: 1;
+}
+
+#slide-wrapper{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	max-width: 500px;
+	display: flex;
+	min-height: 100px;
+	align-items: center;
+}
+
+#slider{
+	width: 440px;
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+}
+
+.slider-arrow{
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.slider-arrow:hover{
+	opacity: .5;
+	width: 35px;
+	height: 35px;
 }
 
 .score {
