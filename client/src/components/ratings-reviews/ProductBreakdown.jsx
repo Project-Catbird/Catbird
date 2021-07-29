@@ -46,25 +46,34 @@ const ProductBreakdown = () => {
           3: 'Runs loose'
         };
       }
+
+      let average = Number(characteristics[type].value) * 20;
+      let lower = average - 5;
+      let upper = 90 - lower;
+      // console.table('type', type, 'average:', average, 'lower', lower, 'upper', upper, 'total', lower + upper + 10)
+      console.log(type, average)
+
       result.push(
-        <Form.Group>
-          <Form.Label><b>{type}</b></Form.Label>
-          <Row>
-            <ProgressBar className="product-breakdown-bar">
-              <ProgressBar variant="success" now={45} />
-              <ProgressBar variant="warning" now={10} />
-              <ProgressBar variant="success" now={45} />
-            </ProgressBar>
+        <Form.Group key={`${type}-group`}>
+          <Form.Label key={`${type}-label`}><b>{type}</b></Form.Label>
+          <Row key={`${type}-row-1`}>
+            <Col key={`${type}-row-1-col`}>
+              <ProgressBar className="product-breakdown-bar" key={`${type}-characteristics-bar`}>
+                <ProgressBar variant="success" now={lower} key={`${type}1`} />
+                <ProgressBar variant="warning" now={10} key={`${type}2`} />
+                <ProgressBar variant="success" now={upper} key={`${type}3`} />
+              </ProgressBar>
+            </Col>
           </Row>
-          <Row>
-            <Col>
-              <Form.Text>{options[1]}</Form.Text>
+          <Row key={`${type}-row-2`}>
+            <Col key={`${type}-row-1-col-1`}>
+              <Form.Text key={`${type}-options-1`}>{options[1]}</Form.Text>
             </Col>
-            <Col align="center">
-              <Form.Text>{options[2]}</Form.Text>
+            <Col align="center" key={`${type}-row-1-col-2`}>
+              <Form.Text key={`${type}-options-2`}>{options[2]}</Form.Text>
             </Col>
-            <Col align="right">
-              <Form.Text>{options[3]}</Form.Text>
+            <Col align="right" key={`${type}-row-1-col-3`}>
+              <Form.Text key={`${type}-options-3`}>{options[3]}</Form.Text>
             </Col>
           </Row>
         </Form.Group>
@@ -73,7 +82,7 @@ const ProductBreakdown = () => {
     return result;
   }
   return (
-    <Form>
+    <Form key="product-breakdown">
       {renderBreakdown()}
     </Form>
   )
