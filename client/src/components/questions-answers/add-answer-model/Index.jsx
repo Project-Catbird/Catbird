@@ -69,7 +69,6 @@ import AddAnswerForm from './AddAnswerForm.jsx';
          />
     </Modal.Body>
     <Modal.Footer>
-      {clickedId + clickedBody}
     </Modal.Footer>
 </Modal>
 
