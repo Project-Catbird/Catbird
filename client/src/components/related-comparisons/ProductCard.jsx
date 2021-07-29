@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Card, ToggleButton } from 'react-bootstrap';
+import { Card, ToggleButton, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import { API_URL, API_KEY } from '../../config/config.js';
 import { getDefaultStyle, getAverageRating, renderStarRating } from '../../helpers/ratingHelpers.jsx';
 import * as productActionCreators from '../../redux/actions/productAction.js';
 import { actionCreators } from '../../redux/index.js';
+import Comparison from './Comparison.jsx';
 // TODO: Add click handler to change current product view when clicking on card.
 
 const ProductCard = (props) => {
   const [productDetail, setProductDetail] = useState({});
   const [productStyles, setProductStyles] = useState([]);
   const [defaultStyle, setDefaultStyle] = useState({});
-  const [productReviewMeta, setProductReviewMeta] = useState({})
+  const [productReviewMeta, setProductReviewMeta] = useState({});
+  const [showComparison, setShowComparison] = useState(false);
+
   const outfits = useSelector((state) => state.outfitList);
   const dispatch = useDispatch();
   const { setProductId } = bindActionCreators(productActionCreators, dispatch);
@@ -60,7 +63,8 @@ const ProductCard = (props) => {
       top: 0,
       right: 0,
       color:"#ddd",
-      WebkitTextStroke:"2px #ddd"}}>
+      WebkitTextStroke:"2px #ddd"}}
+      onClick={() => setShowComparison(true)}>
     </i>
   );
 
@@ -172,21 +176,23 @@ const ProductCard = (props) => {
     )
   } else {
     return (
-      <div className="mx-2" onClick={(e) => {
-        e.stopPropagation();
-        setProductId(props.productId);
-      }}>
+      <div className="mx-2">
         {defaultStyle.photos &&
           <Card style={{width: "18rem"}}>
             {props.cardType === "related" && compareButton}
             {props.cardType === "outfit" && removeOutfitButton}
-            <Card.Img variant="top" src={defaultStyle.photos[0].thumbnail_url} style={{height: "20rem", objectFit: "cover"}}/>
-            <Card.Body>
+            <Card.Img variant="top" src={defaultStyle.photos[0].thumbnail_url} style={{height: "20rem", objectFit: "cover"}} onClick={() => {
+        setProductId(props.productId);
+      }}/>
+            <Card.Body onClick={() => {
+        setProductId(props.productId);
+      }}>
               <Card.Subtitle className="text-muted">{productDetail.category}</Card.Subtitle>
               <Card.Title>{productDetail.name}</Card.Title>
               {productPrice}
               {starRating}
             </Card.Body>
+            <Comparison comparedProduct={props.productId} show={showComparison} onHide={() => setShowComparison(false)}/>
             {/* <Card.Footer>
               <small className="text-muted">Last updated 3 mins ago</small>
             </Card.Footer> */}
