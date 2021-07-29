@@ -50,17 +50,20 @@ const ProductBreakdown = () => {
         <Form.Group>
           <Form.Label><b>{type}</b></Form.Label>
           <Row>
-            <ProgressBar className="product-breakdown-bar" now={0}/>
-            <i class="fas fa-caret-square-down indicator"></i>
+            <ProgressBar className="product-breakdown-bar">
+              <ProgressBar variant="success" now={45} />
+              <ProgressBar variant="warning" now={10} />
+              <ProgressBar variant="success" now={45} />
+            </ProgressBar>
           </Row>
           <Row>
             <Col>
               <Form.Text>{options[1]}</Form.Text>
             </Col>
-            <Col>
+            <Col align="center">
               <Form.Text>{options[2]}</Form.Text>
             </Col>
-            <Col>
+            <Col align="right">
               <Form.Text>{options[3]}</Form.Text>
             </Col>
           </Row>

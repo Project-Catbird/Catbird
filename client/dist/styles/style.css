@@ -210,11 +210,3 @@
   width: 100px;
   height: 100px;
 }
-
-.product-breakdown-bar {
-  position: relative;
-}
-
-.indicator {
-  position: absolute;
-}
