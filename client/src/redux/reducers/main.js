@@ -36,13 +36,14 @@ const rootReducer = combineReducers({
   reviewForm: reviewFormReducer,
 
 
-  //qna
-  product_id: qnaReducers.productIdReducer,
+
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
   addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
-  searchBarInput:qnaReducers.searchBarInputReducer,
+  searchBarTyped:qnaReducers.searchBarTypedReducer,
+  questionBody: qnaReducers.questionBodyReducer,
+  quedtionId: qnaReducers.questionIdReducer,
 
   //related & comparison
   outfitList: outfitListReducer

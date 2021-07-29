@@ -1,67 +1,100 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../redux/index.js';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col } from 'react-bootstrap';
-// import ListGroup from 'react-bootstrap/ListGroup';
-
-// import { API_KEY, API_URL } from '../../config/config.js';
-
-
-//import components
 import QuestionsList from './QuestionsList.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
-// import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
-// import AddQuestion from './add-question-model/Index.jsx';
-// import AddAnswer from './add-answer-model/Index.jsx';
+import AddQuestion from './add-question-model/Index.jsx'
+
 
 const QnAComponent = (props) => {
-const qnaList = useSelector(state => state.qnaList);
+const qnaList = useSelector(state => state.qnaList).sort((a, b) => b.question_helpfulness - a.question_helpfulness);
+
+const productId = useSelector(state => state.productId);
+var searchBarTyped = useSelector(state => state.searchBarTyped);
+
+var [ count, setCount ] = useState(4);
+var [ noMoreQuestion, setNoMoreQuestion ] = useState(false);
 const dispatch = useDispatch();
-const { fetchQuestionList} = bindActionCreators(actionCreators, dispatch);
-
-useEffect(() => {
-  fetchQuestionList();
-}, [])
+const { fetchQuestionList } = bindActionCreators(actionCreators, dispatch);
+var qnaListShown = qnaList.slice(0, count);
 
 
 
-// return (
-// <ListGroup variant="flush">
-//   <ListGroup.Item>Cras justo odio</ListGroup.Item>
-// </ListGroup>
+  useEffect(() => {
+    fetchQuestionList(productId, 1, 1000);
+  }, [productId]);
 
-// )
+
+  const getMoreQuestions = () => {
+    setCount(count + 2);
+   if (count >= qnaList.length) {
+     setNoMoreQuestion(true);
+   }
+  }
+
+  const rennderComponents = () => {
+
+    if (qnaList.length !==0 && !searchBarTyped) {
+       return (
+        <QuestionsList
+          qnaList={qnaListShown}
+          getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}
+        />
+       )
+    }
+
+    if (qnaList.length === 0) {
+      return (
+        <Container className="twoMainButton">
+          <Row className="flex-nowrap text-center">
+            <Col className="flex-md-fill">
+              <AddQuestion />
+            </Col>
+          </Row>
+        </Container>
+      )
+    }
+
+    if (searchBarTyped) {
+      return null;
+    }
+
+  }
+
 
 
   return (
     <Container>
       <br />
-
       <Row>
-        <Col></Col>
-        <Col xs={5} className="qna-title text-center">QUESTION AND ANSWERS</Col>
-        <Col></Col>
+        <Col>
+        </Col>
+        <Col
+        xs={5}
+        className="qna-title text-center">
+          QUESTION AND ANSWERS
+        </Col>
+        <Col>
+        </Col>
      </Row>
-
-
       <br />
-      <Container fluid="md" className="flex-nowrap text-center">
+      <Container fluid className="flex-nowrap text-center">
       <Row>
-
-        <Col><SearchQuestions /></Col>
-
+          <Col>
+            <SearchQuestions qnaList={qnaList}/>
+          </Col>
         </Row>
         </Container>
       <Row>
-      {qnaList.length !==0 && <QuestionsList qnaList={qnaList}/>}
+        {rennderComponents() }
       </Row>
     </Container>
 
   )
-
 }
 
 

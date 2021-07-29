@@ -1,22 +1,48 @@
 .answerStamp {
-  font-size: 11px;
-  font-family: math;
+  font-size: clamp(10px, 2vw, 16px);
+  /* font-family: math; */
   color:gray;
+  margin: none;
+  border: none;
+}
+
+
+
+.questionHeader {
+  display: flex;
+}
+
+.helpAndAddAnswer {
+  display: flex;
+  align-self: center;
+}
+
+.helpfulBody {
+  padding-right: 8px;
+  border-right: 0.1em solid gray;
+  height: 20px;
+}
+
+.addAnswersBody {
+  padding-left: 8px;
+
 }
 
 .qna-title {
-  font-size: 15px;
+  font-size: clamp(15px, 2vw, 25px);
   color:gray;
+  flex:1
 }
 .qna-a {
-  font-size: 12px;
-  font-family: math;
+  font-size:clamp(14px, 2vw, 20px);
+  /* font-family: math; */
   color:gray;
 }
 
 .qna-q {
-  font-size: 15px;
-  font-family: math;
+  font-size: clamp(18px, 2vw, 25px);
+  /* font-family: math; */
+  /* font-weight: lighter; */
   color:gray;
 }
 
@@ -31,11 +57,25 @@
 }
 
 .questionHelpfulness {
-  font-size: 11px;
+  font-size: clamp(10px, 2vw, 16px);
   font-family: math;
   color:gray;
 }
 
+.twoMainButton button {
+  font-size: clamp(8px, 2vw, 20px);
+}
+
+.modalTwoButtons button {
+  font-size: clamp(10px, 2vw, 18px);
+}
+
+
+.modalCloseButton button {
+  outline: none;
+  background-color: Transparent;
+  border: none;
+}
 
 .form {
   display:flex;
@@ -47,26 +87,43 @@
 .search-input{
   flex-grow:2;
   border:none;
+  font-weight: lighter;
+  font-size: clamp(15px, 2vw, 25px);
 }
 
 .search-input:focus {
   outline: none;
 }
 
+.searchIcon {
+  align-self: center;
+}
+
+
 
 .see-more-answers {
-  font-size: 12px;
+  font-size: clamp(12px, 2vw, 18px);
   font-family: math;
   color:gray;
+  background-color: Transparent;
   border: none;
-  margin-left: 4em;
+  margin-left: 3%;
   margin-bottom: none;
+  outline:none;
 }
 
 .see-more-answers:hover{
   cursor: pointer;
   text-decoration: underline;
 }
+
+/* .searchedQuestions {
+  display: flex;
+  justify-items: left;
+  justify-self: left;
+} */
+
+
 .container {
   padding: 10px;
 }
