@@ -37,7 +37,7 @@ function ImageGallery(props) {
   useEffect(() => {
     changeActive();
     changeImg(currentImg);
-  }, [currentImg])
+  })
 
   const photoComponents = photos.map((photo, index) => {
     return <img className={index === 0 ? "thumbnail active" : "thumbnail"} key={index} id={index} src={photo.thumbnail_url} onClick={(e) => {handleImageSelect(e.target.id)}}></img>
