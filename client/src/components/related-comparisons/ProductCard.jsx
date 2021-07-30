@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Card, ToggleButton, Modal } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import axios from 'axios';
 import { API_URL, API_KEY } from '../../config/config.js';
 import { getDefaultStyle, getAverageRating, renderStarRating } from '../../helpers/ratingHelpers.jsx';
@@ -192,7 +192,9 @@ const ProductCard = (props) => {
               {productPrice}
               {starRating}
             </Card.Body>
-            <Comparison comparedProduct={props.productId} show={showComparison} onHide={() => setShowComparison(false)}/>
+            { showComparison &&
+            <Comparison comparedProductName={productDetail.name} comparedProductId={props.productId} show={showComparison} onHide={() => setShowComparison(false)}/>
+            }
             {/* <Card.Footer>
               <small className="text-muted">Last updated 3 mins ago</small>
             </Card.Footer> */}
