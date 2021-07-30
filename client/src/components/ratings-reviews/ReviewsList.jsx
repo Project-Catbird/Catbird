@@ -9,7 +9,8 @@ const ReviewsList = () => {
   const fullReviewsList = useSelector(state => state.reviewsList.results);
   const reviewsCount = useSelector(state => state.reviewsCount);
   const dispatch = useDispatch();
-  let reviewsList = reviewsCount > 2 ? fullReviewsList : fullReviewsList.slice(0, 2);
+  let reviewsList = fullReviewsList.slice(0, reviewsCount);
+  // let reviewsList = reviewsCount > 2 ? fullReviewsList : fullReviewsList.slice(0, 2);
   const node = React.createRef('.review-feed')
   console.log(node)
 
@@ -43,29 +44,18 @@ const ReviewsList = () => {
       }}>Add Review</Button>
   }
 
-  // $(window).on("scroll", function() {
-  //   //page height
-  //   var scrollHeight = $(document).height();
-  //   //scroll position
-  //   var scrollPos = $(window).height() + $(window).scrollTop();
-  //   // fire if the scroll position is 300 pixels above the bottom of the page
-  //   if(((scrollHeight - 300) >= scrollPos) / scrollHeight == 0){
-  //     $('.load-more-days-button').click();
-  //    }
-  //  });
-
-   let handleScroll = (event) => {
-    const scrollY = window.scrollY
-    //const scrollTop = node.current.scrollTop
-    // console.log('y', scrollY)
-   }
-  //  let handleScroll = (event) => {
-  //   let scrollHeight = $('#reviews-list').height();
-  //   let scrollPos = $('.review-feed').height() + $('.review-feed').scrollTop();
-  //   if(((scrollHeight - 300) >= scrollPos) / scrollHeight == 0){
-  //     console.log('bottom')
-  //    }
-  //  }
+  let handleScroll = (event) => {
+    let scrollY = document.querySelector(".review-feed").scrollHeight - document.querySelector(".review-feed").scrollTop;
+    let height = document.querySelector(".review-feed").offsetHeight;
+    let offset = height - scrollY;
+    console.log(offset)
+    if (offset === 0) {
+      dispatch({
+        type: 'UPDATE_REVIEWS_COUNT',
+        reviewsCount: reviewsCount + 2
+      })
+    }
+  }
 
 
   return (
