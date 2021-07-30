@@ -8,16 +8,19 @@ const IndividualReviewTile = (props) => {
   const [show, setShow] = useState(false);
   const [imgClicked, setImgClicked] = useState(null);
   const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulness);
+  const [helpfulClick, setHelpfulClick] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleHelpfulClick = (event) => {
-    axios.put(`${API_URL}/reviews/${props.review.review_id}/helpful`, {review_id: props.review.review_id}, {
-      headers: {Authorization: API_KEY}
-    }).then(res => setHelpfulCount(helpfulCount + 1))
-    .catch(err => console.log(err));
-
+    if (!helpfulClick) {
+      setHelpfulClick(true);
+      axios.put(`${API_URL}/reviews/${props.review.review_id}/helpful`, {review_id: props.review.review_id}, {
+        headers: {Authorization: API_KEY}
+      }).then(res => setHelpfulCount(helpfulCount + 1))
+      .catch(err => console.log(err));
+    }
   }
 
   const handleReportClick = (event) => {
