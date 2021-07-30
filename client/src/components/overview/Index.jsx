@@ -8,7 +8,7 @@ import ImageGallery from './ImageGallery.jsx';
 import Description from './Description.jsx';
 import Share from './Share.jsx';
 import { Col, Row, Container } from 'react-bootstrap';
-import { setProduct, getStyles, setStyle, setCurrentImg } from '../../redux/actions/productAction';
+import { setProduct, getStyles } from '../../redux/actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Overview(props) {

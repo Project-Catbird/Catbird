@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Col, Row, Container, Image, Form } from 'react-bootstrap';
+import { Container, Image } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { setStyle, setCurrentImg } from '../../redux/actions/productAction';
 
