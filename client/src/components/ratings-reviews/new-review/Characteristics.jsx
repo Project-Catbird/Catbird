@@ -90,12 +90,12 @@ const Characteristics = () => {
         })
       }
       result.push(
-        <React.Fragment>
-          <Form.Group>
-            <Form.Label><b>{type}:</b></Form.Label>
+        <React.Fragment key={`${type}-fragment`}>
+          <Form.Group key={`${type}-group`}>
+            <Form.Label key={`${type}-label`}><b>{type}:</b></Form.Label>
             {Object.keys(options).map(option => (
               <Form.Check
-              key={options[option]}
+              key={options[option] + type}
               inline
               label={`${options[option]} `}
               type="radio"
@@ -112,7 +112,7 @@ const Characteristics = () => {
   }
 
   return (
-    <React.Fragment>
+    <React.Fragment key="review-characteristics-frag">
       {renderCharacteristics()}
     </React.Fragment>
   )
