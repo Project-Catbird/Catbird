@@ -10,6 +10,16 @@ const IndividualReviewTile = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleHelpfulClick = (event) => {
+    event.preventDefault();
+    console.log('helpful')
+  }
+
+  const handleReportClick = (event) => {
+    event.preventDefault();
+    console.log('report')
+  }
+
 
   let renderPhotos = () => {
     let result = [];
@@ -104,7 +114,11 @@ const IndividualReviewTile = (props) => {
       </Row> : ''}
       <Row key="review-tile-helpful">
         <Col align="left" key="helpful-col">
-          <span className="helpfulness">Was this review helpful? <u>Yes</u> ({props.review.helpfulness})    |    <u>Report</u></span>
+          <span className="helpfulness">Was this review helpful? <span
+            onClick={handleHelpfulClick}
+            ><u>Yes</u></span> ({props.review.helpfulness})    |    <span
+            onClick={handleReportClick}
+            ><u>Report</u></span></span>
         </Col>
       </Row>
       </div>
