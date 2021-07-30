@@ -10,6 +10,11 @@ function StyleSelector(props) {
   const currentImg = useSelector((state) => state.currentImg);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(setCurrentImg(0));
+    dispatch(setStyle(styles[0]));
+  }, [JSON.stringify(styles)]);
+
   const styleComponents = () => {
     var rows = [];
     for (var i = 0; i < styles.length; i += 4) {

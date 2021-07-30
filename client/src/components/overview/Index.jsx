@@ -16,10 +16,10 @@ function Overview(props) {
   const styles = useSelector((state) => state.styles.results);
   const dispatch = useDispatch();
 
-  const fetchItem = (getAction, link) => {
+  const fetchItem = (action, link) => {
     axios.get(link, {headers: {Authorization: API_KEY}})
     .then(response => {
-      dispatch(getAction(response.data));
+      dispatch(action(response.data));
     })
     .catch(err => { console.log(err) })
   }
@@ -34,11 +34,6 @@ function Overview(props) {
     fetchItem(setProduct, `${API_URL}/products/${productId}`);
     fetchItem(getStyles, `${API_URL}/products/${productId}/styles`);
   }, [productId]);
-
-  useEffect(() => {
-    dispatch(setCurrentImg(0));
-    dispatch(setStyle(styles[0]));
-  })
 
   return (
     <Container>
