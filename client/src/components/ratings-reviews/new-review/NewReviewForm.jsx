@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
@@ -15,6 +15,8 @@ const NewReviewForm = () => {
   const productId = useSelector(state => state.productId);
   const photos = useSelector(state => state.photoUpload);
   const dispatch = useDispatch();
+  const [bodyLength, setBodyLength] = useState(0);
+  const [validSummary, setValidSummary] = useState(true);
 
   let checkValidator = () => {
     for (let key in validator) {
@@ -60,7 +62,23 @@ const NewReviewForm = () => {
       type: 'UPDATE_NEW_REVIEW_FORM',
       payload: tempState
     })
+    let validatorState = validator;
+    let characters = event.target.value.length;
+    if (event.target.getAttribute('name') === 'body') {
+      validatorState.body = characters >= 50 && characters < 1000 ? true : false;
+      setBodyLength(characters);
+    }
+    if (event.target.getAttribute('name') === 'summary') {
+      let validType = characters > 60 ? false : true;
+      validatorState.summary = validType;
+      setValidSummary(validType);
+    }
+    dispatch({
+      type: 'VALIDATE_REVIEW',
+      reviewValidator: validatorState
+    })
   }
+
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -71,24 +89,30 @@ const NewReviewForm = () => {
       <Form.Group>
         <Form.Label><b>Review Summary </b></Form.Label>
         <Form.Control
-          placeholder="Leave a short summary of your review. No more than 60 characters"
+          placeholder="Example: Best purchase ever!"
           controlid="new-review-summary"
           name="summary"
           onChange={handleChange}
         />
+        {!validator.summary ?
+        <Form.Text>Review summary must be less than 60 characters</Form.Text>
+        : ''}
         <br></br>
       </Form.Group>
       <Form.Group>
         <Form.Label><b>Review Body </b></Form.Label>
         <Form.Control
           as="textarea"
-          placeholder="Leave your review here"
+          placeholder="Why did you like the product or not?"
           controlid="new-review-body"
           name="body"
           rows={5}
           required
           onChange={handleChange}
         />
+        <Form.Text>
+          {!validator.body ? `Minimum required characters left: [${50 - bodyLength}]` : 'Minimum reached'}
+        </Form.Text>
       </Form.Group>
       <PhotoUpload />
       <br></br>

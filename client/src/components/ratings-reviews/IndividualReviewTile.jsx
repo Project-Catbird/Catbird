@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Alert, Image, Modal, Button } from 'react-bootstrap';
 import ReviewImagesModal from './ReviewImagesModal.jsx';
+import axios from 'axios';
+import { API_KEY, API_URL } from '../../config/config.js';
 
 const IndividualReviewTile = (props) => {
   const [show, setShow] = useState(false);
-  const [imgClicked, setImgClicked] = useState(null)
-
+  const [imgClicked, setImgClicked] = useState(null);
+  const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulness);
+  const [helpfulClick, setHelpfulClick] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleHelpfulClick = (event) => {
+    if (!helpfulClick) {
+      setHelpfulClick(true);
+      axios.put(`${API_URL}/reviews/${props.review.review_id}/helpful`, {review_id: props.review.review_id}, {
+        headers: {Authorization: API_KEY}
+      }).then(res => setHelpfulCount(helpfulCount + 1))
+      .catch(err => console.log(err));
+    }
+  }
+
+  const handleReportClick = (event) => {
+    event.preventDefault();
+    axios.put(`${API_URL}/reviews/${props.review.review_id}/report`, {review_id: props.review.review_id}, {
+      headers: {Authorization: API_KEY}
+    }).then(res => alert('Review reported'))
+    .catch(err => console.log(err));
+  }
 
 
   let renderPhotos = () => {
@@ -104,7 +125,13 @@ const IndividualReviewTile = (props) => {
       </Row> : ''}
       <Row key="review-tile-helpful">
         <Col align="left" key="helpful-col">
-          <span className="helpfulness">Was this review helpful? <u>Yes</u> ({props.review.helpfulness})    |    <u>Report</u></span>
+          <span className="helpfulness">Was this review helpful? <span
+            onClick={handleHelpfulClick}
+            className="clickable"
+            ><u>Yes</u></span> ({helpfulCount})    |    <span
+            onClick={handleReportClick}
+            className="clickable"
+            ><u>Report</u></span></span>
         </Col>
       </Row>
       </div>

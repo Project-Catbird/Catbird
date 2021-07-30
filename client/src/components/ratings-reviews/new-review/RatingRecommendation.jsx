@@ -82,14 +82,14 @@ const RatingRecommendation = () => {
   ]
 
   return (
-    <React.Fragment>
-      <Form.Group>
-          <Form.Label><b>Overall Rating: </b></Form.Label>
-          <Row>
-            <ButtonToolbar>
-              <ButtonGroup>
+    <React.Fragment key="new-rating-rec">
+      <Form.Group key="new-rating">
+          <Form.Label key="rating-label"><b>Overall Rating: </b></Form.Label>
+          <Row key="rating-row">
+            <ButtonToolbar key="toolbar">
+              <ButtonGroup key="btn-grp">
                 {starRatings.map((rating) => (
-                  <Col>
+                  <Col key={`${rating.value}-col`}>
                     <Button
                       key={rating.value}
                       id={`new-review-rating-${rating.value}`}
@@ -108,14 +108,15 @@ const RatingRecommendation = () => {
           </Row>
         </Form.Group>
         <br></br>
-        <Form.Group>
-          <Form.Label><b>Do You Recommend This Product? </b></Form.Label>
+        <Form.Group key="new-rec">
+          <Form.Label key="rec-label"><b>Do You Recommend This Product? </b></Form.Label>
           <Form.Check
             inline
             label="Yes"
             type="radio"
             name="recommendation"
             onChange={() => handleChange('recommend', true)}
+            key="rec-yes"
           />
           <Form.Check
             inline
@@ -123,6 +124,7 @@ const RatingRecommendation = () => {
             type="radio"
             name="recommendation"
             onChange={() => handleChange('recommend', false)}
+            key="rec-no"
           />
       </Form.Group>
     </React.Fragment>
