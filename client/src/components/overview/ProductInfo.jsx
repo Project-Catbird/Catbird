@@ -29,30 +29,19 @@ function ProductInfo(props) {
       {reviewsList.length > 0 ?
             <span className="product-rating">
             <Row>
-              <Col className="col-sm-auto">
-                {Math.round(averageReview * 10) / 10} / 10
-              </Col>
               <Col>
                   <span className="score">
-                    <div className="score-wrap">
-                      <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
+                    <div className="score-wrap me-2">
+                      <span className="stars-active" style={{width: `${averageReview * 20}%`}}>
+                        {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                       <span className="stars-inactive">
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
+                        {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                     </div>
+                    <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
                   </span>
               </Col>
-              <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
             </Row>
           </span> : ''}
       <Row>

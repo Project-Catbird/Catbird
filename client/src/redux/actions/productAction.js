@@ -42,3 +42,12 @@ export const setStyle = (style) => {
     })
   }
 }
+
+export const setCurrentImg = (index) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'SET_CURRENT_IMG',
+      payload: index
+    })
+  }
+}
