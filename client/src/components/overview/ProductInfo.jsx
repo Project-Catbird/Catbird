@@ -29,9 +29,6 @@ function ProductInfo(props) {
       {reviewsList.length > 0 ?
             <span className="product-rating">
             <Row>
-              <Col className="col-sm-auto">
-                {Math.round(averageReview * 10) / 10} / 10
-              </Col>
               <Col>
                   <span className="score">
                     <div className="score-wrap">

@@ -55,12 +55,12 @@ function AddToCart(props) {
               {Array.from(Array(quantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
             </select>
           </Row>
-          <Row>
-            {quantity === 0 ? '' : <Button className="btn btn-primary btn-large centerButton" id="add-to-cart-btn" type="submit">Add to Cart</Button>}
-          </Row>
-          <Row>
-            <Button className="btn btn-primary btn-large centerButton" id="like-btn" type="" onClick={handleLike}>Like</Button>
-          </Row>
+            <div className="form-group row">
+              <button className="btn btn-outline-primary col-10" id="add-to-cart-btn" type="submit">Add to Cart</button>
+              <div className="col-md-2">
+                <button className="btn btn-outline-primary " id="like-btn" type="" onClick={handleLike}><i className="far fa-star" aria-hidden="true"></i></button>
+              </div>
+            </div>
         </FormGroup>
       </Form>
     </Container>
