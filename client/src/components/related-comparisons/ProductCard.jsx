@@ -134,25 +134,16 @@ const ProductCard = (props) => {
       }
     </div>
   );
-  const starRating = (
-    <div>
-      <i className="far fa-star"></i>
-      <i className="far fa-star"></i>
-      <i className="far fa-star"></i>
-      <i className="far fa-star"></i>
-      <i className="far fa-star"></i>
-    </div>
-  )
+
+  const averageRating = getAverageRating(productReviewMeta);
+
   if (props.cardType === "curProduct") {
     return (
       <div className="mx-2" onClick={(e) => {
-        // e.stopPropagation();
         addOutfit()
       }}>
         {defaultStyle.photos &&
           <Card style={{width: "18rem"}}>
-            {/* {props.cardType === "related" && compareButton}
-            {props.cardType === "outfit" && removeOutfitButton} */}
             {addOutfitButton}
             <div style={{
               width: "100%",
@@ -168,7 +159,8 @@ const ProductCard = (props) => {
               <Card.Subtitle className="text-muted">{productDetail.category}</Card.Subtitle>
               <Card.Title>{productDetail.name}</Card.Title>
               {productPrice}
-              {starRating}
+              {averageRating !== null && renderStarRating(averageRating)}
+              {averageRating === null && <small className="text-muted">No ratings available</small>}
             </Card.Body>
           </Card>
         }
@@ -190,14 +182,12 @@ const ProductCard = (props) => {
               <Card.Subtitle className="text-muted">{productDetail.category}</Card.Subtitle>
               <Card.Title>{productDetail.name}</Card.Title>
               {productPrice}
-              {starRating}
+              {averageRating !== null && renderStarRating(averageRating)}
+              {averageRating === null && <small className="text-muted">No ratings available</small>}
             </Card.Body>
             { showComparison &&
             <Comparison comparedProductName={productDetail.name} comparedProductId={props.productId} show={showComparison} onHide={() => setShowComparison(false)}/>
             }
-            {/* <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer> */}
           </Card>
         }
       </div>
