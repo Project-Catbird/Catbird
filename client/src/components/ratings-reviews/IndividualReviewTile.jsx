@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Alert, Image, Modal, Button } from 'react-bootstrap';
 import ReviewImagesModal from './ReviewImagesModal.jsx';
+import axios from 'axios';
+import { API_KEY, API_URL } from '../../config/config.js';
 
 const IndividualReviewTile = (props) => {
   const [show, setShow] = useState(false);
-  const [imgClicked, setImgClicked] = useState(null)
-
+  const [imgClicked, setImgClicked] = useState(null);
+  const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulness);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleHelpfulClick = (event) => {
-    event.preventDefault();
-    console.log('helpful')
+    axios.put(`${API_URL}/reviews/${props.review.review_id}/helpful`, {review_id: props.review.review_id}, {
+      headers: {Authorization: API_KEY}
+    }).then(res => setHelpfulCount(helpfulCount + 1))
+    .catch(err => console.log(err));
+
   }
 
   const handleReportClick = (event) => {
     event.preventDefault();
-    console.log('report')
+    axios.put(`${API_URL}/reviews/${props.review.review_id}/report`, {review_id: props.review.review_id}, {
+      headers: {Authorization: API_KEY}
+    }).then(res => alert('Review reported'))
+    .catch(err => console.log(err));
   }
 
 
@@ -116,8 +124,10 @@ const IndividualReviewTile = (props) => {
         <Col align="left" key="helpful-col">
           <span className="helpfulness">Was this review helpful? <span
             onClick={handleHelpfulClick}
-            ><u>Yes</u></span> ({props.review.helpfulness})    |    <span
+            className="clickable"
+            ><u>Yes</u></span> ({helpfulCount})    |    <span
             onClick={handleReportClick}
+            className="clickable"
             ><u>Report</u></span></span>
         </Col>
       </Row>

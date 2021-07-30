@@ -65,7 +65,7 @@ const NewReviewForm = () => {
     let validatorState = validator;
     let characters = event.target.value.length;
     if (event.target.getAttribute('name') === 'body') {
-      validatorState.body = characters > 50 && characters < 1000 ? true : false;
+      validatorState.body = characters >= 50 && characters < 1000 ? true : false;
       setBodyLength(characters);
     }
     if (event.target.getAttribute('name') === 'summary') {
@@ -111,7 +111,7 @@ const NewReviewForm = () => {
           onChange={handleChange}
         />
         <Form.Text>
-          {!validator.body ? `Minimum required characters left: [${51 - bodyLength}]` : 'Minimum reached'}
+          {!validator.body ? `Minimum required characters left: [${50 - bodyLength}]` : 'Minimum reached'}
         </Form.Text>
       </Form.Group>
       <PhotoUpload />
