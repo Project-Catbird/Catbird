@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Form, FormGroup, FormControl, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { API_KEY } from '../../config/config'
+import { API_KEY, API_URL } from '../../config/config'
 import axios from 'axios';
 function AddToCart(props) {
   const widget = 'add-to-cart'
@@ -13,7 +13,7 @@ function AddToCart(props) {
   });
   const sizeSelector = sizes.map((size, index) => <option key={index} value={skus[index]}>{size}</option>);
   const [size, setSize] = useState('');
-  const [quantity, setQuantity] = useState(null);
+  const [sizeQuantity, setSizeQuantity] = useState(null);
   const [atcQuantity, setATCQuantity] = useState(0);
 
   const handleSubmit = (event) => {
@@ -21,7 +21,7 @@ function AddToCart(props) {
     if (size === '' || atcQuantity < 1) {
       alert('Please pick a style, size, and quantity');
     } else {
-      axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/cart/', {sku_id: size}, {headers: {Authorization: API_KEY}})
+      axios.post(`${API_URL}/cart/`, {sku_id: size}, {headers: {Authorization: API_KEY}})
         .then(() => { alert('Added to cart!'); })
         .catch(err => { console.log(err); })
     }
@@ -40,10 +40,10 @@ function AddToCart(props) {
             <select className="form-control" id="add-to-cart-size" onChange={e => {
               if (e.target.value === "") {
                 setSize('');
-                setQuantity(0);
+                setSizeQuantity(0);
               } else {
                 setSize(e.target.value);
-                setQuantity(Math.min(15, skusInfo[e.target.value].quantity));
+                setSizeQuantity(Math.min(15, skusInfo[e.target.value].quantity));
               }}}>
               <option value="">Select Size</option>
               {sizeSelector}
@@ -52,7 +52,7 @@ function AddToCart(props) {
           <Row>
             <select className="form-control" id="add-to-cart-quantity" onChange={e => setATCQuantity(e.target.value)}>
               <option value="0">Select Quantity</option>
-              {Array.from(Array(quantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
+              {Array.from(Array(sizeQuantity + 1).keys()).map((item, index) => {return <option key={index} value={item}>{item}</option>})}
             </select>
           </Row>
             <div className="form-group row">

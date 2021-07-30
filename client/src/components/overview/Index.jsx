@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { API_KEY } from '../../config/config'
+import { API_KEY, API_URL } from '../../config/config'
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
@@ -24,14 +24,14 @@ function Overview(props) {
   }
 
   const handleInteractions = (element, widget) => {
-    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/interactions', {time: new Date(), element, widget}, {headers: {Authorization: API_KEY}})
+    axios.post(`${API_URL}/interactions`, {time: new Date(), element, widget}, {headers: {Authorization: API_KEY}})
       .then((res) => { console.log(res) })
       .catch((err) => { console.log(err) })
   }
 
   useEffect(() => {
-    fetchItem(setProduct, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}`);
-    fetchItem(getStyles, `https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${productId}/styles`);
+    fetchItem(setProduct, `${API_URL}/products/${productId}`);
+    fetchItem(getStyles, `${API_URL}/products/${productId}/styles`);
   }, [productId])
 
   dispatch(setStyle(styles[0]));
