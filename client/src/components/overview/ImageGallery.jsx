@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Modal, Button } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentImg } from '../../redux/actions/productAction';
 
 function ImageGallery(props) {
   const widget = 'image-gallery';
+  const dispatch = useDispatch();
   const photos = useSelector((state) => state.style.photos);
-  const [currentImg, setCurrentImg] = useState(0);
+  const currentImg = useSelector((state) => state.currentImg);
   const [show, setShow] = useState(false);
 
   const changeActive = () => {
@@ -21,14 +23,14 @@ function ImageGallery(props) {
   }
 
   const handleImageSelect = (smallImg) => {
-    setCurrentImg(Number(smallImg));
+    dispatch(setCurrentImg(Number(smallImg)));
   }
 
   const handleArrow = (arrowId) => {
     if (arrowId === 'slideRight' && currentImg < photos.length - 1) {
-      setCurrentImg(prev => prev + 1);
+      dispatch(setCurrentImg(currentImg + 1));
     } else if (arrowId === 'slideLeft' && currentImg >= 1) {
-      setCurrentImg(prev => prev - 1);
+      dispatch(setCurrentImg(currentImg - 1));
     }
   }
 
