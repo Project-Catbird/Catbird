@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Alert, Button, Col, Container } from 'react-bootstrap';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
@@ -7,12 +7,12 @@ import $ from 'jquery';
 
 const ReviewsList = () => {
   const fullReviewsList = useSelector(state => state.reviewsList.results);
+  const sortedReviewsList = useSelector(state => state.sortedReviewsList);
   const reviewsCount = useSelector(state => state.reviewsCount);
+  const starSort = useSelector(state => state.starSort);
   const dispatch = useDispatch();
-  let reviewsList = fullReviewsList.slice(0, reviewsCount);
-  // let reviewsList = reviewsCount > 2 ? fullReviewsList : fullReviewsList.slice(0, 2);
-  const node = React.createRef('.review-feed')
-  console.log(node)
+
+  let reviewsList = sortedReviewsList ? sortedReviewsList.slice(0, reviewsCount) : fullReviewsList.slice(0, reviewsCount);
 
   let renderMoreReviewsButton = () => {
     if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {
@@ -48,7 +48,6 @@ const ReviewsList = () => {
     let scrollY = document.querySelector(".review-feed").scrollHeight - document.querySelector(".review-feed").scrollTop;
     let height = document.querySelector(".review-feed").offsetHeight;
     let offset = height - scrollY;
-    console.log(offset)
     if (offset === 0) {
       dispatch({
         type: 'UPDATE_REVIEWS_COUNT',
