@@ -31,17 +31,17 @@ function ProductInfo(props) {
             <Row>
               <Col>
                   <span className="score">
-                    <div className="score-wrap">
-                      <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
+                    <div className="score-wrap me-2">
+                      <span className="stars-active" style={{width: `${averageReview * 20}%`}}>
                         {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                       <span className="stars-inactive">
                         {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                     </div>
+                    <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
                   </span>
               </Col>
-              <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
             </Row>
           </span> : ''}
       <Row>
