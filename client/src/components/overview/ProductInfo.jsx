@@ -33,18 +33,10 @@ function ProductInfo(props) {
                   <span className="score">
                     <div className="score-wrap">
                       <span className="stars-active" style={{width: `${averageReview * 10}%`}}>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
+                        {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                       <span className="stars-inactive">
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
-                          <i className="fa fa-star" aria-hidden="true"></i>
+                        {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                     </div>
                   </span>
