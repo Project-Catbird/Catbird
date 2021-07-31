@@ -11,10 +11,10 @@ const App = (props) => {
   return (
     <div>
       <Nav/>
-      <Overview />
-      <RelatedComparisons/>
+      {/* <Overview />
+      <RelatedComparisons/> */}
       <QnAComponent />
-      <RatingsReviews />
+      {/* <RatingsReviews /> */}
     </div>
   )
 };
