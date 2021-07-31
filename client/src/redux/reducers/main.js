@@ -15,6 +15,7 @@ import productInfoReducer from './Overview/productInfoReducer';
 import styleReducer from './Overview/styleReducer';
 import styleInfoReducer from './Overview/styleInfoReducer';
 import productIdReducer from './Overview/productIdReducer';
+import currentImgReducer from './Overview/currentImgReducer';
 import outfitListReducer from './related-comparisons/outfitListReducer';
 
 
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   productInfo: productInfoReducer,
   styles: styleReducer,
   style: styleInfoReducer,
+  currentImg: currentImgReducer,
 
   // RatingsReviews
   reviewsList: reviewsListReducer,
