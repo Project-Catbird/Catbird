@@ -39,7 +39,7 @@ function ProductInfo(props) {
                         {Array.from(Array(5).keys()).map((index) => {return <i key={index} className="fa fa-star" aria-hidden="true"></i>})}
                       </span>
                     </div>
-                    <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read {reviewsList.length} reviews</a>
+                    <a href="" onClick={() => {scrollToId('rating-breakdown-container')}}>Read all {reviewsList.length} reviews</a>
                   </span>
               </Col>
             </Row>
