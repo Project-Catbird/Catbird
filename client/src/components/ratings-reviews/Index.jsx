@@ -7,12 +7,6 @@ import { API_KEY, API_URL } from '../../config/config.js';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-// Import modules to use in component creation, uncomment as neccessary
-////////////////////////////////////////////////////////////////////////////////////////////////
-
 import ReviewsList from './ReviewsList.jsx';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
 // import Sort from './Sort.jsx';

@@ -7,6 +7,36 @@ import { ProgressBar, Row, Col } from 'react-bootstrap';
 const RatingBreakdown = (props) => {
   const reviewsList = useSelector(state => state.reviewsList.results);
   const reviewsMeta = useSelector(state => state.reviewsMeta);
+  const starSort = useSelector(state => state.starSort);
+  const dispatch = useDispatch();
+
+  let handleClick = (rating) => {
+    let starSortState = starSort;
+    starSortState[rating] = !starSort[rating];
+    dispatch({
+      type: 'UPDATE_STAR_SORT',
+      payload: starSortState
+    })
+    let starOptions = [];
+    for (let key in starSort) {
+      if (starSort[key]) {
+        starOptions.push(key);
+      }
+    }
+    let tempList = reviewsList;
+    let result = [];
+    for (let review of tempList) {
+      let rating = JSON.stringify(review.rating);
+      if (starOptions.indexOf(rating) >= 0) {
+        result.push(review)
+      }
+    }
+    tempList = result
+    dispatch({
+      type: 'UPDATE_SORTED_REVIEWS_LIST',
+      payload: tempList
+    })
+  }
 
   let reviewStats = [];
   for (let review of reviewsList) {
@@ -22,7 +52,7 @@ const RatingBreakdown = (props) => {
     }
     for (let i = 5; i >= 1; i--) {
       result.push(
-        <span className="rating-bar-star-count" key={`star-count-${i}`}>
+        <span className="rating-bar-star-count clickable" key={`star-count-${i}`} onClick={() => handleClick(i)}>
           {i} Stars:
           <ProgressBar variant="success" now={Math.round(((reviewsMeta.ratings[i] ?? 0) / reviewTotal) * 100)} />
           <br></br>
@@ -70,7 +100,6 @@ const RatingBreakdown = (props) => {
           </span>
         </Col>
       </Row>
-      {/* <span id="average-review">Average Rating: {Math.round(averageReview * 10) / 10} </span> */}
       <br></br>
       {getRecommended()}
       <div id="rating-breakdown">
