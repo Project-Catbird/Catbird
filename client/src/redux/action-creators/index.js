@@ -22,16 +22,12 @@ export const fetchQuestionList = (product_id, page, count) => {
         questionList: result.data.results
       });
 
-      // dispatch({
-      //   type: 'CURRENT_PRODUCT_ID',
-      //   product_id: result.data.product_id
-      // })
     }).catch(err => console.log('error from axios call fetchQuestionList', product_id, err))
 
   }
 }
 
-
+//not a action creator
 export const fetchAnswerList = (question_id) => {
   return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, { headers: {Authorization: API_KEY} })
 }

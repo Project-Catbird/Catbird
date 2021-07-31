@@ -42,7 +42,8 @@ var qnaListShown = qnaList.slice(0, count);
        return (
         <QuestionsList
           qnaList={qnaListShown}
-          getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}
+          getMoreQuestions={getMoreQuestions}
+          noMoreQuestion={noMoreQuestion}
         />
        )
     }

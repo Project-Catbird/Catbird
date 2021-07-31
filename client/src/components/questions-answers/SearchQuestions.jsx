@@ -49,22 +49,18 @@ const SearchQuestions = () => {
 
   let filteredqList = filteredData.map(question => {
     return (
+
      <ListGroup.Item key={question.question_id} >
-
        <IndividualQuestion question={question} />
-
      </ListGroup.Item>
 
      )
  })
 
-
   return (
-
     <Container>
 
       <Row>
-
         <form className="form">
           <input
             className="search-input"
@@ -73,23 +69,19 @@ const SearchQuestions = () => {
             />
           <SearchIcon className="searchIcon"/>
          </form>
-
       </Row>
 
 
 
       <Row>
-
       { searchBarTyped ?
-            <Container className="searchedQuestions">
-            <ListGroup variant="flush" className="searchedQuestions" >
+            <div>
+            <ListGroup variant="flush" >
               {filteredqList}
             </ListGroup>
             <br />
-            </Container> : null
+            </div> : null
       }
-
-
       </Row>
 
 

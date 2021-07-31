@@ -36,7 +36,7 @@ const rootReducer = combineReducers({
   reviewForm: reviewFormReducer,
 
 
-
+// qna
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
   addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
