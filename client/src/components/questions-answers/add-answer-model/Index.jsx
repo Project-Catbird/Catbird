@@ -9,21 +9,22 @@ import AddAnswerForm from './AddAnswerForm.jsx';
   const AddAnswer = ( { question_id, question_body }) => {
 
     const dispatch = useDispatch();
-    const addAnswerModalIsOpen = useSelector(state =>state.addAnswerModalIsOpen);
+    const [ addAnswerModalIsOpen, setaddAnswerModalIsOpen ] = useState(false);
+
     const openAddAnswerModal = () => {
-      dispatch({ type: 'TOGGLE_ADD_ANSWER'});
+      setaddAnswerModalIsOpen(true);
       getProductName(product_id);
-    };
+    }
 
     const closeAddAnswerModal = () => {
-      dispatch({ type: 'TOGGLE_ADD_ANSWER'});
+      setaddAnswerModalIsOpen(false);
     }
+
     const { getProductName } = bindActionCreators(actionCreators, dispatch);
     const product_id = useSelector(state => state.productId);
     const product_name = useSelector(state => state.product_name);
     const clickedId = useSelector(state => state.quedtionId);
     const clickedBody = useSelector(state => state.questionBody);
-
 
 
       return (

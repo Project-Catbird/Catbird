@@ -18,14 +18,19 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
     const dispatch = useDispatch();
     const fetchAnswerList = actionCreators.fetchAnswerList;
     const [answerList, setAnswerList ] = useState([]);
+    const [addHelpfulUsed, setAddHelpfulUsed ] = useState(false);
+
     const addHelpfulness = () => {
-      markQuestionHelpful(question_id)
-      .then((res) => {
-      console.log(res.data);
-      addedHelpful = addedHelpful + 1;
-    })
-    .catch(err => console.log(err))
-  }
+      setAddHelpfulUsed(true);
+     if(!addHelpfulUsed) {
+       markQuestionHelpful(question_id)
+       .then((res) => {
+       console.log(res.data);
+       addedHelpful = addedHelpful + 1;
+     })
+     .catch(err => console.log(err))
+     }
+    };
 
     useEffect(() => {
       fetchAnswerList(question_id)
@@ -50,11 +55,12 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
                   helpfulness={addedHelpful}
                   addHelpfulness={addHelpfulness}
                   key={'QuestionHelpfulness' + question_id}
+                  addHelpfulUsed={addHelpfulUsed}
                   />
               </div>
               <div className="answerStamp addAnswersBody" key={'AddAnswerDiv' + question_id}>
                 <AddAnswer
-                  key={question_id + 'AddAnswerButton'}
+                  key={question_id + 'AddAnswerUniqueKey'}
                   question_id={question_id}
                   question_body={question_body}
                   />

@@ -11,8 +11,8 @@ const App = (props) => {
   return (
     <div>
       <Nav/>
-      {/* <Overview />
-      <RelatedComparisons/> */}
+      <Overview />
+      <RelatedComparisons/>
       <QnAComponent />
       <RatingsReviews />
     </div>

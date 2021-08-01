@@ -51,10 +51,10 @@ export const getProductName = (product_id) => {
 }
 
 
-export const markAnswerHelpful = (answer_id) => {
-  return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
+// export const markAnswerHelpful = (answer_id) => {
+//   return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 
-}
+// }
 
 
 export const markQuestionHelpful = (question_id) => {

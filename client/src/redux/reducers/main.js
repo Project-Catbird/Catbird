@@ -45,7 +45,7 @@ const rootReducer = combineReducers({
 // qna
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
-  addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
+  // addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
   searchBarTyped:qnaReducers.searchBarTypedReducer,
   questionBody: qnaReducers.questionBodyReducer,

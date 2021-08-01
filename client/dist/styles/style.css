@@ -44,10 +44,23 @@
   color:gray;
 }
 
+.markHelpful {
+  border: none;
+  background:transparent;
+  color: gray;
+
+}
+
 .markHelpful:hover{
   cursor: pointer;
   text-decoration: underline;
 }
+
+.markHelpful:disabled{
+  cursor:not-allowed;
+  text-decoration:none;
+}
+
 
 .addanswer :hover {
   cursor: pointer;

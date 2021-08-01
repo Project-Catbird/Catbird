@@ -41,7 +41,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
         <strong>Question Body: {question_body}</strong>
       </Form.Label>
 
-    <Form.Group controlId={body}>
+    <Form.Group controlId={`This is answer body${body}`}>
       <Form.Label>Your Answer: </Form.Label>
       <Form.Control
         as="textarea"
@@ -52,7 +52,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
         />
     </Form.Group>
 
-    <Form.Group controlId={name}>
+    <Form.Group controlId={`This is answerer name ${name}`}>
       <Form.Label>What is your nickname: </Form.Label>
       <Form.Control
         type="text"
@@ -62,7 +62,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
         />
     </Form.Group>
 
-    <Form.Group controlId={email}>
+    <Form.Group controlId={`this is answerer email${email}`}>
       <Form.Label>Your email: </Form.Label>
         <Form.Control
           type="text"
@@ -74,7 +74,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
     </Form.Group>
     <br/>
 
-    <Form.Group controlId="formFile">
+    <Form.Group controlId={`This is the formFile ${photos}`}>
       <Form.Label>Choose Photos   </Form.Label>
       <Form.Control type="file" value={photos}
           onChange={e => setPhotos(e.target.value)}/>

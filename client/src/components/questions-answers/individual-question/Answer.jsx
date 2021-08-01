@@ -1,22 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Moment from 'react-moment';
 import { Container, Col, Row } from 'react-bootstrap';
-import { actionCreators } from '../../../redux/index.js';
+// import markAnswerHelpful from '../../../redux/reducers/qnaReducers.js';
 import AnswerHelpfulness from './AnswerHelpfulness.jsx';
+import axios from 'axios';
+import { API_URL, API_KEY } from '../../../config/config.js';
 
 const Answer = ( { answer, question_id, question_body } ) => {
 
 var helpfulness = answer.helpfulness;
 var addedHelpful = helpfulness;
-const markAnswerHelpful = actionCreators.markAnswerHelpful;
+const [ addHelpfulUsed, setaddHelpfulUsed ] = useState(false);
+
 
   const addHelpfulness = () => {
-    markAnswerHelpful(answer.answer_id)
-    .then( (res) => {
-      // console.log(res)
-      addedHelpful = addedHelpful + 1;
+    setaddHelpfulUsed(true);
+
+    if (!addHelpfulUsed) {
+      axios.put(`${API_URL}/qa/answers/${answer.answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
+      .then( (res) => {
+        addedHelpful = addedHelpful + 1;
+      }
+      ).catch(err => console.log(err));
     }
-    ).catch(err => console.log(err))
+
+
 
   }
 
@@ -33,7 +41,11 @@ const markAnswerHelpful = actionCreators.markAnswerHelpful;
         <Col className="answerStamp"><Moment format="MMM Do YYYY">{answer.date}</Moment>
       </Col>
       <Col>
-        <AnswerHelpfulness helpfulness={addedHelpful} addHelpfulness={addHelpfulness}/>
+        <AnswerHelpfulness
+          helpfulness={addedHelpful}
+          addHelpfulUsed={addHelpfulUsed}
+          addHelpfulness={addHelpfulness}
+        />
       </Col>
       <Col>
       </Col>
