@@ -35,7 +35,7 @@ const ReviewsList = () => {
   }
 
   let renderAddReviewButton = () => {
-    return <Button variant="primary" type="button"
+    return <Button variant="primary" type="button" className="add-review"
       onClick={() => {
         dispatch({
           type: 'UPDATE_NEW_REVIEW_MODAL',
@@ -73,6 +73,7 @@ const ReviewsList = () => {
         } : {}}>
           <div
             className="review-feed"
+            id="review-feed"
             style={
             reviewsCount > 2 ?
             {

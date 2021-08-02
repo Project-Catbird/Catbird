@@ -24,6 +24,7 @@ function Overview(props) {
     .catch(err => { console.log(err) })
   }
 
+
   useEffect(() => {
     fetchItem(setProduct, `${API_URL}/products/${productId}`);
     fetchItem(getStyles, `${API_URL}/products/${productId}/styles`);

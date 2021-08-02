@@ -10,7 +10,6 @@ const Characteristics = () => {
   const dispatch = useDispatch();
 
   let handleChange = (label, value, id) => {
-    console.log(label)
     let validatorState = validator;
     validatorState[label] = true;
     dispatch({
@@ -91,7 +90,7 @@ const Characteristics = () => {
       }
       result.push(
         <React.Fragment key={`${type}-fragment`}>
-          <Form.Group key={`${type}-group`}>
+          <Form.Group key={`${type}-group`} className="new-review-characteristics-group">
             <Form.Label key={`${type}-label`}><b>{type}:</b></Form.Label>
             {Object.keys(options).map(option => (
               <Form.Check
@@ -112,9 +111,9 @@ const Characteristics = () => {
   }
 
   return (
-    <React.Fragment key="review-characteristics-frag">
+    <div key="review-characteristics-frag" className="new-review-characteristics">
       {renderCharacteristics()}
-    </React.Fragment>
+    </div>
   )
 }
 

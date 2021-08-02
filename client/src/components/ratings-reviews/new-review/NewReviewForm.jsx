@@ -91,6 +91,7 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Example: Best purchase ever!"
           controlid="new-review-summary"
+          className="new-review-summary"
           name="summary"
           onChange={handleChange}
         />
@@ -105,6 +106,7 @@ const NewReviewForm = () => {
           as="textarea"
           placeholder="Why did you like the product or not?"
           controlid="new-review-body"
+          className="new-review-body-input"
           name="body"
           rows={5}
           required
@@ -135,6 +137,7 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Example: jackson11@email.com"
           controlid="new-review-email"
+          className="new-review-email"
           name="email"
           required
           type="email"
