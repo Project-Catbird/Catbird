@@ -15,7 +15,7 @@ describe('overview', () => {
   });
 
   it('renders without crashing', () => {
-    expect(wrapper.find('.product-name').text()).toBe('Air Minis 250');
+    expect(wrapper.find('.product-overview').exists()).toBe(true);
   });
 
   it('renders first style on load', () => {
@@ -26,8 +26,17 @@ describe('overview', () => {
     expect(wrapper.find('#add-to-cart-size').children().length).toBe(4);
   });
 
+  it('renders all pictures for current style', () => {
+    expect(wrapper.find('#slider').children().length).toBe(2);
+  });
+
+  it('renders modal when image is clicked', () => {
+    wrapper.find('#featured').simulate('click');
+    expect(wrapper.find('.modal-dialog').exists()).toBe(true);
+  });
+
   it('renders add to cart button', () => {
-    expect(wrapper.find('#add-to-cart-btn').text()).toBe('Add to Cart');
+    expect(wrapper.find('#add-to-cart-btn').exists()).toBe(true);
   });
 
   it('renders 0 quantity when size is not selected', () => {
@@ -39,6 +48,11 @@ describe('overview', () => {
       target: { value: "37" }
     });
     expect(wrapper.find('#add-to-cart-quantity').children().length).toBe(10);
+  });
+
+  it('renders new style when style is selected', () => {
+    wrapper.find('#style-id-2').at(0).simulate('click');
+    expect(wrapper.find('.style-name').text()).toBe('Desert Brown & Tan');
   });
 
 });

@@ -25,7 +25,7 @@ function ProductInfo(props) {
   };
 
   return (
-    <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
+    <Container className="product-info" onClick={e => {props.handleInteractions(e.target.className, widget)}}>
       {reviewsList.length > 0 ?
             <span className="product-rating">
             <Row>
