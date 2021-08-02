@@ -51,7 +51,7 @@ describe('overview', () => {
   });
 
   it('renders new style when style is selected', () => {
-    wrapper.find('#style-id-2').at(0).simulate('click');
+    wrapper.find('.style-item').at(1).simulate('click');
     expect(wrapper.find('.style-name').text()).toBe('Desert Brown & Tan');
   });
 

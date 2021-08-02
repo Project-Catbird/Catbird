@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setStyle, setCurrentImg } from '../../redux/actions/productAction';
 
 function StyleSelector(props) {
-  const widget = 'style-selector';
   const styles = useSelector((state) => state.styles.results);
   const style = useSelector((state) => state.style);
   const currentImg = useSelector((state) => state.currentImg);
@@ -22,8 +21,7 @@ function StyleSelector(props) {
       row.push(styles.slice(i, i+4).map((style, index) => {
         return (
           <div key={style.style_id} style={{display: 'inline-block'}}>
-            <input className="style-item" type="radio" name="style" defaultChecked={index === 0 && i === 0} id={`style-id-${style.style_id}`} onClick={e => {
-              props.handleInteractions(e.target.className, widget);
+            <input className="style-item" type="radio" name="style" defaultChecked={index === 0 && i === 0} id={style.style_id} onClick={e => {
               dispatch(setCurrentImg(0));
               dispatch(setStyle(style))}}/>
             <label htmlFor={style.style_id} className="style-label">
@@ -48,4 +46,3 @@ function StyleSelector(props) {
 }
 
 export default StyleSelector;
-

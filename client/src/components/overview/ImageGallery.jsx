@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentImg } from '../../redux/actions/productAction';
 
 function ImageGallery(props) {
-  const widget = 'image-gallery';
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.style.photos);
   const currentImg = useSelector((state) => state.currentImg);

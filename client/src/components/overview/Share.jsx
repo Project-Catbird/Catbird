@@ -3,11 +3,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 const Share = (props) => {
-  const widget = 'share';
   const productInfo = useSelector((state) => state.productInfo);
   const quote = `Check out this ${productInfo.name}!`
   return (
-    <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
+    <Container>
       <Row>
         <Col>
           <span className="share">Share</span>

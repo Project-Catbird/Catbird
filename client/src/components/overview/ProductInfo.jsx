@@ -3,7 +3,6 @@ import { Row, Container, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function ProductInfo(props) {
-  const widget = 'product-info';
   const productInfo = useSelector((state) => state.productInfo);
   const style = useSelector((state) => state.style);
   const {original_price, sale_price} = style;
@@ -25,7 +24,7 @@ function ProductInfo(props) {
   };
 
   return (
-    <Container className="product-info" onClick={e => {props.handleInteractions(e.target.className, widget)}}>
+    <Container className="product-info">
       {reviewsList.length > 0 ?
             <span className="product-rating">
             <Row>
