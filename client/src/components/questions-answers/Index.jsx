@@ -40,11 +40,13 @@ var qnaListShown = qnaList.slice(0, count);
 
     if (qnaList.length !==0 && !searchBarTyped) {
        return (
+
         <QuestionsList
           qnaList={qnaListShown}
           getMoreQuestions={getMoreQuestions}
           noMoreQuestion={noMoreQuestion}
         />
+
        )
     }
 

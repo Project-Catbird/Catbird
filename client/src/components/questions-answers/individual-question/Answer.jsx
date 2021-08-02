@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'react-moment';
 import { Container, Col, Row } from 'react-bootstrap';
-// import markAnswerHelpful from '../../../redux/reducers/qnaReducers.js';
 import AnswerHelpfulness from './AnswerHelpfulness.jsx';
 import axios from 'axios';
 import { API_URL, API_KEY } from '../../../config/config.js';
@@ -31,26 +30,30 @@ const [ addHelpfulUsed, setaddHelpfulUsed ] = useState(false);
 
   return(
 
-  <Container>
+  <div>
     <Row>
-      <div ><span className="qna-title">A:    </span><span className="qna-a">{answer.body}</span></div>
+      <div className="answerList"><span className="qna-title">A:    </span><span className="qna-a">{answer.body}</span></div>
     </Row>
-
-    <Row>
-      <Col className="answerStamp">by {answer.answerer_name}</Col>
-        <Col className="answerStamp"><Moment format="MMM Do YYYY">{answer.date}</Moment>
-      </Col>
-      <Col>
+{/*
+    <Row flex-nowrap> */}
+    <div className="stamps">
+      <span className="answerStamp stamps">by {answer.answerer_name}</span>
+        <span className="answerStamp stamps"><Moment format="MMM Do YYYY">{answer.date}</Moment>
+      </span>
+      <span className="stamps">
         <AnswerHelpfulness
           helpfulness={addedHelpful}
           addHelpfulUsed={addHelpfulUsed}
           addHelpfulness={addHelpfulness}
         />
-      </Col>
-      <Col>
-      </Col>
-    </Row>
-  </Container>
+      </span>
+
+      <div></div>
+      </div>
+      {/* <Col>
+      </Col> */}
+    {/* </Row> */}
+  </div>
 
   )
 

@@ -1,138 +1,4 @@
-.answerStamp {
-  font-size: clamp(10px, 2vw, 16px);
-  /* font-family: math; */
-  color:gray;
-  margin: none;
-  border: none;
-}
 
-.questionHeader {
-  display: flex;
-}
-
-.helpAndAddAnswer {
-  display: flex;
-  align-self: center;
-}
-
-.helpfulBody {
-  padding-right: 8px;
-  border-right: 0.1em solid gray;
-  height: 20px;
-}
-
-.addAnswersBody {
-  padding-left: 8px;
-
-}
-
-.qna-title {
-  font-size: clamp(15px, 2vw, 25px);
-  color:gray;
-  flex:1
-}
-.qna-a {
-  font-size:clamp(14px, 2vw, 20px);
-  /* font-family: math; */
-  color:gray;
-}
-
-.qna-q {
-  font-size: clamp(18px, 2vw, 25px);
-  /* font-family: math; */
-  /* font-weight: lighter; */
-  color:gray;
-}
-
-.markHelpful {
-  border: none;
-  background:transparent;
-  color: gray;
-
-}
-
-.markHelpful:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.markHelpful:disabled{
-  cursor:not-allowed;
-  text-decoration:none;
-}
-
-
-.addanswer :hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.questionHelpfulness {
-  font-size: clamp(10px, 2vw, 16px);
-  font-family: math;
-  color:gray;
-}
-
-.twoMainButton button {
-  font-size: clamp(8px, 2vw, 20px);
-}
-
-.modalTwoButtons button {
-  font-size: clamp(10px, 2vw, 18px);
-}
-
-
-.modalCloseButton button {
-  outline: none;
-  background-color: Transparent;
-  border: none;
-}
-
-.form {
-  display:flex;
-  flex-direction:row;
-  border:1px solid grey;
-  padding:2px;
-}
-
-.search-input{
-  flex-grow:2;
-  border:none;
-  font-weight: lighter;
-  font-size: clamp(15px, 2vw, 25px);
-}
-
-.search-input:focus {
-  outline: none;
-}
-
-.searchIcon {
-  align-self: center;
-}
-
-
-
-.see-more-answers {
-  font-size: clamp(12px, 2vw, 18px);
-  font-family: math;
-  color:gray;
-  background-color: Transparent;
-  border: none;
-  margin-left: 3%;
-  margin-bottom: none;
-  outline:none;
-}
-
-.see-more-answers:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* .searchedQuestions {
-  display: flex;
-  justify-items: left;
-  justify-self: left;
-} */
 
 
 .container {
@@ -287,3 +153,181 @@
 .clickable:hover {
   cursor: pointer;
 }
+
+
+
+/* qna */
+
+.answerStamp {
+  font-size: clamp(10px, 2vw, 16px);
+  /* font-family: math; */
+  color:gray;
+  margin: none;
+  border: none;
+  flex-wrap: nowrap;
+}
+
+.stamps {
+  display: inline-block;
+  margin-right: 1em;
+  margin-left: 1em;
+
+}
+
+.questionHeader {
+  display: flex;
+}
+
+.answerListGroup{
+  padding: 0;
+  list-style-type: none;
+}
+.answerListGroupItem {
+  padding: 0;
+}
+
+.answerListGroupItem .row{
+  padding: 0;
+}
+.helpAndAddAnswer {
+  display: flex;
+  align-self: center;
+}
+
+
+.helpfulBody {
+  padding-right: 8px;
+  border-right: 0.1em solid gray;
+  height: 20px;
+}
+
+.addAnswersBody {
+  padding-left: 8px;
+
+}
+
+.qna-title {
+  font-size: clamp(18px, 3vw, 25px);
+  color:gray;
+  flex:1
+}
+.qna-a {
+  font-size:clamp(14px, 3vw, 20px);
+  color:gray;
+}
+
+.qna-q {
+  font-size: clamp(18px, 3vw, 25px);
+  color:gray;
+}
+
+.markHelpful {
+  border: none;
+  background:transparent;
+  color: gray;
+
+}
+
+.markHelpful:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.markHelpful:disabled{
+  cursor:not-allowed;
+  text-decoration:none;
+}
+
+
+.addanswer :hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.questionHelpfulness {
+  font-size: clamp(10px, 2vw, 16px);
+  font-family: math;
+  color:gray;
+}
+
+.twoMainButton button {
+  font-size: clamp(8px, 2vw, 20px);
+}
+
+.modalTwoButtons button {
+  font-size: clamp(10px, 2vw, 18px);
+}
+
+
+.modalCloseButton button {
+  outline: none;
+  background-color: Transparent;
+  border: none;
+}
+
+.form {
+  display:flex;
+  flex-direction:row;
+  border:1px solid grey;
+  padding:2px;
+}
+
+.search-input{
+  flex-grow:2;
+  border:none;
+  font-weight: lighter;
+  font-size: clamp(15px, 2vw, 25px);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.searchIcon {
+  align-self: center;
+}
+
+
+
+.see-more-answers {
+  font-size: clamp(12px, 2vw, 18px);
+  font-family: math;
+  color:gray;
+  background-color: Transparent;
+  border: none;
+  margin-left: 3%;
+  margin-bottom: none;
+  outline:none;
+}
+
+.see-more-answers:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* .searchedQuestions {
+  display: flex;
+  justify-items: left;
+  justify-self: left;
+} */
+
+.filteredQuestionList {
+  text-align: left;
+  padding: 0;
+  /* padding-top: 15px; */
+  margin-left: 0;
+
+}
+
+/* .filteredQuestionList {
+  padding:0;
+} */
+
+.filteredList {
+  margin-left: 0;
+  padding:0;
+  text-align: left;
+  list-style-type: none;
+  /* padding-top: 15px; */
+}
+
