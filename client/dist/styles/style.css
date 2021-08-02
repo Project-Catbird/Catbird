@@ -274,3 +274,7 @@
 .clickable:hover {
   cursor: pointer;
 }
+
+.active-rating {
+  font-weight: bold;
+}

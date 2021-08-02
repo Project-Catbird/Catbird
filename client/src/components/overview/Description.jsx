@@ -3,7 +3,6 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function Description(props) {
-  const widget = 'description-features';
   const productInfo = useSelector((state) => state.productInfo);
   const {id, description, features} = productInfo;
 
@@ -12,7 +11,7 @@ function Description(props) {
   })
 
   return (
-    <Container onClick={e => {props.handleInteractions(e.target.className, widget)}}>
+    <Container>
       <Row>
         <Col>
           <span className="product-description">
