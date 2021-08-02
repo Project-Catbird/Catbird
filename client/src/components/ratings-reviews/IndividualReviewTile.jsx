@@ -83,14 +83,14 @@ const IndividualReviewTile = (props) => {
           </span>
         </Col>
         <Col align="right" key="rating-name">
-          <span className="text-muted">{props.review.reviewer_name}, {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')}</span>
+          <span className="text-muted review-name">{props.review.reviewer_name}, {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')}</span>
         </Col>
       </Row>
       <Row align="left" key="review-tile-summary">
         <span className="summary"><b>{props.review.summary}</b></span>
       </Row>
       <Row align="left" key="review-tile-body">
-        <span className="body">{props.review.body} </span>
+        <span className="body">{props.review.body}</span>
       </Row>
       <Row align="left" key="review-tile-reccomend">
         {props.review.recommend ? <span className="recommend"><i className="fas fa-check"></i> I recommend this product </span> : ''}

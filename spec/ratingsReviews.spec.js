@@ -7,6 +7,7 @@ import RatingsReviews from '../client/src/components/ratings-reviews/Index.jsx';
 import ReviewsList from '../client/src/components/ratings-reviews/ReviewsList.jsx';
 import IndividualReviewTile from '../client/src/components/ratings-reviews/IndividualReviewTile.jsx';
 import newReviewValidationReducer from '../client/src/redux/reducers/ratings-reviews/newReviewValidation.js';
+import PhotoUpload from '../client/src/components/ratings-reviews/new-review/PhotoUpload.jsx';
 
 describe('ratings-reviews', () => {
   configure({ adapter: new Adapter() });
@@ -17,10 +18,10 @@ describe('ratings-reviews', () => {
       <RatingsReviews />
     </Provider>)
   })
-  // console.log(wrapper.find('ProductBreakdown').length)
 
-
+  // Example:
   test('should be true', () => expect(true).toBe(true))
+
   test('should render only two reviews on the page on init', () => {
     expect(wrapper.find('IndividualReviewTile').length).toBe(2);
   })
@@ -75,4 +76,38 @@ describe('ratings-reviews', () => {
     expect(characteristics.containsAllMatchingElements([...characteristicsGroup])).toBe(true);
   })
 
+  test('should render correct data for a review', () => {
+    const reviewData = {
+      "review_id": 5,
+      "rating": 3,
+      "summary": "I'm enjoying wearing these shades",
+      "recommend": false,
+      "response": null,
+      "body": "Comfortable and practical.",
+      "date": "2019-04-14T00:00:00.000Z",
+      "reviewer_name": "shortandsweeet",
+      "helpfulness": 5,
+      "photos": [{
+          "id": 1,
+          "url": "urlplaceholder/review_5_photo_number_1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "urlplaceholder/review_5_photo_number_2.jpg"
+        }
+      ]
+    }
+    const reviewWrap = mount(<Provider store={store}><IndividualReviewTile review={reviewData}/></Provider>)
+    expect(reviewWrap.find('.summary').text()).toEqual(reviewData.summary);
+    expect(reviewWrap.find('.body').text()).toEqual(reviewData.body);
+    expect(reviewWrap.find('.review-name').text()).toContain(reviewData.reviewer_name);
+  })
+
+  test('should have an area to render photos of review', () => {
+    const carousel = wrapper.find('.review-carousel');
+    const reviewImages = wrapper.find('.review-images');
+    expect(carousel).toBeDefined();
+    expect(reviewImages).toBeDefined();
+    expect(carousel.containsAllMatchingElements([...reviewImages])).toBe(true);
+  })
 })
