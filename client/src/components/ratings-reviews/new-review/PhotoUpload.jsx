@@ -31,7 +31,7 @@ const PhotoUpload = () => {
       <br></br>
       <Form.Label><b>Upload Your Photos</b></Form.Label>
       <Form.Group>
-        <Form.Control type="file" onChange={uploadPhoto} multiple />
+        <Form.Control type="file" onChange={uploadPhoto} className="photo-upload" multiple />
       </Form.Group>
       <br></br>
     </React.Fragment>
