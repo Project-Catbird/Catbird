@@ -124,7 +124,7 @@ const IndividualReviewTile = (props) => {
         <Col key="response-col">
           <Alert variant="secondary" key="response-alert">
             <span>
-              <b>Response:</b>
+              <b>Response from seller:</b>
             </span>
             <hr></hr>
             <span>
@@ -137,7 +137,7 @@ const IndividualReviewTile = (props) => {
         <Col align="left" key="helpful-col">
           <span className="helpfulness">Was this review helpful? <span
             onClick={handleHelpfulClick}
-            className="clickable"
+            className={!helpfulClick ? 'clickable' : ''}
             ><u>Yes</u></span> ({helpfulCount})    |    <span
             onClick={handleReportClick}
             className="clickable"
