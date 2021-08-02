@@ -36,7 +36,7 @@ function Overview(props) {
   }, [productId]);
 
   return (
-    <Container>
+    <Container className="product-overview">
       <Row>
         <Col>
           <ImageGallery handleInteractions={handleInteractions}/>
