@@ -9,6 +9,8 @@ const IndividualReviewTile = (props) => {
   const [imgClicked, setImgClicked] = useState(null);
   const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulness);
   const [helpfulClick, setHelpfulClick] = useState(false);
+  let bodyOverMaxCharCount = props.review.body.length <= 250 ? false : true;
+  const [shouldTruncate, setShouldTruncate] = useState(bodyOverMaxCharCount);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -90,7 +92,15 @@ const IndividualReviewTile = (props) => {
         <span className="summary"><b>{props.review.summary}</b></span>
       </Row>
       <Row align="left" key="review-tile-body">
+        {shouldTruncate ?
+        <React.Fragment>
+          <span className="body">{props.review.body.slice(0, 251)}...</span>
+          <br></br>
+          <span onClick={() => setShouldTruncate(false)} className="clickable"><u>Read more</u></span>
+        </React.Fragment>
+        :
         <span className="body">{props.review.body}</span>
+        }
       </Row>
       <Row align="left" key="review-tile-reccomend">
         {props.review.recommend ? <span className="recommend"><i className="fas fa-check"></i> I recommend this product </span> : ''}
