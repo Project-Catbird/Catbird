@@ -24,11 +24,6 @@ function Overview(props) {
     .catch(err => { console.log(err) })
   }
 
-  const handleInteractions = (element, widget) => {
-    // axios.post(`${API_URL}/interactions`, {time: new Date(), element, widget}, {headers: {Authorization: API_KEY}})
-    //   .then((res) => { console.log(res) })
-    //   .catch((err) => { console.log(err) })
-  }
 
   useEffect(() => {
     fetchItem(setProduct, `${API_URL}/products/${productId}`);
@@ -36,20 +31,20 @@ function Overview(props) {
   }, [productId]);
 
   return (
-    <Container>
+    <Container className="product-overview">
       <Row>
         <Col>
-          <ImageGallery handleInteractions={handleInteractions}/>
+          <ImageGallery/>
         </Col>
         <Col>
-          <ProductInfo handleInteractions={handleInteractions}/>
-          <Share handleInteractions={handleInteractions}/>
-          <AddToCart handleInteractions={handleInteractions}/>
-          <StyleSelector handleInteractions={handleInteractions}/>
+          <ProductInfo/>
+          <Share/>
+          <AddToCart/>
+          <StyleSelector/>
         </Col>
       </Row>
       <Row>
-        <Description handleInteractions={handleInteractions}/>
+        <Description/>
       </Row>
     </Container>
   )

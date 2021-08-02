@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { API_KEY, API_URL } from '../../config/config'
 import axios from 'axios';
 function AddToCart(props) {
-  const widget = 'add-to-cart'
   const skusInfo = useSelector((state) => state.style.skus);
   const skus = Object.keys(skusInfo);
   const sizes = [];
@@ -34,7 +33,7 @@ function AddToCart(props) {
 
   return (
     <Container>
-      <Form id="add-to-cart-form" onSubmit={handleSubmit} onClick={e => {props.handleInteractions(e.target.id, widget)}}>
+      <Form id="add-to-cart-form" onSubmit={handleSubmit}>
         <FormGroup role="form">
           <Row>
             <select className="form-control" id="add-to-cart-size" onChange={e => {

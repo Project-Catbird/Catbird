@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentImg } from '../../redux/actions/productAction';
 
 function ImageGallery(props) {
-  const widget = 'image-gallery';
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.style.photos);
   const currentImg = useSelector((state) => state.currentImg);
@@ -12,14 +11,18 @@ function ImageGallery(props) {
 
   const changeActive = () => {
     let activeImage = document.getElementsByClassName('active');
-    activeImage[0].classList.remove('active');
+    if (activeImage.length > 0) {
+      activeImage[0].classList.remove('active');
+    }
   };
 
   const changeImg = (currentImg) => {
     let smallImg = document.getElementById(currentImg);
-    smallImg.classList.add('active');
-    let fullImg = document.getElementById('featured');
-    fullImg.src = smallImg.src;
+    if (smallImg) {
+      smallImg.classList.add('active');
+      let fullImg = document.getElementById('featured');
+      fullImg.src = smallImg.src;
+    }
   }
 
   const handleImageSelect = (smallImg) => {
