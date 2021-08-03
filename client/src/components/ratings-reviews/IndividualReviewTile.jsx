@@ -30,6 +30,15 @@ const IndividualReviewTile = (props) => {
       .catch(err => console.log(err));
     }
   }
+  const test = () => {
+    if (props.review.photos[0] && props.review.photos[0].url instanceof Blob) {
+      const reader = new FileReader();
+      console.log('blob:', props.review.photos[0].url);
+      const text = reader.readAsDataURL(props.review.photos[0].url)
+      console.log('test', text);
+    }
+  }
+  test();
 
   const handleReportClick = (event) => {
     event.preventDefault();
