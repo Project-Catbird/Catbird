@@ -20,17 +20,17 @@ const ReviewsList = () => {
       if (review.body.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0
       || review.summary.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0
       || review.reviewer_name.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0) {
-        result.push(review);
+        // var index = review.body.toLowerCase().indexOf(keywordSearch.toLowerCase());
+        // if (index >= 0) {
+        // review.body = `${review.body.substring(0,index)}<span class='highlight'>${review.body.substring(index,index+keywordSearch.length)}</span>${review.body.substring(index + keywordSearch.length)}`;
+        // }
+      result.push(review);
       }
     }
     tempReviewsList = result;
   }
 
   let reviewsList = tempReviewsList.slice(0, reviewsCount);
-
-  //let reviewsList = sortedReviewsList ? sortedReviewsList.slice(0, reviewsCount) : fullReviewsList.slice(0, reviewsCount);
-
-
 
   let renderMoreReviewsButton = () => {
     if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {

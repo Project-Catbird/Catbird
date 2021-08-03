@@ -3,6 +3,7 @@ import { Container, Row, Col, Alert, Image, Modal, Button } from 'react-bootstra
 import ReviewImagesModal from './ReviewImagesModal.jsx';
 import axios from 'axios';
 import { API_KEY, API_URL } from '../../config/config.js';
+import { useSelector } from 'react-redux';
 
 const IndividualReviewTile = (props) => {
   const [show, setShow] = useState(false);
@@ -11,6 +12,8 @@ const IndividualReviewTile = (props) => {
   const [helpfulClick, setHelpfulClick] = useState(false);
   let bodyOverMaxCharCount = props.review.body.length <= 250 ? false : true;
   const [shouldTruncate, setShouldTruncate] = useState(bodyOverMaxCharCount);
+  const keywordSearch = useSelector(state => state.keywordSearch);
+  let summaryIndex = keywordSearch ? props.review.summary.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -89,7 +92,16 @@ const IndividualReviewTile = (props) => {
         </Col>
       </Row>
       <Row align="left" key="review-tile-summary">
-        <span className="summary"><b>{props.review.summary}</b></span>
+        {summaryIndex >= 0 ?
+        <span>
+          <b>{props.review.summary.substring(0,summaryIndex)}</b>
+          <span className='highlight'>
+            <b>{props.review.summary.substring(summaryIndex,summaryIndex+keywordSearch.length)}</b>
+          </span>
+          <b>{props.review.summary.substring(summaryIndex + keywordSearch.length)}</b>
+        </span>
+        :  <span className="summary"><b>{props.review.summary}</b></span>}
+        {/* <span className="summary"><b>{props.review.summary}</b></span> */}
       </Row>
       <Row align="left" key="review-tile-body">
         {shouldTruncate ?

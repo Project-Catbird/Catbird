@@ -97,6 +97,10 @@
   align-self: center;
 }
 
+.highlight {
+  background-color: yellow;
+}
+
 
 
 .see-more-answers {
