@@ -14,6 +14,8 @@ const IndividualReviewTile = (props) => {
   const [shouldTruncate, setShouldTruncate] = useState(bodyOverMaxCharCount);
   const keywordSearch = useSelector(state => state.keywordSearch);
   let summaryIndex = keywordSearch ? props.review.summary.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
+  let nameIndex = keywordSearch ? props.review.reviewer_name.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
+  let bodyIndex = keywordSearch ? props.review.body.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -88,7 +90,15 @@ const IndividualReviewTile = (props) => {
           </span>
         </Col>
         <Col align="right" key="rating-name">
-          <span className="text-muted review-name">{props.review.reviewer_name}, {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')}</span>
+          {nameIndex >= 0 ?
+          <span className="text-muted review-name">
+            <span>{props.review.reviewer_name.substring(0,summaryIndex)}</span>
+            <span className="highlight">{props.review.reviewer_name.substring(summaryIndex,summaryIndex+keywordSearch.length)}</span>
+            <span>{props.review.reviewer_name.substring(summaryIndex + keywordSearch.length)}</span>
+            , {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')}
+          </span>
+          : <span className="text-muted review-name">{props.review.reviewer_name}, {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')}</span>}
+          {/* <span className="text-muted review-name">{props.review.reviewer_name}, {new Date(props.review.date).toString().split(' ').slice(0, 4).join(' ')}</span> */}
         </Col>
       </Row>
       <Row align="left" key="review-tile-summary">
