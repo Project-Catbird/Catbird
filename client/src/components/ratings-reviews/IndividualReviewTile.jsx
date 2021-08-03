@@ -16,6 +16,7 @@ const IndividualReviewTile = (props) => {
   let summaryIndex = keywordSearch ? props.review.summary.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
   let nameIndex = keywordSearch ? props.review.reviewer_name.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
   let bodyIndex = keywordSearch ? props.review.body.toLowerCase().indexOf(keywordSearch.toLowerCase()) : -1;
+  let truncatedBody = props.review.body.slice(0, 251);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -63,6 +64,42 @@ const IndividualReviewTile = (props) => {
     }
     return result;
   }
+
+  let getReviewBody = () => {
+    if (shouldTruncate) {
+      return (
+      <React.Fragment>
+        {bodyIndex >= 0 ?
+          <span>
+            {truncatedBody.substring(0,bodyIndex)}
+            <span className='highlight'>
+              {truncatedBody.substring(bodyIndex,bodyIndex+keywordSearch.length)}
+            </span>
+            {truncatedBody.substring(bodyIndex + keywordSearch.length)}...
+          </span>
+          :  <span className="body">{truncatedBody}...</span>}
+        {/* <span className="body">{props.review.body.slice(0, 251)}...</span> */}
+        <br></br>
+        <span onClick={() => setShouldTruncate(false)} className="clickable"><u>Read more</u></span>
+      </React.Fragment>)
+      } else {
+        if (bodyIndex >= 0) {
+          return (
+            <span>
+              {props.review.body.substring(0,bodyIndex)}
+              <span className='highlight'>
+                {props.review.body.substring(bodyIndex,bodyIndex+keywordSearch.length)}
+              </span>
+              {props.review.body.substring(bodyIndex + keywordSearch.length)}
+            </span>
+          )
+        } else {
+          return <span className="body">{props.review.body}</span>
+        }
+      }
+      // <span className="body">{props.review.body}</span>
+    }
+
 
 
   return (
@@ -114,15 +151,7 @@ const IndividualReviewTile = (props) => {
         {/* <span className="summary"><b>{props.review.summary}</b></span> */}
       </Row>
       <Row align="left" key="review-tile-body">
-        {shouldTruncate ?
-        <React.Fragment>
-          <span className="body">{props.review.body.slice(0, 251)}...</span>
-          <br></br>
-          <span onClick={() => setShouldTruncate(false)} className="clickable"><u>Read more</u></span>
-        </React.Fragment>
-        :
-        <span className="body">{props.review.body}</span>
-        }
+        {getReviewBody()}
       </Row>
       <Row align="left" key="review-tile-reccomend">
         {props.review.recommend ? <span className="recommend"><i className="fas fa-check"></i> I recommend this product </span> : ''}
