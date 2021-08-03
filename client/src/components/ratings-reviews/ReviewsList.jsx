@@ -10,9 +10,27 @@ const ReviewsList = () => {
   const sortedReviewsList = useSelector(state => state.sortedReviewsList);
   const reviewsCount = useSelector(state => state.reviewsCount);
   const starSort = useSelector(state => state.starSort);
+  const keywordSearch = useSelector(state => state.keywordSearch);
   const dispatch = useDispatch();
 
-  let reviewsList = sortedReviewsList ? sortedReviewsList.slice(0, reviewsCount) : fullReviewsList.slice(0, reviewsCount);
+  let tempReviewsList = sortedReviewsList ?? fullReviewsList;
+  if (keywordSearch) {
+    let result = [];
+    for (let review of tempReviewsList) {
+      if (review.body.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0
+      || review.summary.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0
+      || review.reviewer_name.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0) {
+        result.push(review);
+      }
+    }
+    tempReviewsList = result;
+  }
+
+  let reviewsList = tempReviewsList.slice(0, reviewsCount);
+
+  //let reviewsList = sortedReviewsList ? sortedReviewsList.slice(0, reviewsCount) : fullReviewsList.slice(0, reviewsCount);
+
+
 
   let renderMoreReviewsButton = () => {
     if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {
