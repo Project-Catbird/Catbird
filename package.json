@@ -36,6 +36,7 @@
     "nodemon": "^2.0.12",
     "npm": "^7.20.1",
     "redux-devtools-extension": "^2.13.9",
+    "source-map-loader": "^3.0.0",
     "style-loader": "^3.2.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
@@ -46,6 +47,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "express": "^4.17.1",
+    "firebase": "^8.8.1",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
