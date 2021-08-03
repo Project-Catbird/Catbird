@@ -57,7 +57,7 @@ const ProductCard = (props) => {
 
 
   const compareButton = (
-    <i className="fas fa-star m-3" style={{
+    <i className="fas fa-star m-3 compare-button" style={{
       fontSize: "1.5em",
       position: "absolute",
       top: 0,
@@ -69,7 +69,7 @@ const ProductCard = (props) => {
   );
 
   const removeOutfitButton = (
-    <i className="far fa-times-circle m-3" style={{
+    <i className="far fa-times-circle m-3 remove-outfit-button" style={{
       fontSize: "1.5em",
       position: "absolute",
       top: 0,
@@ -84,7 +84,7 @@ const ProductCard = (props) => {
   );
 
   const addOutfitButton = (
-    <i className="fas fa-plus-circle m-3" style={{
+    <i className="fas fa-plus-circle m-3 add-outfit-button" style={{
       fontSize: "6em",
       position: "absolute",
       textAlign: "center",
@@ -137,7 +137,7 @@ const ProductCard = (props) => {
 
   const averageRating = getAverageRating(productReviewMeta);
 
-  if (props.cardType === "curProduct") {
+  if (props.cardType === "curProduct product-card") {
     return (
       <div className="mx-2" onClick={(e) => {
         addOutfit()
@@ -168,7 +168,7 @@ const ProductCard = (props) => {
     )
   } else {
     return (
-      <div className="mx-2">
+      <div className="mx-2 product-card">
         {defaultStyle.photos &&
           <Card style={{width: "18rem"}}>
             {props.cardType === "related" && compareButton}
