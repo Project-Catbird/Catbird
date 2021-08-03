@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 
-const AnswerHelpfulness = ( { helpfulness, addHelpfulness, addHelpfulUsed } ) => {
+const AnswerHelpfulness = ( { helpfulness, addHelpfulness, addHelpfulUsed, reportAnswer, reportClicked } ) => {
 
   const [helpful, setHelpful ] =useState(helpfulness);
 
@@ -19,6 +19,11 @@ const AnswerHelpfulness = ( { helpfulness, addHelpfulness, addHelpfulUsed } ) =>
        onClick={handleClick}
        disabled={addHelpfulUsed}
        >Yes ({helpful})
+     </button>
+     <button
+        className="markHelpful"
+        onClick={reportAnswer}
+        >Report
      </button>
     </div>
    )

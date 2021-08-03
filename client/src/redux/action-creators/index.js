@@ -28,15 +28,22 @@ export const fetchQuestionList = (product_id, page, count) => {
 }
 
 //not a action creator
-export const fetchAnswerList = (question_id) => {
-  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, { headers: {Authorization: API_KEY} })
+export const fetchAnswerList = (question_id, page, count) => {
+  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, {
+    headers: {Authorization: API_KEY},
+    params: {
+      page: page,
+      count:count
+      }
+  })
 }
 
 
 export const getProductName = (product_id) => {
   return (dispatch) => {
     axios.get(`${API_URL}/products/${16056}`, {
-      headers: {Authorization: API_KEY}
+      headers: {Authorization: API_KEY},
+
     })
     .then(result => {
       dispatch({

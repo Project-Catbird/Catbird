@@ -1,6 +1,5 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { Container, Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../redux/index.js';
 import AnswerList from './AnswerList.jsx';
@@ -33,7 +32,7 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
     };
 
     useEffect(() => {
-      fetchAnswerList(question_id)
+      fetchAnswerList(question_id, 1, 1000)
       .then(result => {
         setAnswerList(result.data.results)
       })

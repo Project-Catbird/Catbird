@@ -164,15 +164,22 @@
   color:gray;
   margin: none;
   border: none;
-  flex-wrap: nowrap;
+
+  display: inline-block;
+
+  margin-left: 1em;
+  white-space : nowrap;
+  overflow : hidden;
+
+
 }
 
 .stamps {
-  display: inline-block;
-  margin-right: 1em;
-  margin-left: 1em;
-
+  align-content: center;
 }
+
+
+
 
 .questionHeader {
   display: flex;
@@ -207,17 +214,20 @@
 }
 
 .qna-title {
-  font-size: clamp(18px, 3vw, 25px);
+  font-size: clamp(15px, 3vw, 25px);
+  font-family: Arial, Helvetica, sans-serif;
   color:gray;
   flex:1
 }
 .qna-a {
   font-size:clamp(14px, 3vw, 20px);
+  font-family: Arial, Helvetica, sans-serif;
   color:gray;
 }
 
 .qna-q {
   font-size: clamp(18px, 3vw, 25px);
+  font-family: Arial, Helvetica, sans-serif;
   color:gray;
 }
 
@@ -305,12 +315,6 @@
   text-decoration: underline;
 }
 
-/* .searchedQuestions {
-  display: flex;
-  justify-items: left;
-  justify-self: left;
-} */
-
 .filteredQuestionList {
   text-align: left;
   padding: 0;
@@ -331,4 +335,50 @@
 .multi-preview-img {
   width: 3rem;
   height: auto;
+
+}
+
+.answer-small {
+  width: 6rem;
+  height: auto;
+  align-self: center;
+  justify-self: center;
+  padding-left: clamp(20px, 2vw, 30px);
+  padding-top: clamp(10px, 2vw, 20px);
+  padding-bottom: clamp(10px, 2vw, 20px);
+}
+
+.photo-dialog{
+
+  align-self: center;
+  position: relative;
+
+}
+.photo-dialog .modal-content {
+  height: fit-content;
+  width: auto;
+}
+
+
+.image-dialog {
+  width: auto;
+  height: 25em;
+  align-self: center;
+  justify-self: center;
+
+
+}
+
+.photoCol {
+  width: fit-content;
+  height: auto;
+  /* align-content: center;
+  justify-items: center; */
+  padding: 0;
+
+  border: none;
+
+}
+.photosRow{
+  display: flex;
 }

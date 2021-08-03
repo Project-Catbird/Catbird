@@ -22,7 +22,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
 
   const [ file, setFile ] = useState([]);
   const [ files, setFiles ] = useState([]);
-  const [ imgURL, setimgURL ] = useState('');
+  const [ imgURL, setimgURL ] = useState([]);
 
 
   const uploadMultipleFiles = (e) => {
@@ -53,14 +53,15 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
   useEffect(() => {
 
     const putStorageItem = (item) => {
+      console.log(item);
 
-      return storage.ref()
-        .child("images/" + item.name)
-        .put(item.file)
+      return storage.ref("images/")
+        .child(item.name)
+        .put(item)
         .then(snapshot => {
-          console.log("Uploaded File:", item.name);
+          // console.log("Uploaded File:", item.name);
           return snapshot.ref.getDownloadURL().then(downloadURL => {
-            console.log("File available at", downloadURL);
+            console.log("File:", downloadURL);
             setimgURL(pre => [
               ...pre,
               downloadURL
@@ -69,7 +70,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
           });
         })
         .catch(error => {
-          console.log("Upload failed:", imageFile.name, error.message);
+          console.log("Upload failed:", error.message);
         });
     }
 
@@ -91,9 +92,6 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
   const handleSubmit = (e)=> {
     e.preventDefault();
     dispatch({ type: 'TOGGLE_ADD_ANSWER'});
-
-    // uploadFiles(e);
-
 
     axios.post(`${API_URL}/qa/questions/${question_id}/answers`, {
       body: body,
