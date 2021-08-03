@@ -282,3 +282,8 @@
 .active-rating {
   font-weight: bold;
 }
+
+.new-review-rating.active {
+  outline: #EEBD01;
+  outline-width: 2px;
+}
