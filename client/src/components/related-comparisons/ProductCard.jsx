@@ -91,7 +91,8 @@ const ProductCard = (props) => {
       top: "30%",
       right: "27%",
       color:"#FFF",
-      zIndex: 1}}
+      zIndex: 50
+    }}
       onClick={(e) => {
         // e.stopPropagation();
         addOutfit();
@@ -137,7 +138,7 @@ const ProductCard = (props) => {
 
   const averageRating = getAverageRating(productReviewMeta);
 
-  if (props.cardType === "curProduct product-card") {
+  if (props.cardType === "curProduct") {
     return (
       <div className="mx-2" onClick={(e) => {
         addOutfit()
