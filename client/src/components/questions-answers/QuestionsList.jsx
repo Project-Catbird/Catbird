@@ -12,7 +12,7 @@ const QuestionsList = ({ qnaList, getMoreQuestions, noMoreQuestion }) => {
      return (
       <ListGroup.Item key={'QuestionsList' + question.question_id} >
 
-        <IndividualQuestion question={question} />
+        <IndividualQuestion question={question} data-test="individualQ"/>
 
       </ListGroup.Item>
 
