@@ -25,15 +25,15 @@ describe('root component render without error', () => {
 })
 
 
-describe('QuestionList component can render without error', () => {
-  const questionList = questions.results;
+// describe('QuestionList component can render without error', () => {
+//   const questionList = questions.results;
 
-  const { getByTestId } = render(<QuestionsList />, { initialState: { qnaList: questionList }})
+//   const { getByTestId } = render(<QuestionsList />, { initialState: { qnaList: questionList }})
 
-  expect(getByTestId()).tohave
+//   expect(getByTestId()).tohave
 
 
-})
+// })
 
 
 
