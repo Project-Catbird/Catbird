@@ -14,7 +14,6 @@ const PhotoUpload = () => {
     authDomain: "catbird-96a4e.firebaseapp.com",
     projectId: "catbird-96a4e",
     storageBucket: "gs://catbird-96a4e.appspot.com",
-    // storageBucket: "catbird-96a4e.appspot.com",
     messagingSenderId: "297986076005",
     appId: "1:297986076005:web:fde382ac5818fd209c858c"
   };
@@ -22,7 +21,7 @@ const PhotoUpload = () => {
   if (!firebase.apps.length) {
     console.log('init')
     firebase.initializeApp(firebaseConfig);
-  }else {
+  } else {
     firebase.app(); // if already initialized, use that one
   }
   var storageRef = firebase.storage().ref();
@@ -50,6 +49,8 @@ const PhotoUpload = () => {
         type: 'UPLOAD_PHOTO',
         photo: tempState
       })
+    } else {
+      alert('Maximum photo count reached! Make sure you\'re not uploading more than 5 photos!')
     }
   }
 
