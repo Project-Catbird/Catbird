@@ -91,8 +91,7 @@ const ProductCard = (props) => {
       top: "30%",
       right: "27%",
       color:"#FFF",
-      zIndex: 50
-    }}
+      zIndex: 1}}
       onClick={(e) => {
         // e.stopPropagation();
         addOutfit();
