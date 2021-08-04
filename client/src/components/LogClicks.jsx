@@ -20,7 +20,7 @@ const LogClicks = ({ children }) => {
     if (e.target.id) {
       params.element = `#${e.target.id}`;
     } else if (e.target.className) {
-      params.element = `.${e.target.className}`;
+      params.element = `.${e.target.className.split(' ').join('.')}`;
     } else {
       params.element = e.nativeEvent.path[0].nodeName.toLowerCase();
     }
@@ -42,6 +42,7 @@ const LogClicks = ({ children }) => {
         }
       }
     }
+    console.log(params)
     axios.post(`${API_URL}/interactions`, params, {headers: {Authorization: API_KEY}})
       .then((res) => { console.log(res) })
       .catch((err) => { console.log(err) })
