@@ -9,7 +9,7 @@ const PhotoUpload = () => {
   const photos = useSelector(state => state.photoUpload);
   const dispatch = useDispatch();
 
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyD6911CKFpZxZHkab-YD6rukWdF7uRILVo",
     authDomain: "catbird-96a4e.firebaseapp.com",
     projectId: "catbird-96a4e",
@@ -17,9 +17,9 @@ const PhotoUpload = () => {
     messagingSenderId: "297986076005",
     appId: "1:297986076005:web:fde382ac5818fd209c858c"
   };
+
   // Initialize Firebase
   if (!firebase.apps.length) {
-    console.log('init')
     firebase.initializeApp(firebaseConfig);
   } else {
     firebase.app(); // if already initialized, use that one
@@ -34,7 +34,6 @@ const PhotoUpload = () => {
       let tempState = photos ?? [];
       const preview = document.getElementById('review-preview');
 
-      console.log(fileList)
       for (let i = 0; i < fileList.length; i++) {
         let newRef = storageRef.child(fileList[i].name);
         let snapshot = await newRef.put(fileList[i]);
