@@ -10,9 +10,9 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   const [ answersHidden, setAnswersHidden] = useState( answerList.length > 2 ? answerList.slice(2) : []);
   const answers = answersShwon.map(answer => {
     return(
-      <ListGroup.Item className="h-50 d-inline-block" key={answer.answer_id}>
+      <li className="answerListGroupItem" key={answer.answer_id}>
       <Answer answer={answer} question_id={question_id} question_body={question_body}/>
-      </ListGroup.Item>
+      </li>
     )
   })
 
@@ -35,13 +35,12 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   }
 
   return (
-    <Container >
-
-    <ListGroup className="answerList" variant="flush">
+    <div className="answerContainer">
+    <ul className="answerListGroup" variant="flush">
     {answers}
-    </ListGroup>
+    </ul>
      {answersHidden.length > 0 && !buttonClicked ? <button className="see-more-answers" onClick={handleSeeMoreAnswer}>see more answers</button> : <button className="see-more-answers" onClick={handleSeeLessAnswer}>see less answers</button> }
-    </Container>
+    </div>
   )
 }
 

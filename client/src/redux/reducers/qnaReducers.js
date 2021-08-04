@@ -19,16 +19,6 @@ export const productIdReducer = (state = '', action) => {
   }
 }
 
-
-export const addAnswerModalIsOpenReducer = (state = false, action) => {
-  switch (action.type) {
-    case 'TOGGLE_ADD_ANSWER':
-      return !state;
-    default:
-      return state;
-  }
-}
-
 export const addQuestionModalIsOpenReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_ADD_QUESTION':
@@ -94,3 +84,5 @@ export const markAnswerHelpfulReducer = (state='', action) => {
       return state;
   }
 }
+
+

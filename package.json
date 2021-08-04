@@ -7,7 +7,8 @@
     "react:dev": "webpack --watch",
     "start": "nodemon ./server/index.js",
     "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test-coverage": "jest --coverage",
+    "test:qna": "jest -- watch questions-answers.spec.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "npm": "^7.20.1",
     "react-test-renderer": "^17.0.2",
     "redux-devtools-extension": "^2.13.9",
+    "source-map-loader": "^3.0.0",
     "style-loader": "^3.2.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"

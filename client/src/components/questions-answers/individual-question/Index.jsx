@@ -1,6 +1,5 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { Container, Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../redux/index.js';
 import AnswerList from './AnswerList.jsx';
@@ -18,17 +17,22 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
     const dispatch = useDispatch();
     const fetchAnswerList = actionCreators.fetchAnswerList;
     const [answerList, setAnswerList ] = useState([]);
+    const [addHelpfulUsed, setAddHelpfulUsed ] = useState(false);
+
     const addHelpfulness = () => {
-      markQuestionHelpful(question_id)
-      .then((res) => {
-      console.log(res.data);
-      addedHelpful = addedHelpful + 1;
-    })
-    .catch(err => console.log(err))
-  }
+      setAddHelpfulUsed(true);
+     if(!addHelpfulUsed) {
+       markQuestionHelpful(question_id)
+       .then((res) => {
+       console.log(res.data);
+       addedHelpful = addedHelpful + 1;
+     })
+     .catch(err => console.log(err))
+     }
+    };
 
     useEffect(() => {
-      fetchAnswerList(question_id)
+      fetchAnswerList(question_id, 1, 1000)
       .then(result => {
         setAnswerList(result.data.results)
       })
@@ -50,11 +54,12 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
                   helpfulness={addedHelpful}
                   addHelpfulness={addHelpfulness}
                   key={'QuestionHelpfulness' + question_id}
+                  addHelpfulUsed={addHelpfulUsed}
                   />
               </div>
               <div className="answerStamp addAnswersBody" key={'AddAnswerDiv' + question_id}>
                 <AddAnswer
-                  key={question_id + 'AddAnswerButton'}
+                  key={question_id + 'AddAnswerUniqueKey'}
                   question_id={question_id}
                   question_body={question_body}
                   />
