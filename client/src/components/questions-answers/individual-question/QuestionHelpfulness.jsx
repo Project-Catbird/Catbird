@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 
-const QuestionHelpfulness = ( { helpfulness, addHelpfulness, question_id } ) => {
+const QuestionHelpfulness = ( { helpfulness, addHelpfulness, question_id, addHelpfulUsed } ) => {
 
   const [helpful, setHelpful ] =useState(helpfulness);
 
@@ -14,7 +14,7 @@ const QuestionHelpfulness = ( { helpfulness, addHelpfulness, question_id } ) => 
 
    return (
    <span
-     className="questionHelpfulness" key={'QuestionHelpfulnessHelpful' + question_id  }>Helpful? <span key={'QuestionHelpfulnessButton' + question_id}className="markHelpful" onClick={handleClick}>Yes ({helpful})</span>
+     className="questionHelpfulness" key={'QuestionHelpfulnessHelpful' + question_id  }>Helpful? <button key={'QuestionHelpfulnessButton' + question_id} disabled={addHelpfulUsed} className="markHelpful" onClick={handleClick}>Yes ({helpful})</button>
     </span>
    )
 
