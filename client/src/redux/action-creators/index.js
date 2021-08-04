@@ -22,25 +22,28 @@ export const fetchQuestionList = (product_id, page, count) => {
         questionList: result.data.results
       });
 
-      // dispatch({
-      //   type: 'CURRENT_PRODUCT_ID',
-      //   product_id: result.data.product_id
-      // })
     }).catch(err => console.log('error from axios call fetchQuestionList', product_id, err))
 
   }
 }
 
-
-export const fetchAnswerList = (question_id) => {
-  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, { headers: {Authorization: API_KEY} })
+//not a action creator
+export const fetchAnswerList = (question_id, page, count) => {
+  return axios.get(`${API_URL}/qa/questions/${question_id}/answers`, {
+    headers: {Authorization: API_KEY},
+    params: {
+      page: page,
+      count:count
+      }
+  })
 }
 
 
 export const getProductName = (product_id) => {
   return (dispatch) => {
     axios.get(`${API_URL}/products/${16056}`, {
-      headers: {Authorization: API_KEY}
+      headers: {Authorization: API_KEY},
+
     })
     .then(result => {
       dispatch({
@@ -55,10 +58,10 @@ export const getProductName = (product_id) => {
 }
 
 
-export const markAnswerHelpful = (answer_id) => {
-  return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
+// export const markAnswerHelpful = (answer_id) => {
+//   return axios.put(`${API_URL}/qa/answers/${answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
 
-}
+// }
 
 
 export const markQuestionHelpful = (question_id) => {

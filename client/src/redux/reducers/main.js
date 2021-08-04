@@ -43,10 +43,9 @@ const rootReducer = combineReducers({
   sortedReviewsList: sortedReviewsListReducer,
   keywordSearch: keywordSearchReducer,
 
-
+// qna
   product_name: qnaReducers.productNameReducer,
   qnaList: qnaReducers.qnaListReducer,
-  addAnswerModalIsOpen: qnaReducers.addAnswerModalIsOpenReducer,
   addQuestionModalIsOpen: qnaReducers.addQuestionModalIsOpenReducer,
   searchBarTyped:qnaReducers.searchBarTypedReducer,
   questionBody: qnaReducers.questionBodyReducer,

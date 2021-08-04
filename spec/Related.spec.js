@@ -73,8 +73,6 @@ describe('Outfit Card', () => {
       <Provider store={store}>
         <ProductCard productId={16056} cardType="outfit"/>
       </Provider>);
-    wrapper.update();
-    console.log(wrapper.debug());
   });
 
   it('Loads product card fields', () => {
