@@ -8,6 +8,7 @@ import showNewReviewModalReducer from './ratings-reviews/showNewReviewModal.js';
 import newReviewValidationReducer from './ratings-reviews/newReviewValidation.js';
 import photoUploadReducer from './ratings-reviews/photoUpload.js';
 import reviewFormReducer from './ratings-reviews/reviewForm.js';
+import keywordSearchReducer from './ratings-reviews/keywordSearch.js';
 import starSortReducer from './ratings-reviews/starSort.js';
 import sortedReviewsListReducer from './ratings-reviews/sortedReviewsList.js';
 import productsReducer from './Overview/productsReducer';
@@ -40,7 +41,7 @@ const rootReducer = combineReducers({
   reviewForm: reviewFormReducer,
   starSort: starSortReducer,
   sortedReviewsList: sortedReviewsListReducer,
-
+  keywordSearch: keywordSearchReducer,
 
 
   product_name: qnaReducers.productNameReducer,

@@ -56,7 +56,7 @@ function ImageGallery(props) {
         </div>
         <img id="slideRight" className="slider-arrow" src="./arrow-right.png" onClick={e => {handleArrow(e.target.id)}}></img>
       </div>
-      <Modal show={show} onHide={() => setShow(!show)}>
+      <Modal show={show} onHide={() => setShow(!show)} className="main-overview">
         <Modal.Header closeButton>Image Preview</Modal.Header>
         <Modal.Body><img className="img-modal img-fluid" src={photos[currentImg].thumbnail_url} style={{width: "125%"}}></img></Modal.Body>
       </Modal>

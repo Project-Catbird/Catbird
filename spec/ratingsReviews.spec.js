@@ -66,6 +66,7 @@ describe('ratings-reviews', () => {
 
   test('should have an area to upload photos to new review', () => {
     expect(wrapper.find('input').filter('.photo-upload')).toBeDefined();
+    expect(wrapper.find(PhotoUpload)).toBeDefined();
   })
 
   test('should have an area to select characteristics for a product in a new review', () => {

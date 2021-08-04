@@ -97,6 +97,10 @@
   align-self: center;
 }
 
+.highlight {
+  background-color: yellow;
+}
+
 
 
 .see-more-answers {
@@ -264,6 +268,7 @@
 .review-thumbnail {
   width: 100px;
   height: 100px;
+  margin-right: 30px;
 }
 
 .review-carousel-img {
