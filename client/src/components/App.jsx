@@ -13,18 +13,18 @@ const App = (props) => {
       <div id="main-nav">
         <Nav/>
       </div>
-      <div id="main-overview">
+      {/* <div id="main-overview">
         <Overview />
-      </div>
-      <div id="main-related">
+      </div> */}
+      {/* <div id="main-related">
         <RelatedComparisons/>
-      </div>
+      </div> */}
       <div id="main-qna">
         <QnAComponent />
       </div>
-      <div id="main-ratings">
+      {/* <div id="main-ratings">
         <RatingsReviews />
-      </div>
+      </div> */}
     </React.Fragment>
   )
 };
