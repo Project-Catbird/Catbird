@@ -21,6 +21,15 @@ const RatingRecommendation = () => {
       type: 'UPDATE_NEW_REVIEW_FORM',
       payload: formState
     })
+    if (label === 'rating') {
+      let ratings = [1,2,3,4,5]
+      for (let rating of ratings) {
+        document.getElementById(`new-review-rating-${rating}`).classList.add('btn-light');
+        document.getElementById(`new-review-rating-${rating}`).classList.remove('btn-outline-warning');
+      }
+      document.getElementById(`new-review-rating-${value}`).classList.add('btn-outline-warning');
+      document.getElementById(`new-review-rating-${value}`).classList.remove('btn-light');
+    }
   }
 
   const starRatings = [
@@ -93,6 +102,7 @@ const RatingRecommendation = () => {
                     <Button
                       key={rating.value}
                       id={`new-review-rating-${rating.value}`}
+                      className="new-review-rating"
                       type="button"
                       variant="light"
                       name="rating"

@@ -10,6 +10,7 @@ const LogClicks = ({ children }) => {
     'main-qna': 'QuestionsAndAnswers',
     'main-ratings': 'RatingsReviews'
   }
+  const moduleClassBackups = ['main-nav', 'main-overview', 'main-related', 'main-qna', 'main-ratings'];
   const onClick = React.useCallback((e) => {
     let params = {
       widget: null,
@@ -26,6 +27,19 @@ const LogClicks = ({ children }) => {
     for (let component of e.nativeEvent.path) {
       if (moduleIds[component.id]) {
         params.widget = moduleIds[component.id];
+      }
+    }
+    if (!params.widget) {
+      for (let component of e.nativeEvent.path) {
+        if (component.classList) {
+          for (let className of component.classList) {
+            let index = moduleClassBackups.indexOf(className);
+            if (index >= 0) {
+              params.widget = moduleIds[moduleClassBackups[index]];
+              break;
+            }
+          }
+        }
       }
     }
     axios.post(`${API_URL}/interactions`, params, {headers: {Authorization: API_KEY}})
