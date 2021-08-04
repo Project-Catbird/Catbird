@@ -30,49 +30,21 @@ const PhotoUpload = () => {
 
   let uploadPhoto = async (event) => {
     event.preventDefault();
-    if (photos === null || photos.length <= 5) {
+    let fileList = event.target.files;
+    if (photos === null || photos.length + fileList.length <= 5) {
       let tempState = photos ?? [];
-      let fileList = event.target.files;
       const preview = document.getElementById('review-preview');
 
-
-
-      let newRef = storageRef.child(fileList[0].name)
-      newRef.put(fileList[0]).then((snapshot) => {
-        console.log('snapshot:', snapshot);
-        newRef.getDownloadURL().then(result => console.log(result))
-      });
-      console.log('raw file:', fileList);
-
-
+      console.log(fileList)
       for (let i = 0; i < fileList.length; i++) {
-        //tempState.push(URL.createObjectURL(fileList[i]))
-        let newRef = storageRef.child(fileList[0].name)
-        newRef.put(fileList[i]).then((snapshot) => {
-          console.log('snapshot:', snapshot);
-          newRef.getDownloadURL().then(result => {
-          tempState.push(result);
-          var image = new Image();
-          image.className = "review-thumbnail"
-          image.src = result;
-          preview.appendChild(image);
-          })
-        });
-
-
-
-
-        // let fileReader = new FileReader();
-        // fileReader.onload = function () {
-        //   let result = fileReader.result;
-        //   // tempState.push(result);
-          // var image = new Image();
-          // image.className = "review-thumbnail"
-          // image.src = result;
-          // var preview = document.getElementById('review-preview');
-        //   preview.appendChild( image );
-        // }
-        // fileReader.readAsDataURL(fileList[i])
+        let newRef = storageRef.child(fileList[i].name);
+        let snapshot = await newRef.put(fileList[i]);
+        let url = await newRef.getDownloadURL();
+        tempState.push(url);
+        let image = new Image();
+        image.className = "review-thumbnail"
+        image.src = url;
+        preview.appendChild(image);
       }
       dispatch({
         type: 'UPLOAD_PHOTO',
