@@ -9,13 +9,23 @@ import Nav from './Nav.jsx';
 const App = (props) => {
 
   return (
-    <div>
-      <Nav/>
-      <Overview />
-      <RelatedComparisons/>
-      <QnAComponent />
-      <RatingsReviews />
-    </div>
+    <React.Fragment>
+      <div id="main-nav">
+        <Nav/>
+      </div>
+      <div id="main-overview">
+        <Overview />
+      </div>
+      <div id="main-related">
+        <RelatedComparisons/>
+      </div>
+      <div id="main-qna">
+        <QnAComponent />
+      </div>
+      <div id="main-ratings">
+        <RatingsReviews />
+      </div>
+    </React.Fragment>
   )
 };
 

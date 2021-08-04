@@ -26,6 +26,7 @@ const ReviewImagesModal = (props) => {
       <Container key="expanded-img-container">
         <Carousel
           key="review-img-carousel"
+          className="review-carousel"
           activeIndex={index ?? startingIndex}
           onSelect={handleSelect}
           interval={null}
@@ -34,7 +35,7 @@ const ReviewImagesModal = (props) => {
             return (
               <Carousel.Item key={`${photo.id}-carousel-item`} >
                 <Image
-                  className="d-block w-100"
+                  className="d-block w-100 review-images"
                   src={photo.url}
                   key={`${photo.id}-img-carousel`}
                 />

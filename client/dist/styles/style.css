@@ -1,4 +1,105 @@
 
+<<<<<<< HEAD
+=======
+.qna-title {
+  font-size: clamp(15px, 2vw, 25px);
+  color:gray;
+  flex:1
+}
+.qna-a {
+  font-size:clamp(14px, 2vw, 20px);
+  /* font-family: math; */
+  color:gray;
+}
+
+.qna-q {
+  font-size: clamp(18px, 2vw, 25px);
+  /* font-family: math; */
+  /* font-weight: lighter; */
+  color:gray;
+}
+
+.markHelpful:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.addanswer :hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.questionHelpfulness {
+  font-size: clamp(10px, 2vw, 16px);
+  font-family: math;
+  color:gray;
+}
+
+.twoMainButton button {
+  font-size: clamp(8px, 2vw, 20px);
+}
+
+.modalTwoButtons button {
+  font-size: clamp(10px, 2vw, 18px);
+}
+
+
+.modalCloseButton button {
+  outline: none;
+  background-color: Transparent;
+  border: none;
+}
+
+.form {
+  display:flex;
+  flex-direction:row;
+  border:1px solid grey;
+  padding:2px;
+}
+
+.search-input{
+  flex-grow:2;
+  border:none;
+  font-weight: lighter;
+  font-size: clamp(15px, 2vw, 25px);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.searchIcon {
+  align-self: center;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+
+
+.see-more-answers {
+  font-size: clamp(12px, 2vw, 18px);
+  font-family: math;
+  color:gray;
+  background-color: Transparent;
+  border: none;
+  margin-left: 3%;
+  margin-bottom: none;
+  outline:none;
+}
+
+.see-more-answers:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* .searchedQuestions {
+  display: flex;
+  justify-items: left;
+  justify-self: left;
+} */
+>>>>>>> 84d6ef24e18ca326f9b9109287c35f1ac7980946
 
 
 .container {
@@ -143,6 +244,7 @@
 .review-thumbnail {
   width: 100px;
   height: 100px;
+  margin-right: 30px;
 }
 
 .review-carousel-img {
@@ -154,6 +256,7 @@
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 
 
 /* qna */
@@ -382,3 +485,8 @@
 .photosRow{
   display: flex;
 }
+=======
+.active-rating {
+  font-weight: bold;
+}
+>>>>>>> 84d6ef24e18ca326f9b9109287c35f1ac7980946

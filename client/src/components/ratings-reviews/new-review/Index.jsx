@@ -16,7 +16,7 @@ const NewReview = (props) => {
   }
 
   return (
-    <Modal show={showNewReviewModal} onHide={handleClose} size="lg">
+    <Modal show={showNewReviewModal} onHide={handleClose} className="new-review main-ratings" size="lg">
       <Modal.Header closeButton>
         <Modal.Title>
           <h2>Write Your Review</h2>

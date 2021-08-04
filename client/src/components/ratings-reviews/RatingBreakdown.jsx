@@ -23,19 +23,23 @@ const RatingBreakdown = (props) => {
         starOptions.push(key);
       }
     }
-    let tempList = reviewsList;
     let result = [];
-    for (let review of tempList) {
-      let rating = JSON.stringify(review.rating);
-      if (starOptions.indexOf(rating) >= 0) {
-        result.push(review)
+    if (starOptions.length) {
+      for (let review of reviewsList) {
+        let rating = JSON.stringify(review.rating);
+        if (starOptions.indexOf(rating) >= 0) {
+          result.push(review)
+        }
       }
+    } else {
+      result = reviewsList;
     }
-    tempList = result
     dispatch({
       type: 'UPDATE_SORTED_REVIEWS_LIST',
-      payload: tempList
+      payload: result
     })
+    let node = document.getElementById(`${rating}-rating-breakdown`)
+    node.classList.toggle('active-rating');
   }
 
   let reviewStats = [];
@@ -52,8 +56,12 @@ const RatingBreakdown = (props) => {
     }
     for (let i = 5; i >= 1; i--) {
       result.push(
-        <span className="rating-bar-star-count clickable" key={`star-count-${i}`} onClick={() => handleClick(i)}>
-          {i} Stars:
+        <span
+          className="rating-bar-star-count clickable"
+          key={`star-count-${i}`}
+          onClick={() => handleClick(i)}
+          >
+          <span id={`${i}-rating-breakdown`}>{i} Stars:</span>
           <ProgressBar variant="success" now={Math.round(((reviewsMeta.ratings[i] ?? 0) / reviewTotal) * 100)} />
           <br></br>
         </span>

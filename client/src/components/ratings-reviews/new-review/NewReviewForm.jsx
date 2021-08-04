@@ -6,6 +6,13 @@ import Characteristics from './Characteristics.jsx';
 import RatingRecommendation from './RatingRecommendation.jsx';
 import PhotoUpload from './PhotoUpload.jsx';
 import { API_KEY, API_URL } from '../../../config/config.js';
+//import cloudinary from 'cloudinary';
+
+// cloudinary.config({
+//   cloud_name: 'ddpujsclw',
+//   api_key: '525933893815862',
+//   api_secret: 'EU-vdGNdltnLvdibEV-a-HSTpKI'
+// });
 
 
 
@@ -31,7 +38,6 @@ const NewReviewForm = () => {
     event.preventDefault();
     let validated = checkValidator();
     if (validated === false) {
-      event.preventDefault();
       alert('Whoops! Looks like you still need to fill out some areas of your review! Make sure all fields are entered.')
       event.stopPropagation();
     } else {
@@ -91,6 +97,7 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Example: Best purchase ever!"
           controlid="new-review-summary"
+          className="new-review-summary"
           name="summary"
           onChange={handleChange}
         />
@@ -105,6 +112,7 @@ const NewReviewForm = () => {
           as="textarea"
           placeholder="Why did you like the product or not?"
           controlid="new-review-body"
+          className="new-review-body-input"
           name="body"
           rows={5}
           required
@@ -135,6 +143,7 @@ const NewReviewForm = () => {
         <Form.Control
           placeholder="Example: jackson11@email.com"
           controlid="new-review-email"
+          className="new-review-email"
           name="email"
           required
           type="email"

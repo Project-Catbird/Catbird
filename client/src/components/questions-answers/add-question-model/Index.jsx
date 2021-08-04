@@ -29,7 +29,7 @@ const AddQuestion = () => {
       <div>
         <Button variant="outline-primary" size="sm" onClick={openAddQuestionModal}>ADD A QUESTION + </Button>
       </div>
-      <Modal centered animation show={addQuestionModalIsOpen} onHide={closeAddQuestionModal}>
+      <Modal centered animation show={addQuestionModalIsOpen} onHide={closeAddQuestionModal} className="main-qna">
         <Modal.Header closeButton className="modalCloseButton">
           <Modal.Title>
             Ask Your Question
