@@ -32,6 +32,7 @@ import IndividualQuestion from '../client/src/components/questions-answers/indiv
     });
 
     it('renders modal when add question button is clicked', () => {
+
       expect(wrapper.find(`[data-test="addQuestionbtn"]`)).toEqual({});
     });
 

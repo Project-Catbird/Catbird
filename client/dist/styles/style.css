@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 .qna-title {
   font-size: clamp(15px, 2vw, 25px);
   color:gray;
@@ -8,7 +6,6 @@
 }
 .qna-a {
   font-size:clamp(14px, 2vw, 20px);
-  /* font-family: math; */
   color:gray;
 }
 
@@ -93,13 +90,6 @@
   cursor: pointer;
   text-decoration: underline;
 }
-
-/* .searchedQuestions {
-  display: flex;
-  justify-items: left;
-  justify-self: left;
-} */
->>>>>>> 84d6ef24e18ca326f9b9109287c35f1ac7980946
 
 
 .container {
@@ -256,7 +246,6 @@
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 
 
 /* qna */
@@ -475,18 +464,13 @@
 .photoCol {
   width: fit-content;
   height: auto;
-  /* align-content: center;
-  justify-items: center; */
   padding: 0;
-
   border: none;
-
 }
+
 .photosRow{
   display: flex;
 }
-=======
 .active-rating {
   font-weight: bold;
 }
->>>>>>> 84d6ef24e18ca326f9b9109287c35f1ac7980946
