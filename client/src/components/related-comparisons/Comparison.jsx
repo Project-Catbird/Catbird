@@ -84,7 +84,7 @@ const Comparison = (props) => {
       <Modal.Body>
         <h4 className="text-center">Comparison</h4>
 
-        <table className="table table-borderless table-sm text-center comparison" style={{tableLayout: "fixed"}}>
+        <table className="table table-borderless table-sm text-center" style={{tableLayout: "fixed"}}>
           <thead>
             <tr>
               <th scope="col">{curProduct.name}</th>

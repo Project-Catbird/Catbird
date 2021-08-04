@@ -169,11 +169,11 @@ const ProductCard = (props) => {
   } else {
     return (
       <div className="mx-2 product-card">
-        {defaultStyle.photos &&
+        {/* {defaultStyle.photos && */}
           <Card style={{width: "18rem"}}>
             {props.cardType === "related" && compareButton}
             {props.cardType === "outfit" && removeOutfitButton}
-            <Card.Img variant="top" src={defaultStyle.photos[0].thumbnail_url} style={{height: "20rem", objectFit: "cover"}} onClick={() => {
+            <Card.Img variant="top" src={defaultStyle.photos ? defaultStyle.photos[0].thumbnail_url : undefined} style={{height: "20rem", objectFit: "cover"}} onClick={() => {
         setProductId(props.productId);
       }}/>
             <Card.Body onClick={() => {
@@ -186,10 +186,10 @@ const ProductCard = (props) => {
               {averageRating === null && <small className="text-muted">No ratings available</small>}
             </Card.Body>
             { showComparison &&
-            <Comparison comparedProductName={productDetail.name} comparedProductId={props.productId} show={showComparison} onHide={() => setShowComparison(false)}/>
+            <Comparison className="comparison" comparedProductName={productDetail.name} comparedProductId={props.productId} show={showComparison} onHide={() => setShowComparison(false)}/>
             }
           </Card>
-        }
+        {/* } */}
       </div>
     )
   }
