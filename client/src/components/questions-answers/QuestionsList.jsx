@@ -29,7 +29,13 @@ const QuestionsList = ({ qnaList, getMoreQuestions, noMoreQuestion }) => {
 
          {!noMoreQuestion &&
             <Col className="flex-md-fill">
-            <Button variant="outline-primary" size="sm" onClick={getMoreQuestions} >MORE ANSWERED QUESTION</Button>
+            <Button
+              data-testid="moreAnsweredQuestion"
+              variant="outline-primary"
+              size="sm"
+              onClick={getMoreQuestions}
+              >MORE ANSWERED QUESTION
+            </Button>
             </Col>
          }
 

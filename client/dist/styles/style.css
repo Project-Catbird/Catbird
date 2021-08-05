@@ -221,8 +221,17 @@
   font-family: Arial, Helvetica, sans-serif;
   color:gray;
   flex:1;
-  font-family: math;
+  font-weight: lighter;
 }
+
+.qna-title-head {
+  font-size: clamp(15px, 3vw, 25px);
+  font-family: Arial, Helvetica, sans-serif;
+  color:gray;
+  flex:1;
+}
+
+
 .qna-a {
   font-size:clamp(14px, 3vw, 20px);
   color:gray;
@@ -232,7 +241,7 @@
 .qna-q {
   font-size: clamp(16px, 3vw, 25px);
   color:gray;
-  font-family: math;
+  font-family: Arial, Helvetica, sans-serif;
   font-style:initial;
 
 }

@@ -25,10 +25,26 @@ describe('root component render without error', () => {
       expect(component.container).toMatchSnapshot()
     })
 
-    it('should have button to add question and a button show more questions', () => {
+    it('should have button to add question', () => {
       const { getAllByText } = render(<QnAComponent />)
       expect(getAllByText('ADD A QUESTION +')).toHaveLength(1);
     })
+
+    it('should have button to show more question', () => {
+      const { getAllByText } = render(<QuestionsList qnaList={questions}/>, { initialState: { qnaList: questions }})
+      expect(getAllByText('MORE ANSWERED QUESTION')).toHaveLength(1);
+    })
+
+
+    it('should load two more questions when more more questions button is clicked', () => {
+      const { getByText, getAllByTestId } = render(<QuestionsList qnaList={questions}/>, { initialState: { qnaList: questions }})
+      fireEvent.click(getByText('MORE ANSWERED QUESTION'));
+      expect(getAllByTestId('qList')).toHaveLength(7);
+
+    })
+
+
+
 
     it('should open modal after add question button is clikced', () => {
       const mockCallback = jest.fn();
@@ -50,16 +66,29 @@ describe('Each child components can render without error', () => {
 
   })
 
-  it('should render less than 2 answers for each question on init', () => {
-    const { getAllByTestId } = render(<AnswerList answerList={answers}/>)
-  expect(getAllByTestId('answerList')).toHaveLength(2);
+
+  it('should render 2 more question when more question button is clicked', () => {
+    const { getAllByTestId } = render(<QnAComponent qnaList={questions}/>, { initialState: { qnaList: questions }})
+    expect(getAllByTestId('qList')).toHaveLength(4);
 
   })
 
-
-  it('should render 2 more answers when more answers is clicked', () => {
+  it('should render less than 2 answers for each question on init', () => {
     const { getAllByTestId } = render(<AnswerList answerList={answers}/>)
-  expect(getAllByTestId('answerList')).toHaveLength(2);
+    expect(getAllByTestId('answerList')).toHaveLength(2);
+
+  })
+
+  it('should render see more answer button when there are more answers hidden', () => {
+    const { getAllByTestId } = render(<AnswerList answerList={answers}/>)
+    expect(getAllByTestId('see-more-answers')).toHaveLength(1);
+
+  })
+
+  it('should not render see more answer button when there are only two answers or less', () => {
+    const lessAnswersList = answers.slice(0,2)
+    const { queryByTestId } = render(<AnswerList answerList={lessAnswersList}/>)
+    expect(queryByTestId('see-more-answers')).toBeNull();
 
   })
 
@@ -68,7 +97,7 @@ describe('Each child components can render without error', () => {
     expect(getAllByTestId('filteredQuestionList')).toHaveLength(1);
   })
 
-  it('should remove the button when there is no more questions', () => {})
+
 
 
 })
