@@ -42,7 +42,6 @@ describe('Related Product Card', () => {
         <ProductCard productId={16056} cardType="related"/>
       </Provider>);
     wrapper.update();
-    console.log(wrapper.debug());
   });
 
   it('Loads product card fields', () => {
