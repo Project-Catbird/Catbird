@@ -359,3 +359,93 @@ exports[`root component render without error render with redux 1`] = `
   </div>
 </div>
 `;
+
+exports[`root component render without error should render root component with redux 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <br />
+    <div
+      class="row"
+    >
+      <div
+        class="col"
+      />
+      <div
+        class="qna-title text-center col-5"
+      >
+        QUESTION AND ANSWERS
+      </div>
+      <div
+        class="col"
+      />
+    </div>
+    <br />
+    <div
+      class="flex-nowrap text-center container-fluid"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          <div>
+            <div>
+              <form
+                class="form"
+              >
+                <input
+                  class="search-input"
+                  placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root searchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </form>
+            </div>
+            <div
+              class="filteredQuestionList"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="twoMainButton container"
+      >
+        <div
+          class="flex-nowrap text-center row"
+        >
+          <div
+            class="flex-md-fill col"
+          >
+            <div>
+              <div>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  data-testid="addQuestion-btn"
+                  type="button"
+                >
+                  ADD A QUESTION + 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

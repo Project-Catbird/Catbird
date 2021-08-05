@@ -1,94 +1,6 @@
 
-.qna-title {
-  font-size: clamp(15px, 2vw, 25px);
-  color:gray;
-  flex:1
-}
-.qna-a {
-  font-size:clamp(14px, 2vw, 20px);
-  color:gray;
-}
-
-.qna-q {
-  font-size: clamp(18px, 2vw, 25px);
-  /* font-family: math; */
-  /* font-weight: lighter; */
-  color:gray;
-}
-
-.markHelpful:hover{
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.addanswer :hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.questionHelpfulness {
-  font-size: clamp(10px, 2vw, 16px);
-  font-family: math;
-  color:gray;
-}
-
-.twoMainButton button {
-  font-size: clamp(8px, 2vw, 20px);
-}
-
-.modalTwoButtons button {
-  font-size: clamp(10px, 2vw, 18px);
-}
-
-
-.modalCloseButton button {
-  outline: none;
-  background-color: Transparent;
-  border: none;
-}
-
-.form {
-  display:flex;
-  flex-direction:row;
-  border:1px solid grey;
-  padding:2px;
-}
-
-.search-input{
-  flex-grow:2;
-  border:none;
-  font-weight: lighter;
-  font-size: clamp(15px, 2vw, 25px);
-}
-
-.search-input:focus {
-  outline: none;
-}
-
-.searchIcon {
-  align-self: center;
-}
-
 .highlight {
   background-color: yellow;
-}
-
-
-
-.see-more-answers {
-  font-size: clamp(12px, 2vw, 18px);
-  font-family: math;
-  color:gray;
-  background-color: Transparent;
-  border: none;
-  margin-left: 3%;
-  margin-bottom: none;
-  outline:none;
-}
-
-.see-more-answers:hover{
-  cursor: pointer;
-  text-decoration: underline;
 }
 
 
@@ -252,7 +164,6 @@
 
 .answerStamp {
   font-size: clamp(10px, 2vw, 16px);
-  /* font-family: math; */
   color:gray;
   margin: none;
   border: none;
@@ -309,23 +220,27 @@
   font-size: clamp(15px, 3vw, 25px);
   font-family: Arial, Helvetica, sans-serif;
   color:gray;
-  flex:1
+  flex:1;
+  font-family: math;
 }
 .qna-a {
   font-size:clamp(14px, 3vw, 20px);
-  font-family: Arial, Helvetica, sans-serif;
   color:gray;
+  font-family: math;
 }
 
 .qna-q {
-  font-size: clamp(18px, 3vw, 25px);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(16px, 3vw, 25px);
   color:gray;
+  font-family: math;
+  font-style:initial;
+
 }
 
 .markHelpful {
   border: none;
   background:transparent;
+  font-size: clamp(10px, 2vw, 16px);
   color: gray;
 
 }
@@ -340,6 +255,12 @@
   text-decoration:none;
 }
 
+.addanswer {
+  font-size: clamp(10px, 2vw, 16px);
+  color:gray;
+  margin: none;
+  font-family: math;
+}
 
 .addanswer :hover {
   cursor: pointer;
@@ -435,9 +356,11 @@
   height: auto;
   align-self: center;
   justify-self: center;
-  padding-left: clamp(20px, 2vw, 30px);
-  padding-top: clamp(10px, 2vw, 20px);
-  padding-bottom: clamp(10px, 2vw, 20px);
+  border: .1em solid black;
+  margin-left: clamp(20px, 2vw, 30px);
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(10px, 2vw, 20px);
+
 }
 
 .photo-dialog{

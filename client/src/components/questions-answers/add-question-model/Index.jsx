@@ -6,7 +6,7 @@ import { actionCreators } from '../../../redux/index.js';
 import AddQuestionForm from './AddQuestionForm.jsx';
 
 
-const AddQuestion = () => {
+const AddQuestion = ( { cb = () => {} } ) => {
 
   const dispatch = useDispatch();
   const addQuestionModalIsOpen = useSelector(state =>state.addQuestionModalIsOpen);
@@ -17,6 +17,9 @@ const AddQuestion = () => {
   const openAddQuestionModal = () => {
     dispatch({ type: 'TOGGLE_ADD_QUESTION'});
     getProductName(product_id);
+    if(cb) {
+      cb()
+    }
   };
 
 
@@ -28,8 +31,7 @@ const AddQuestion = () => {
     <div>
       <div>
         <Button
-        data-testid="addQuestion-btn"
-        variant="outline-primary" size="sm" onClick={openAddQuestionModal}>ADD A QUESTION + </Button>
+        data-testid="addQuestion-btn" variant="outline-primary" size="sm" onClick={openAddQuestionModal}>ADD A QUESTION + </Button>
       </div>
       <Modal centered animation show={addQuestionModalIsOpen} onHide={closeAddQuestionModal}
       data-test="addQuestionModal"

@@ -16,6 +16,20 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
     )
   })
 
+  const seeMoreOrSeeLess = () => {
+
+    if (answersHidden.length > 0 && !buttonClicked) {
+      return <button className="see-more-answers" onClick={handleSeeMoreAnswer}>see more answers</button>
+    } else if (buttonClicked) {
+      return  <button className="see-more-answers" onClick={handleSeeLessAnswer}>see less answers</button>
+    } else {
+      return null
+    }
+
+  }
+
+
+
 
   const handleSeeMoreAnswer = () => {
 
@@ -37,9 +51,9 @@ const AnswerList = ({ answerList, question_id, question_body }) => {
   return (
     <div className="answerContainer">
     <ul className="answerListGroup" variant="flush">
-    {answers}
+      {answers}
     </ul>
-     {answersHidden.length > 0 && !buttonClicked ? <button className="see-more-answers" onClick={handleSeeMoreAnswer}>see more answers</button> : <button className="see-more-answers" onClick={handleSeeLessAnswer}>see less answers</button> }
+      {seeMoreOrSeeLess()}
     </div>
   )
 }
