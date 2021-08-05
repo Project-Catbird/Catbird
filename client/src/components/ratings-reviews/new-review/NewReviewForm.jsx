@@ -6,6 +6,13 @@ import Characteristics from './Characteristics.jsx';
 import RatingRecommendation from './RatingRecommendation.jsx';
 import PhotoUpload from './PhotoUpload.jsx';
 import { API_KEY, API_URL } from '../../../config/config.js';
+//import cloudinary from 'cloudinary';
+
+// cloudinary.config({
+//   cloud_name: 'ddpujsclw',
+//   api_key: '525933893815862',
+//   api_secret: 'EU-vdGNdltnLvdibEV-a-HSTpKI'
+// });
 
 
 
@@ -31,7 +38,6 @@ const NewReviewForm = () => {
     event.preventDefault();
     let validated = checkValidator();
     if (validated === false) {
-      event.preventDefault();
       alert('Whoops! Looks like you still need to fill out some areas of your review! Make sure all fields are entered.')
       event.stopPropagation();
     } else {

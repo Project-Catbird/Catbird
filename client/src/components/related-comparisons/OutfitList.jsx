@@ -38,7 +38,7 @@ const OutfitList = (props) => {
         <h2>Outfit List</h2>
       </div>
 
-      <CardGroup className='d-flex flex-nowrap' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}>
+      <CardGroup className='d-flex flex-nowrap outfit-list-container' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}>
         <ProductCard key={'curProduct-' + productId} productId={productId} cardType="curProduct"/>
         {outfitList}
       </CardGroup>

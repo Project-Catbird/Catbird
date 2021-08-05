@@ -1,5 +1,4 @@
 import React from 'react';
-// import reviews from '../../../../sampleData/reviews.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -9,12 +8,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import ReviewsList from './ReviewsList.jsx';
 import IndividualReviewTile from './IndividualReviewTile.jsx';
-// import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
-// import Recommendations from './Recommendations.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-// import NewReview from './new-review/Index.jsx';
-// import KeywordSearch from './KeywordSearch.jsx';
+import KeywordSearch from './KeywordSearch.jsx';
 
 // infinity stone product_id 16065
 
@@ -53,6 +49,9 @@ const RatingsReviews = () => {
 
   return (
     <Container>
+      <Row>
+        <KeywordSearch />
+      </Row>
       <Row>
         <Col md={4}>
           <RatingBreakdown />

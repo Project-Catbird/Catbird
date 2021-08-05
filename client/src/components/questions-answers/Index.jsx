@@ -40,10 +40,14 @@ var qnaListShown = qnaList.slice(0, count);
 
     if (qnaList.length !==0 && !searchBarTyped) {
        return (
+
         <QuestionsList
+          data-testid="questionList"
           qnaList={qnaListShown}
-          getMoreQuestions={getMoreQuestions} noMoreQuestion={noMoreQuestion}
+          getMoreQuestions={getMoreQuestions}
+          noMoreQuestion={noMoreQuestion}
         />
+
        )
     }
 
@@ -51,7 +55,9 @@ var qnaListShown = qnaList.slice(0, count);
       return (
         <Container className="twoMainButton">
           <Row className="flex-nowrap text-center">
-            <Col className="flex-md-fill">
+            <Col
+            className="flex-md-fill"
+            >
               <AddQuestion />
             </Col>
           </Row>

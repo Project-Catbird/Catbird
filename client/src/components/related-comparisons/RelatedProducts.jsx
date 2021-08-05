@@ -32,11 +32,11 @@ const RelatedProducts = (props) => {
         <h2>Related Products</h2>
       </div>
       {/* <div className='d-flex flex-row flex-nowrap' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}> */}
-      { relatedProducts.length > 0 &&
-        <CardGroup className='d-flex flex-nowrap' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}>
+      {/* { relatedProducts.length > 0 && */}
+        <CardGroup className='d-flex flex-nowrap related-products-container' style={{overflowX: 'scroll', whiteSpace: 'nowrap'}}>
           {relatedProductList}
         </CardGroup>
-      }
+      {/* } */}
       {/* </div> */}
     </div>
   )

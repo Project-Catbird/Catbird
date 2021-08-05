@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import IndividualQuestion from './individual-question/Index.jsx';
 import { Container, ListGroup, Row, Col } from 'react-bootstrap';
 
+import QuestionsList from'./QuestionsList.jsx';
 
 const SearchQuestions = () => {
 
@@ -47,24 +48,10 @@ const SearchQuestions = () => {
 }
 
 
-  let filteredqList = filteredData.map(question => {
-    return (
-     <ListGroup.Item key={question.question_id} >
-
-       <IndividualQuestion question={question} />
-
-     </ListGroup.Item>
-
-     )
- })
-
-
   return (
+    <div>
 
-    <Container>
-
-      <Row>
-
+      <div>
         <form className="form">
           <input
             className="search-input"
@@ -73,28 +60,23 @@ const SearchQuestions = () => {
             />
           <SearchIcon className="searchIcon"/>
          </form>
-
-      </Row>
-
+      </div>
 
 
-      <Row>
 
+      <div className="filteredQuestionList">
       { searchBarTyped ?
-            <Container className="searchedQuestions">
-            <ListGroup variant="flush" className="searchedQuestions" >
-              {filteredqList}
-            </ListGroup>
-            <br />
-            </Container> : null
+            <div className="filteredQuestionList" >
+               <br />
+              <QuestionsList qnaList={filteredData}/>
+
+            </div> : null
       }
-
-
-      </Row>
+      </div>
 
 
 
-    </Container>
+    </div>
   )
 }
 
