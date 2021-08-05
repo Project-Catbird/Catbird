@@ -1,0 +1,1 @@
+docker run -d -p 3000:3127 --name catbird --rm catbird

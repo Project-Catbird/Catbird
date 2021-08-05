@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react:dev": "webpack --watch",
+    "react:prod": "webpack",
     "start": "nodemon ./server/index.js",
     "test": "jest",
     "test-coverage": "jest --coverage"
