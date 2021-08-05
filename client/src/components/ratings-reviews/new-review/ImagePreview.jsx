@@ -34,6 +34,7 @@ const ImagePreview = () => {
 
         //console.log(photos)
       }
+      files.addEventListener('change')
       for (let file of photos) {
         console.log('file:', file)
         readAndPreview(file);
