@@ -137,7 +137,7 @@ const ProductCard = (props) => {
 
   const averageRating = getAverageRating(productReviewMeta);
 
-  if (props.cardType === "curProduct product-card") {
+  if (props.cardType === "curProduct") {
     return (
       <div className="mx-2" onClick={(e) => {
         addOutfit()

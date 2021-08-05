@@ -9,8 +9,10 @@ lerna-debug.log*
 bundle.js
 config.js
 catbird.pem
+client/dist/bundle.js.map
 bundle.js.map
-*js.map
+*compiled.js
+*.js.map
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
