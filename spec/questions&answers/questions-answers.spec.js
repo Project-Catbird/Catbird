@@ -25,15 +25,15 @@ describe('root component render without error', () => {
 })
 
 
-// describe('QuestionList component can render without error', () => {
-//   const questionList = questions.results;
+describe('QuestionList component can render without error', () => {
 
-//   const { getByTestId } = render(<QuestionsList />, { initialState: { qnaList: questionList }})
+  it('render 4 question on init', () => {
+    const { getAllByTestId } = render(<QnAComponent qnaList={questions}/>, { initialState: { qnaList: questions }})
+    expect(getAllByTestId('qList')).toHaveLength(4);
 
-//   expect(getByTestId()).tohave
+  })
 
-
-// })
+})
 
 
 

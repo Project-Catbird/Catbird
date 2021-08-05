@@ -43,7 +43,7 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
 
 
   return (
-      <div data-test="qList">
+      <div data-testid="qList">
         <div className="questionHeader">
           <div className="qna-title">Q:  <span className="qna-q">{question_body}</span>
           </div>
@@ -67,7 +67,10 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
             </div>
         </div>
 
-        <div className="answerList">
+        <div
+          className="answerList"
+          data-testid="answerList"
+        >
           {sortedAnswerList.length !== 0 && <AnswerList answerList={sortedAnswerList} question_id={question_id} question_body={question_body} />}
         </div>
 

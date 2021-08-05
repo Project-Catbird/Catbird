@@ -3,9 +3,7 @@ module.exports = {
   // GET /qa/questions
   // NOTE: product_id for item MUST be provided in the query params of HTTP request, not added to end of url as with other HTTP routes
   // ex: https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=16056
-  questions: {
-    "product_id": "5",
-    "results": [
+  questions: [
       {
         "question_id": 37,
         "question_body": "Why is this product cheaper here than other sites?",
@@ -88,17 +86,32 @@ module.exports = {
             // ...
           }
         }
+      },
+      {
+        "question_id": 50,
+        "question_body": "Why Is this product cheaper here than other sites?",
+        "question_date": "2018-10-18T00:00:00.000Z",
+        "asker_name": "williamsmith",
+        "question_helpfulness": 4,
+        "reported": false,
+        "answers": {
+          68: {
+            "id": 68,
+            "body": "We are selling it here without any markup from the middleman!",
+            "date": "2018-08-18T00:00:00.000Z",
+            "answerer_name": "Seller",
+            "helpfulness": 4,
+            "photos": []
+            // ...
+          }
+        }
       }
       // ...
     ]
-  },
+    ,
 
   // GET /qa/questions/:question_id/answers
-  answers: {
-    "question": "1",
-    "page": 0,
-    "count": 5,
-    "results": [
+  answers: [
       {
         "answer_id": 8,
         "body": "What a great question!",
@@ -127,4 +140,3 @@ module.exports = {
       // ...
     ]
   }
-}
