@@ -11,9 +11,7 @@ const QuestionsList = ({ qnaList, getMoreQuestions, noMoreQuestion }) => {
      let qList = qnaList.map(question => {
      return (
       <ListGroup.Item key={'QuestionsList' + question.question_id} >
-
-        <IndividualQuestion question={question} data-test="individualQ"/>
-
+        <IndividualQuestion question={question} />
       </ListGroup.Item>
 
       )
@@ -31,7 +29,13 @@ const QuestionsList = ({ qnaList, getMoreQuestions, noMoreQuestion }) => {
 
          {!noMoreQuestion &&
             <Col className="flex-md-fill">
-            <Button variant="outline-primary" size="sm" onClick={getMoreQuestions} >MORE ANSWERED QUESTION</Button>
+            <Button
+              data-testid="moreAnsweredQuestion"
+              variant="outline-primary"
+              size="sm"
+              onClick={getMoreQuestions}
+              >MORE ANSWERED QUESTION
+            </Button>
             </Col>
          }
 

@@ -3,7 +3,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import { useSelector, useDispatch } from 'react-redux';
 import IndividualQuestion from './individual-question/Index.jsx';
 import { Container, ListGroup, Row, Col } from 'react-bootstrap';
-
 import QuestionsList from'./QuestionsList.jsx';
 
 const SearchQuestions = () => {
@@ -50,10 +49,11 @@ const SearchQuestions = () => {
 
   return (
     <div>
-
       <div>
         <form className="form">
           <input
+            role="search-input"
+            value={wordEntered}
             className="search-input"
             placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
             onChange={handleSearch}
@@ -66,16 +66,16 @@ const SearchQuestions = () => {
 
       <div className="filteredQuestionList">
       { searchBarTyped ?
-            <div className="filteredQuestionList" >
+            <div
+              data-testid="filteredQuestionList"
+              className="filteredQuestionList"
+            >
                <br />
               <QuestionsList qnaList={filteredData}/>
 
             </div> : null
       }
       </div>
-
-
-
     </div>
   )
 }
