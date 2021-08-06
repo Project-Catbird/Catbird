@@ -13,7 +13,9 @@ client/dist/bundle.js.map
 bundle.js.map
 *compiled.js
 *.js.map
-
+client_src_components
+*.bundle.js
+bundle.js.*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

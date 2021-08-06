@@ -42,7 +42,6 @@ const LogClicks = ({ children }) => {
         }
       }
     }
-    console.log(params)
     axios.post(`${API_URL}/interactions`, params, {headers: {Authorization: API_KEY}})
       .then((res) => { console.log(res) })
       .catch((err) => { console.log(err) })
