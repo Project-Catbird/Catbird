@@ -20,10 +20,6 @@ const ReviewsList = () => {
       if (review.body.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0
       || review.summary.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0
       || review.reviewer_name.toLowerCase().indexOf(keywordSearch.toLowerCase()) >= 0) {
-        // var index = review.body.toLowerCase().indexOf(keywordSearch.toLowerCase());
-        // if (index >= 0) {
-        // review.body = `${review.body.substring(0,index)}<span class='highlight'>${review.body.substring(index,index+keywordSearch.length)}</span>${review.body.substring(index + keywordSearch.length)}`;
-        // }
       result.push(review);
       }
     }
@@ -33,7 +29,7 @@ const ReviewsList = () => {
   let reviewsList = tempReviewsList.slice(0, reviewsCount);
 
   let renderMoreReviewsButton = () => {
-    if (fullReviewsList.length > 2 && reviewsList.length !== fullReviewsList.length) {
+    if (fullReviewsList.length > 2 && reviewsList.length === 2) {
       return <Button variant="primary" type="button" id="more-reviews"
         onClick={() =>
           dispatch({

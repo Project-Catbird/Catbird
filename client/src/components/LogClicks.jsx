@@ -20,7 +20,7 @@ const LogClicks = ({ children }) => {
     if (e.target.id) {
       params.element = `#${e.target.id}`;
     } else if (e.target.className) {
-      params.element = `.${e.target.className}`;
+      params.element = `.${e.target.className.split(' ').join('.')}`;
     } else {
       params.element = e.nativeEvent.path[0].nodeName.toLowerCase();
     }
