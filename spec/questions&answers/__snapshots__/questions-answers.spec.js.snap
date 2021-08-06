@@ -1,5 +1,295 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Each child components can render without error should render add answer modal 1`] = `
+<div>
+  <div>
+    <div
+      class="addanswer"
+    >
+      <span>
+        Add Answer
+      </span>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`root component render without error should render add answer form without error 1`] = `
+<div>
+  <form
+    class=""
+  >
+    <label
+      class="form-label"
+    >
+      <strong>
+        Product Name: 
+        
+      </strong>
+      <br />
+      <br />
+      <strong>
+        Question Body: 
+      </strong>
+    </label>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="This is answer body"
+      >
+        Your Answer: 
+      </label>
+      <textarea
+        class="form-control"
+        data-testid="answerBody"
+        id="This is answer body"
+        placeholder="Your Answer"
+        style="height: 100px;"
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="This is answerer name "
+      >
+        What is your nickname: 
+      </label>
+      <input
+        class="form-control"
+        data-testid="name"
+        id="This is answerer name "
+        placeholder="What is your nickname?"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="this is answerer email"
+      >
+        Your email: 
+      </label>
+      <input
+        class="form-control"
+        data-testid="email"
+        id="this is answerer email"
+        maxlength="60"
+        placeholder="Your email"
+        type="text"
+        value=""
+      />
+    </div>
+    <br />
+    <div
+      class="form-group"
+    >
+      <label
+        class="form-label"
+        for="This is the formFile "
+      >
+        Choose Photos   
+      </label>
+      <input
+        class="form-control-file"
+        id="This is the formFile "
+        multiple=""
+        type="file"
+      />
+    </div>
+    <br />
+    <div
+      class="form-group multi-preview container"
+    />
+    <div
+      class="modalTwoButtons container"
+    >
+      <div
+        class="flex-nowrap text-center row"
+      >
+        <div
+          class="col"
+        >
+          <button
+            class="btn btn-outline-primary btn-sm"
+            data-testid="addAnswerSubmitButton"
+            type="submit"
+          >
+            Submit your Answer
+          </button>
+        </div>
+        <div
+          class="col"
+        >
+          <button
+            class="btn btn-outline-primary btn-sm"
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`root component render without error should render answer component without error 1`] = `
+<div>
+  <div>
+    <div
+      class="row"
+    >
+      <div
+        class="answerList"
+        data-testid="answerList"
+      >
+        <span
+          class="qna-title"
+        >
+          A:    
+        </span>
+        <span
+          class="qna-a"
+        >
+          Something pretty soft but I can't be sure
+        </span>
+      </div>
+    </div>
+    <div
+      class="photosRow"
+    >
+      <div
+        class="photoCol"
+      >
+        <img
+          alt="no image"
+          class="answer-small"
+          src="https://images.unsplash.com/photo-1530519729491-aea5b51d1ee1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+        />
+      </div>
+      <div
+        class="photoCol"
+      >
+        <img
+          alt="no image"
+          class="answer-small"
+          src="https://images.unsplash.com/photo-1511127088257-53ccfcc769fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+        />
+      </div>
+      <div
+        class="photoCol"
+      >
+        <img
+          alt="no image"
+          class="answer-small"
+          src="https://images.unsplash.com/photo-1500603720222-eb7a1f997356?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1653&q=80"
+        />
+      </div>
+    </div>
+    <div
+      class="stamps"
+    >
+      <span
+        class="answerStamp stamps"
+      >
+        by 
+        metslover
+      </span>
+      <span
+        class="answerStamp stamps"
+      >
+        <time
+          datetime="1515024000000"
+        >
+          Jan 3rd 2018
+        </time>
+      </span>
+      <span
+        class="stamps"
+      >
+        <div
+          class="answerStamp"
+        >
+          Helpful?
+          <button
+            class="markHelpful"
+          >
+            Yes (
+            98
+            )
+          </button>
+          <button
+            class="markHelpful"
+          >
+            Report
+          </button>
+        </div>
+      </span>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`root component render without error should render answer helpfulness component without error 1`] = `
+<div>
+  <div
+    class="answerStamp"
+  >
+    Helpful?
+    <button
+      class="markHelpful"
+    >
+      Yes (
+      )
+    </button>
+    <button
+      class="markHelpful"
+    >
+      Report
+    </button>
+  </div>
+</div>
+`;
+
+exports[`root component render without error should render image Entry component without error 1`] = `
+<div>
+  <div
+    class="photoCol"
+  >
+    <img
+      alt="no image"
+      class="answer-small"
+      src="https://images.unsplash.com/photo-1530519729491-aea5b51d1ee1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+    />
+  </div>
+</div>
+`;
+
+exports[`root component render without error should render question helpfulness component without error 1`] = `
+<div>
+  <span
+    class="questionHelpfulness"
+  >
+    Helpful? 
+    <button
+      class="markHelpful"
+    >
+      Yes (
+      )
+    </button>
+  </span>
+</div>
+`;
+
 exports[`root component render without error should render root component with redux 1`] = `
 <div>
   <div
@@ -39,6 +329,8 @@ exports[`root component render without error should render root component with r
                 <input
                   class="search-input"
                   placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+                  role="search-input"
+                  value=""
                 />
                 <svg
                   aria-hidden="true"

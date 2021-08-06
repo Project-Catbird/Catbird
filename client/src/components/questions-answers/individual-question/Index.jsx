@@ -1,6 +1,5 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../redux/index.js';
 import AnswerList from './AnswerList.jsx';
 import AddAnswer from '../add-answer-model/Index.jsx';
@@ -44,8 +43,8 @@ import QuestionHelpfulness from './QuestionHelpfulness.jsx';
 
   return (
       <div data-testid="qList">
-        <div className="questionHeader">
-          <div className="qna-title">Q:  <span className="qna-q">{question_body}</span>
+        <div className="questionHeader"data-testid="questionHeader">
+          <div className="qna-title" >Q:  <span className="qna-q">{question_body}</span>
           </div>
             <div className="helpAndAddAnswer">
               <div className="answerStamp helpfulBody">

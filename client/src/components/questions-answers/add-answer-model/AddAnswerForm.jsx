@@ -5,7 +5,7 @@ import axios from 'axios';
 import { API_KEY, API_URL } from '../../../config/config.js';
 import { storage } from '../firebase/index';
 
-const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
+const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal, cb=()=>{} }) => {
 
 
   const addAnswerModalIsOpen = useSelector(state => state.addAnswerModalIsOpen);
@@ -15,7 +15,6 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
   const [ body, setBody ] = useState('');
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
-  // const [ photos, setPhotos ] = useState([]);
 
   var fileObj = [];
   var fileArray = [];
@@ -59,7 +58,6 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
         .child(item.name)
         .put(item)
         .then(snapshot => {
-          // console.log("Uploaded File:", item.name);
           return snapshot.ref.getDownloadURL().then(downloadURL => {
             console.log("File:", downloadURL);
             setimgURL(pre => [
@@ -104,6 +102,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
       console.log('Thank you for your feedback!', res.data)
     })
     .catch(err => console.log('error from AddAnswerForm handlesubmit post request', err));
+    cb();
   };
 
 
@@ -122,6 +121,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
       <Form.Label>Your Answer: </Form.Label>
       <Form.Control
         as="textarea"
+        data-testid="answerBody"
         value={body}
         onChange={e => setBody(e.target.value)}
         placeholder="Your Answer"
@@ -132,6 +132,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
     <Form.Group controlId={`This is answerer name ${name}`}>
       <Form.Label>What is your nickname: </Form.Label>
       <Form.Control
+        data-testid="name"
         type="text"
         value={name}
         onChange={e => setName(e.target.value)}
@@ -142,6 +143,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
     <Form.Group controlId={`this is answerer email${email}`}>
       <Form.Label>Your email: </Form.Label>
         <Form.Control
+          data-testid="email"
           type="text"
           placeholder="Your email"
           maxLength={60}
@@ -180,6 +182,7 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal }) => {
       <Row className="flex-nowrap text-center">
         <Col>
           <Button
+            data-testid="addAnswerSubmitButton"
             variant="outline-primary"
             size="sm"
             type="submit"

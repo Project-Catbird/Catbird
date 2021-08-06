@@ -52,6 +52,8 @@ const SearchQuestions = () => {
       <div>
         <form className="form">
           <input
+            role="search-input"
+            value={wordEntered}
             className="search-input"
             placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
             onChange={handleSearch}
