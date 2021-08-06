@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { Col, Row, Modal} from 'react-bootstrap';
 
 

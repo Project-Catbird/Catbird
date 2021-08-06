@@ -81,7 +81,7 @@ var qnaListShown = qnaList.slice(0, count);
         </Col>
         <Col
         xs={5}
-        className="qna-title text-center">
+        className="qna-title-head text-center">
           QUESTION AND ANSWERS
         </Col>
         <Col>

@@ -41,7 +41,11 @@ const [ reportClicked, setreportClicked ] = useState(false);
 
   <div>
     <Row>
-      <div className="answerList"><span className="qna-title">A:    </span><span className="qna-a">{answer.body}</span></div>
+      <div
+      className="answerList"
+      data-testid="answerList"
+      >
+        <span className="qna-title">A:    </span><span className="qna-a">{answer.body}</span></div>
     </Row>
     <div className="photosRow">
       {answer.photos.map(photo => <ImgEntry photo={photo} key={photo.id}/>)}
