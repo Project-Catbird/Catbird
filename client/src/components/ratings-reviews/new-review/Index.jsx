@@ -7,6 +7,7 @@ import NewReviewForm from './NewReviewForm.jsx';
 const NewReview = (props) => {
   const dispatch = useDispatch();
   const showNewReviewModal = useSelector(state => state.showNewReviewModal);
+  const productName = useSelector(state => state.productInfo.name);
 
   let handleClose = () => {
     dispatch({
@@ -20,7 +21,7 @@ const NewReview = (props) => {
       <Modal.Header closeButton>
         <Modal.Title>
           <h2>Write Your Review</h2>
-          <h5>About the "PRODUCT"</h5>
+          <h5>About the {productName}</h5>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
